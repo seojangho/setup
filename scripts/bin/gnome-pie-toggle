@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if killall gnome-pie
+then
+  notify-send --icon=gnome-pie Stopped\ Gnome-Pie
+else
+  notify-send --icon=gnome-pie Starting\ Gnome-Pie
+  exec gnome-pie
+fi
+
+exit 0

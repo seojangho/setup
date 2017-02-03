@@ -1,0 +1,54 @@
+#!/bin/bash
+
+elementIn() {
+  local e
+  for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
+  return 1
+}
+
+export SETUPDIR=$(dirname $(readlink -f $0))
+
+# What to do
+if [[ $1 == "--update" ]]
+then
+  prefix="update"
+else
+  prefix="install"
+fi
+
+# Get list of snapins
+declare -a snapins
+while read -r snapin
+do
+  snapins+=($(cat $snapin))
+done <<<$(find -L "$SETUPDIR"/this -name "SNAPIN")
+
+# Get list of scripts
+declare -a scripts
+for snapin in "${snapins[@]}"
+do
+  while read -r script
+  do
+    scripts+=($(readlink -f "$script"))
+  done < <(find -L "$SETUPDIR"/this -name "${prefix}-${snapin}")
+done
+
+# Prepare message file
+export MSGFILE=$(mktemp)
+
+# Execute scripts, only once for a file
+for (( i=0; i<${#scripts[@]}; i++ ));
+do
+  if elementIn "${scripts[$i]}" "${scripts[@]:$((i+1))}"
+  then
+    continue
+  fi
+  ${scripts[$i]}
+done
+
+# echo message file
+echo -e "\e[33m"
+cat "$MSGFILE"
+echo -e "\e[0m"
+
+exit 0

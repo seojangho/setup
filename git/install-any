@@ -1,0 +1,6 @@
+#!/bin/bash
+
+CONF=${SETUPDIR}/git/gitconfig
+ln -s $CONF $HOME/.gitconfig
+
+exit 0

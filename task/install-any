@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DIR=${SETUPDIR}/task
+
+ln -s $DIR/taskrc $HOME/.taskrc
+mkdir $HOME/.task
+ln -s $DIR/hooks $HOME/.task
+ln -s $DIR/theme $HOME/.task
+
+exit 0

@@ -1,0 +1,2 @@
+export NVM_LAZY_LOAD=true
+zplug "lukechilds/zsh-nvm"

@@ -1,0 +1,112 @@
+#!/bin/zsh
+
+MODE=$argv[1]
+
+# Plugins
+source ~/.zplug/init.zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
+zplug "junegunn/fzf", use:"shell/*.zsh"
+zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
+
+# bullet-train
+export BULLETTRAIN_PROMPT_ROOT=false
+export BULLETTRAIN_PROMPT_CHAR="➜ "
+export BULLETTRAIN_PROMPT_ADD_NEWLINE=false
+export BULLETTRAIN_STATUS_EXIT_SHOW=true
+export BULLETTRAIN_STATUS_BG='red'
+export BULLETTRAIN_NVM_SHOW=false
+export BULLETTRAIN_PROMPT_ORDER=(status cmd_exec_time custom perl ruby virtualenv conditional_nvm go dir git hg)
+function prompt_conditional_nvm() {
+  if [[ $BULLETTRAIN_NVM_SHOW == true ]]
+  then
+    prompt_nvm
+  fi
+}
+export BULLETTRAIN_DIR_EXTENDED=2
+if [[ $USERNAME != 'jangho' && $USERNAME != 'janghose' ]]
+then
+  BULLETTRAIN_CUSTOM_MSG_USERNAME='%n'
+else
+  BULLETTRAIN_CUSTOM_MSG_USERNAME=''
+fi
+if (($+SSH_TTY))
+then
+  BULLETTRAIN_CUSTOM_MSG_HOSTNAME='%m'
+else
+  BULLETTRAIN_CUSTOM_MSG_HOSTNAME=''
+fi
+if [[ $BULLETTRAIN_CUSTOM_MSG_USERNAME != '' && $BULLETTRAIN_CUSTOM_MSG_HOSTNAME != '' ]]
+then
+  BULLETTRAIN_CUSTOM_MSG_AT='@'
+else
+  BULLETTRAIN_CUSTOM_MSG_AT=''
+fi
+if [[ $BULLETTRAIN_CUSTOM_MSG_USERNAME != '' || $BULLETTRAIN_CUSTOM_MSG_HOSTNAME != '' ]]
+then
+  export BULLETTRAIN_CUSTOM_MSG=$BULLETTRAIN_CUSTOM_MSG_USERNAME$BULLETTRAIN_CUSTOM_MSG_AT$BULLETTRAIN_CUSTOM_MSG_HOSTNAME
+fi
+if [[ $UID -eq 0 ]]
+then
+  export BULLETTRAIN_CUSTOM_BG='red'
+fi
+
+# zsh-autosuggest style
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
+# history
+SAVEHIST=10
+HISTFILE=~/.zsh_history
+
+# switch ctrl+l <=> ctrl+space
+bindkey ^L forward-word
+bindkey ^@ clear-screen
+
+# aliases
+alias ls='ls --color=auto'
+alias mv='mv -i'
+alias cp='cp -i'
+alias rm='rm -i'
+alias open='xdg-open'
+alias spwgen='pwgen -y -1 40 5'
+
+# ssh
+alias mango='ssh -p50022 jangho@mango.jangho.kr'
+alias martini='ssh janghose@martini.snucse.org'
+alias papaya='ssh jangho@papaya.jangho.kr'
+alias dev='ssh jangho@dev.snucse.org'
+alias cms='ssh jangho@cmscluster.snu.ac.kr'
+
+# update
+alias update='~/.setup/setup --update'
+
+# addins before loading plugins
+while read -r addin
+do
+  source $addin
+done <<<$(find -L $HOME/.setup/this -name "zshrc_addin_pre")
+
+# Manage plugins
+if [[ $MODE == '--manage-only' ]]
+then
+  zplug clean
+  zplug update
+  zplug install
+  exit 0
+fi
+if [[ $MODE == '--install-only' ]]
+then
+  zplug install
+  exit 0
+fi
+zplug check --verbose || zplug install
+zplug load
+
+# addins after loading plugins
+while read -r addin
+do
+  source $addin
+done <<<$(find -L $HOME/.setup/this -name "zshrc_addin_post")

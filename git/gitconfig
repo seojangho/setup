@@ -1,0 +1,8 @@
+[user]
+	name = JangHo Seo
+	email = jangho@jangho.kr
+[core]
+	editor = vim
+	quotepath = false
+[push]
+	default = simple

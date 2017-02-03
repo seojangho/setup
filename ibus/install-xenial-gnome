@@ -1,0 +1,10 @@
+#!/bin/bash
+
+sudo apt update
+sudo apt install ibus-hangul
+
+cat >> "$MSGFILE" <<EOF
+Run ibus-setup to configure ibus-hangul (after logging in again)
+EOF
+
+exit 0

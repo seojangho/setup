@@ -1,0 +1,3 @@
+#!/bin/zsh
+(cd $HOME/.zplug && git pull origin master)
+zsh $HOME/.zshrc --manage-only

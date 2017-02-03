@@ -1,0 +1,6 @@
+if filereadable("/run/media/jangho/JangHo-secure/vimrc_encryption")
+  source /run/media/jangho/JangHo-secure/vimrc_encryption
+endif
+if filereadable("/media/jangho/JangHo-secure/vimrc_encryption")
+  source /media/jangho/JangHo-secure/vimrc_encryption
+endif

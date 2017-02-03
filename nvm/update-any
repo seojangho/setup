@@ -1,0 +1,3 @@
+#!/bin/bash
+
+zsh -c "source ~/.zshrc && nvm upgrade"
