@@ -70,7 +70,7 @@ alias ls='ls --color=auto'
 alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
-alias open='xdg-open'
+alias open='xdg-open 2>/dev/null'
 alias spwgen='pwgen -y -1 40 5'
 
 # ssh
