@@ -58,7 +58,7 @@ fi
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
 
 # ~/.local/bin
-PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # history
 SAVEHIST=10
