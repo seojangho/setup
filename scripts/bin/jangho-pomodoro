@@ -1,0 +1,9 @@
+#!/bin/bash
+
+while [[ 1 ]]
+do
+  kdialog --icon ktimer --title "Start your task" --passivepopup "You have 25 minutes!" 10
+  sleep 25m
+  kdialog --icon ktimer --title "Now get some rest" --passivepopup "You have 10 minutes" 10
+  sleep 10m
+done
