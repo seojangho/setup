@@ -27,7 +27,7 @@ declare -a snapins
 while read -r snapin
 do
   snapins+=($(cat "$snapin"))
-done <<<$(find -L "$SETUPDIR"/this -name "SNAPIN")
+done < <(find -L "$SETUPDIR"/this -name "SNAPIN")
 
 # Get list of scripts
 declare -a scripts
