@@ -1,0 +1,5 @@
+#!/bin/bash
+
+kdialog --icon system-shutdown --title "Shutting down..." --passivepopup "This PC will shut down after 60 secs" 5
+sleep 60s
+systemctl poweroff

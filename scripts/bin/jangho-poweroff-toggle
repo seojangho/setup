@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if killall jangho-poweroff
+then
+  kdialog --icon system-shutdown --title "Stopped shutting down" --passivepopup "Stopped" 5
+  exit 0
+fi
+
+exec $HOME/.setup/scripts/bin/jangho-poweroff
