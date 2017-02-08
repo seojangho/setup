@@ -4,4 +4,4 @@ cat >> "$MSGFILE" <<EOF
 Run ibus-setup to configure ibus-hangul (after logging in again)
 EOF
 
-ln -s $SETUPDIR/ibus/xinputrc $HOME/.xinputrc
+ln -s "$SETUPDIR"/ibus/xinputrc "$HOME"/.xinputrc

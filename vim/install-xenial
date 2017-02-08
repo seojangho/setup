@@ -3,6 +3,6 @@
 sudo apt update
 sudo apt install vim curl git
 
-${SETUPDIR}/vim/install
+"${SETUPDIR}"/vim/install
 
 exit 0

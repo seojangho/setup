@@ -3,6 +3,6 @@
 sudo apt update
 sudo apt install zsh curl git gawk
 
-${SETUPDIR}/zsh/install
+"${SETUPDIR}"/zsh/install
 
 exit 0

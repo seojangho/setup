@@ -6,7 +6,8 @@ elementIn() {
   return 1
 }
 
-export SETUPDIR=$(dirname $(readlink -f $0))
+SETUPDIR=$(dirname "$(readlink -f "$0")")
+export SETUPDIR
 
 # What to do
 if [[ $1 == "--update" ]]
@@ -25,7 +26,7 @@ fi
 declare -a snapins
 while read -r snapin
 do
-  snapins+=($(cat $snapin))
+  snapins+=($(cat "$snapin"))
 done <<<$(find -L "$SETUPDIR"/this -name "SNAPIN")
 
 # Get list of scripts
@@ -39,7 +40,8 @@ do
 done
 
 # Prepare message file
-export MSGFILE=$(mktemp)
+MSGFILE=$(mktemp)
+export MSGFILE
 
 # Execute scripts, only once for a file
 for (( i=0; i<${#scripts[@]}; i++ ));

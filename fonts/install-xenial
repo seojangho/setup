@@ -6,6 +6,6 @@ sudo apt install fonts-noto fonts-emojione-svginot fonts-noto-cjk fonts-powerlin
 
 sudo rm /etc/fonts/conf.d/56-emojione-color.conf
 
-${SETUPDIR}/fonts/install
+"${SETUPDIR}"/fonts/install
 
 exit 0

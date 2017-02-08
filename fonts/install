@@ -2,7 +2,7 @@
 
 CONF=${SETUPDIR}/fonts/fonts.conf
 FONTCONFIG=${XDG_CONFIG_HOME:=$HOME/.config}/fontconfig
-mkdir -p $FONTCONFIG
-ln -s $CONF $FONTCONFIG
+mkdir -p "$FONTCONFIG"
+ln -s "$CONF" "$FONTCONFIG"
 
 exit 0
