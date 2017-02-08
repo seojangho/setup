@@ -11,6 +11,11 @@ export SETUPDIR=$(dirname $(readlink -f $0))
 # What to do
 if [[ $1 == "--update" ]]
 then
+  # update setup itself
+  workingdir=$(pwd)
+  cd "$SETUPDIR"
+  git pull origin master
+  cd "$workingdir"
   prefix="update"
 else
   prefix="install"
