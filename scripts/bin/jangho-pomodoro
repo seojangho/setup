@@ -2,8 +2,8 @@
 
 while [[ 1 ]]
 do
-  kdialog --icon ktimer --title "Start your task" --passivepopup "You have 25 minutes!" 10
+  kdialog --msgbox "Start your task. You have 25 minutes!" &
   sleep 25m
-  kdialog --icon ktimer --title "Now get some rest" --passivepopup "You have 10 minutes" 10
+  kdialog --msgbox "Get some rest. You have 10 minutes." &
   sleep 10m
 done
