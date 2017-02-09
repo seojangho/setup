@@ -67,8 +67,11 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
 export PATH=$HOME/.local/bin:$PATH
 
 # history
-SAVEHIST=10
+SAVEHIST=10000
+HISTSIZE=10000
 HISTFILE=~/.zsh_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
 
 # switch ctrl+l <=> ctrl+space
 bindkey ^L forward-word
