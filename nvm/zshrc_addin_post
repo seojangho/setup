@@ -1,4 +1,4 @@
-_zsh_nvm_rename_function nvm __zsh_addin_nvm
+zsh_rename_function nvm __zsh_addin_nvm
 function nvm() {
   export BULLETTRAIN_NVM_SHOW=true
   __zsh_addin_nvm "$@"

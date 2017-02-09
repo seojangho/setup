@@ -19,11 +19,17 @@ export BULLETTRAIN_PROMPT_ADD_NEWLINE=false
 export BULLETTRAIN_STATUS_EXIT_SHOW=true
 export BULLETTRAIN_STATUS_BG='red'
 export BULLETTRAIN_NVM_SHOW=false
-export BULLETTRAIN_PROMPT_ORDER=(status custom perl ruby virtualenv conditional_nvm go dir git hg)
+export BULLETTRAIN_PROMPT_ORDER=(status custom perl conditional_ruby virtualenv conditional_nvm go dir git hg)
 function prompt_conditional_nvm() {
   if [[ $BULLETTRAIN_NVM_SHOW == true ]]
   then
     prompt_nvm
+  fi
+}
+function prompt_conditional_ruby() {
+  if [[ $BULLETTRAIN_RBENV_SHOW == true ]]
+  then
+    prompt_ruby
   fi
 }
 export BULLETTRAIN_DIR_EXTENDED=2

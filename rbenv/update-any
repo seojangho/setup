@@ -1,0 +1,7 @@
+#!/bin/bash
+originaldir=$(pwd)
+cd "$HOME"/.rbenv
+git pull
+cd "$HOME"/.rbenv/plugins/ruby-build
+git pull
+cd "$originaldir"

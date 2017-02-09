@@ -1,0 +1,8 @@
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+
+zsh_rename_function rbenv __zsh_addin_rbenv
+function rbenv() {
+  export BULLETTRAIN_RBENV_SHOW=true
+  __zsh_addin_rbenv "$@"
+}
