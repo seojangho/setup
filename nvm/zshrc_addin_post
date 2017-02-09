@@ -3,3 +3,6 @@ function nvm() {
   export BULLETTRAIN_NVM_SHOW=true
   __zsh_addin_nvm "$@"
 }
+
+alias node='export BULLETTRAIN_NVM_SHOW=true && node'
+alias npm='export BULLETTRAIN_NVM_SHOW=true && npm'

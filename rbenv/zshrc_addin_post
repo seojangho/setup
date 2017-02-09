@@ -6,3 +6,11 @@ function rbenv() {
   export BULLETTRAIN_RBENV_SHOW=true
   __zsh_addin_rbenv "$@"
 }
+
+alias erb='BULLETTRAIN_RBENV_SHOW=true && erb'
+alias gem='BULLETTRAIN_RBENV_SHOW=true && gem'
+alias irb='BULLETTRAIN_RBENV_SHOW=true && irb'
+alias rake='BULLETTRAIN_RBENV_SHOW=true && rake'
+alias rdoc='BULLETTRAIN_RBENV_SHOW=true && rdoc'
+alias ri='BULLETTRAIN_RBENV_SHOW=true && ri'
+alias ruby='BULLETTRAIN_RBENV_SHOW=true && ruby'
