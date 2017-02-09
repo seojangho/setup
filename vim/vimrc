@@ -18,6 +18,7 @@ Plug 'cbracken/vala.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'lervag/vimtex'
+Plug 'plasticboy/vim-markdown'
 
 " vim-airline
 set laststatus=2
