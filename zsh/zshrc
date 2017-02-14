@@ -17,13 +17,13 @@ zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd6
 DISABLE_AUTO_UPDATE=true
 
 # bullet-train
-export BULLETTRAIN_PROMPT_ROOT=false
-export BULLETTRAIN_PROMPT_CHAR="➜ "
-export BULLETTRAIN_PROMPT_ADD_NEWLINE=false
-export BULLETTRAIN_STATUS_EXIT_SHOW=true
-export BULLETTRAIN_STATUS_BG='red'
-export BULLETTRAIN_NVM_SHOW=false
-export BULLETTRAIN_PROMPT_ORDER=(status custom perl conditional_ruby virtualenv conditional_nvm go dir git hg)
+BULLETTRAIN_PROMPT_ROOT=false
+BULLETTRAIN_PROMPT_CHAR="➜ "
+BULLETTRAIN_PROMPT_ADD_NEWLINE=false
+BULLETTRAIN_STATUS_EXIT_SHOW=true
+BULLETTRAIN_STATUS_BG='red'
+BULLETTRAIN_NVM_SHOW=false
+BULLETTRAIN_PROMPT_ORDER=(status custom perl conditional_ruby virtualenv conditional_nvm go dir git hg)
 function prompt_conditional_nvm() {
   if [[ $BULLETTRAIN_NVM_SHOW == true ]]
   then
@@ -36,7 +36,7 @@ function prompt_conditional_ruby() {
     prompt_ruby
   fi
 }
-export BULLETTRAIN_DIR_EXTENDED=2
+BULLETTRAIN_DIR_EXTENDED=2
 if [[ $USERNAME != 'jangho' && $USERNAME != 'janghose' ]]
 then
   BULLETTRAIN_CUSTOM_MSG_USERNAME='%n'
@@ -57,15 +57,15 @@ else
 fi
 if [[ $BULLETTRAIN_CUSTOM_MSG_USERNAME != '' || $BULLETTRAIN_CUSTOM_MSG_HOSTNAME != '' ]]
 then
-  export BULLETTRAIN_CUSTOM_MSG=$BULLETTRAIN_CUSTOM_MSG_USERNAME$BULLETTRAIN_CUSTOM_MSG_AT$BULLETTRAIN_CUSTOM_MSG_HOSTNAME
+  BULLETTRAIN_CUSTOM_MSG=$BULLETTRAIN_CUSTOM_MSG_USERNAME$BULLETTRAIN_CUSTOM_MSG_AT$BULLETTRAIN_CUSTOM_MSG_HOSTNAME
 fi
 if [[ $UID -eq 0 ]]
 then
-  export BULLETTRAIN_CUSTOM_BG='red'
+  BULLETTRAIN_CUSTOM_BG='red'
 fi
 
 # zsh-autosuggest style
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
 
 # ~/.local/bin
 export PATH=$HOME/.local/bin:$PATH
