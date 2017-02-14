@@ -4,6 +4,7 @@ MODE=$argv[1]
 
 # Plugins
 source ~/.zplug/init.zsh
+zplug "robbyrussell/oh-my-zsh", use:"oh-my-zsh.sh"
 zplug "plugins/git", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions"
@@ -11,6 +12,9 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
 zplug "junegunn/fzf", use:"shell/*.zsh"
 zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
+
+# oh-my-zsh
+DISABLE_AUTO_UPDATE=true
 
 # bullet-train
 export BULLETTRAIN_PROMPT_ROOT=false
@@ -94,6 +98,10 @@ alias cms='ssh jangho@cmscluster.snu.ac.kr'
 
 # update
 alias update='~/.setup/setup --update'
+
+# Debian packaging tool
+export DEBFULLNAME="JangHo Seo"
+export DEBEMAIL="jangho@jangho.kr"
 
 # addins before loading plugins
 while read -r addin
