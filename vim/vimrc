@@ -48,7 +48,7 @@ set breakindent
 syntax on
 color desert
 set visualbell
-set mouse=a
+set mouse=
 set showcmd
 set number
 set numberwidth=5
