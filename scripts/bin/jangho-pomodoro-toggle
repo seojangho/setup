@@ -2,7 +2,7 @@
 
 if killall jangho-pomodoro
 then
-  kdialog --icon ktimer --title "Stopped pomodoro" --passivepopup "Come back when you're ready" 5
+  notify-send "Stopped pomodoro" "Come back when you're ready"
   exit 0
 fi
 

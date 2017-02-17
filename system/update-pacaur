@@ -1,4 +1,3 @@
 #!/bin/bash
 pacaur -Syu --noconfirm
 sudo systemctl daemon-reload
-sudo mount -a

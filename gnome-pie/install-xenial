@@ -1,5 +1,5 @@
 #!/bin/bash
 
-sudo add-apt-repository ppa:snwh/pulp
+sudo add-apt-repository ppa:papirus/papirus
 sudo apt-get update
-sudo apt-get install paper-icon-theme
+sudo apt-get install papirus-icon-theme

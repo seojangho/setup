@@ -1,9 +1,9 @@
 #!/bin/bash
 
-while [[ 1 ]]
+while true
 do
-  kdialog --msgbox "Start your task. You have 25 minutes!" &
+  zenity --info --title "Pomodoro" --text "Start your task. You have 25 minutes!" &
   sleep 25m
-  kdialog --msgbox "Get some rest. You have 10 minutes." &
+  zenity --info --title "Pomodoro" --text "Get some rest. You have 10 minutes." &
   sleep 10m
 done

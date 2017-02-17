@@ -2,7 +2,7 @@
 
 if killall jangho-poweroff
 then
-  kdialog --icon system-shutdown --title "Stopped shutting down" --passivepopup "Stopped" 5
+  notify-send --icon system-shutdown "Stopped shutting down" "Stopped"
   exit 0
 fi
 
