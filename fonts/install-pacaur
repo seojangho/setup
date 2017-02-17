@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacaur --needed -Sy noto-fonts noto-fonts-cjk powerline-fonts ttf-nanumgothic_coding ttf-hack emojione-color-font
+pacaur --needed -Sy noto-fonts noto-fonts-cjk ttf-nanumgothic_coding ttf-hack emojione-color-font ttf-dejavu
 
 sudo rm /etc/fonts/conf.d/56-emojione-color.conf
 
