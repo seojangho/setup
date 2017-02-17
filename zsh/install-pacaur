@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pacaur --needed -Sy zsh curl git gawk
+
+"${SETUPDIR}"/zsh/install
+
+exit 0

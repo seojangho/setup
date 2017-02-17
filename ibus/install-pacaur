@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pacaur --needed -Sy ibus-hangul ibus-qt
+
+exit 0

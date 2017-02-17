@@ -1,0 +1,9 @@
+#!/bin/bash
+
+pacaur --needed -Sy noto-fonts noto-fonts-cjk powerline-fonts ttf-nanumgothic_coding ttf-hack emojione-color-font
+
+sudo rm /etc/fonts/conf.d/56-emojione-color.conf
+
+"${SETUPDIR}"/fonts/install
+
+exit 0
