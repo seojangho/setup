@@ -2,6 +2,6 @@
 
 pacaur --needed -Sy zsh curl git gawk
 
-"${SETUPDIR}"/zsh/install
+"${SETUPDIR}"/zsh/install-user
 
 exit 0

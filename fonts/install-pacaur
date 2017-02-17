@@ -4,6 +4,4 @@ pacaur --needed -Sy noto-fonts noto-fonts-cjk ttf-nanumgothic_coding ttf-hack em
 
 sudo rm /etc/fonts/conf.d/56-emojione-color.conf
 
-"${SETUPDIR}"/fonts/install
-
 exit 0

@@ -2,6 +2,6 @@
 
 pacaur --needed -Sy curl git vim
 
-"${SETUPDIR}"/vim/install
+"${SETUPDIR}"/vim/install-user
 
 exit 0

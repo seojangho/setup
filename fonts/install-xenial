@@ -6,6 +6,4 @@ sudo apt install fonts-noto fonts-emojione-svginot fonts-noto-cjk fonts-nanum-co
 
 sudo rm /etc/fonts/conf.d/56-emojione-color.conf
 
-"${SETUPDIR}"/fonts/install
-
 exit 0
