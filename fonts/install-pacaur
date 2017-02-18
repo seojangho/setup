@@ -2,6 +2,6 @@
 
 pacaur --needed -Sy noto-fonts noto-fonts-cjk ttf-nanumgothic_coding ttf-hack emojione-color-font ttf-dejavu
 
-sudo rm /etc/fonts/conf.d/56-emojione-color.conf
+sudo rm -f /etc/fonts/conf.d/{56-emojione-color.conf,64-ttf-emojione-color.conf}
 
 exit 0
