@@ -6,6 +6,11 @@ elementIn() {
   return 1
 }
 
+isSystemScript() {
+  [[ "$1" =~ ^"$SETUPDIR"/system/ ]] && return 0
+  return 1
+}
+
 SETUPDIR=$(dirname "$(readlink -f "$0")")
 export SETUPDIR
 
@@ -43,10 +48,28 @@ done
 MSGFILE=$(mktemp)
 export MSGFILE
 
-# Execute scripts, only once for a file
+# Execute system scripts, only once for a file
 for (( i=0; i<${#scripts[@]}; i++ ));
 do
   if elementIn "${scripts[$i]}" "${scripts[@]:$((i+1))}"
+  then
+    continue
+  fi
+  if ! isSystemScript "${scripts[$i]}"
+  then
+    continue
+  fi
+  ${scripts[$i]}
+done
+
+# Execute non-system scripts, only once for a file
+for (( i=0; i<${#scripts[@]}; i++ ));
+do
+  if elementIn "${scripts[$i]}" "${scripts[@]:$((i+1))}"
+  then
+    continue
+  fi
+  if isSystemScript "${scripts[$i]}"
   then
     continue
   fi
