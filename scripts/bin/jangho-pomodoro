@@ -2,8 +2,8 @@
 
 while true
 do
-  zenity --info --title "Pomodoro" --text "Start your task. You have 25 minutes!" &
+  zenity --info --icon-name=gnome-pomodoro --title "Pomodoro" --text "Start your task. You have 25 minutes!" &
   sleep 25m
-  zenity --info --title "Pomodoro" --text "Get some rest. You have 10 minutes." &
+  zenity --info --icon-name=gnome-pomodoro --title "Pomodoro" --text "Get some rest. You have 10 minutes." &
   sleep 10m
 done

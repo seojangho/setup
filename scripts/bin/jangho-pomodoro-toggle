@@ -2,7 +2,7 @@
 
 if killall jangho-pomodoro
 then
-  notify-send "Stopped pomodoro" "Come back when you're ready"
+  notify-send --icon=gnome-pomodoro "Stopped pomodoro" "Come back when you're ready"
   exit 0
 fi
 
