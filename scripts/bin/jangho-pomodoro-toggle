@@ -2,8 +2,15 @@
 
 if killall jangho-pomodoro
 then
-  notify-send --icon=gnome-pomodoro "Stopped pomodoro" "Come back when you're ready"
   exit 0
 fi
 
-exec "$HOME"/.setup/scripts/bin/jangho-pomodoro
+POMODORO_TASK="$(zenity --entry --title=Pomodoro --text="Starting Pomodoro")"
+INPUT_SUCCESS=$?
+if [[ $INPUT_SUCCESS -eq 0 ]] && [[ "$POMODORO_TASK" != "" ]]
+then
+  export POMODORO_TASK
+  exec "$HOME"/.setup/scripts/bin/jangho-pomodoro
+else
+  exit 1
+fi
