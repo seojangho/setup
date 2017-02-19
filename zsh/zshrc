@@ -88,6 +88,10 @@ alias cp='cp -i'
 alias rm='rm -i'
 alias open='xdg-open'
 alias spwgen='pwgen -y -1 40 5'
+op() {
+  xdg-open "$1"
+  exit $?
+}
 
 # ssh
 alias mango='ssh -p50022 jangho@mango.jangho.kr'
