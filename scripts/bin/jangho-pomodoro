@@ -1,15 +1,15 @@
 #!/bin/bash
 
-trap "timew stop \"$POMODORO_TASK\"; notify-send --icon=gnome-pomodoro \"$POMODORO_TASK\" \"Stopped pomodoro\"; exit 0" SIGTERM
-
 while true
 do
-  timew start "$POMODORO_TASK"
-  zenity --info --icon-name=gnome-pomodoro --title "$POMODORO_TASK" --text "Start your task. You have 25 minutes!" &
+  zenity --info --icon-name=gnome-pomodoro --title "Pomodoro" --text "$(timew)""\nStart your task. You have 25 minutes!" &
   sleep 25m &
   wait $!
-  timew stop "$POMODORO_TASK"
-  zenity --info --icon-name=gnome-pomodoro --title "$POMODORO_TASK" --text "Get some rest. You have 10 minutes." &
+
+  zenity --info --icon-name=gnome-pomodoro --title "Pomodoro" --text "$(timew)""\nGet some rest. You have 10 minutes." &
+  timew stop
   sleep 10m &
   wait $!
+
+  timew continue
 done
