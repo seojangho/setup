@@ -1,5 +1,18 @@
 #!/bin/bash
 
+current_tracking="$(timew)"
+current_tracking_exit=$?
+
+if [[ $current_tracking_exit -eq 0 ]]
+then
+  zenity --question --text="$current_tracking""\nCancel current tracking?" --title="Pomodoro" --icon-name=gnome-pomodoro
+  cancel_tracking_exit=$?
+  if [[ cancel_tracking_exit -ne 0 ]]
+  then
+    exit 1
+  fi
+fi
+
 if killall jangho-pomodoro
 then
   exit 0
