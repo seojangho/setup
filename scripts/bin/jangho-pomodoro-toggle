@@ -20,7 +20,7 @@ then
   exit 0
 fi
 
-POMODORO_TASK="$(zenity --entry --title=Pomodoro --text="$(timew summary)""Starting Pomodoro")"
+POMODORO_TASK="$(zenity --entry --title="Starting Pomodoro" --text="$(timew summary :day)")"
 INPUT_SUCCESS=$?
 if [[ $INPUT_SUCCESS -eq 0 ]]
 then
