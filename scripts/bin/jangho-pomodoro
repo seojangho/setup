@@ -1,5 +1,7 @@
 #!/bin/bash
 
+trap "timew stop; notify-send --icon=gnome-pomodoro \"Stopped pomodoro\" \"Come back when you're ready\"; exit 0" SIGTERM
+
 while true
 do
   zenity --info --icon-name=gnome-pomodoro --title "Pomodoro" --text "$(timew)""\nStart your task. You have 25 minutes!" &

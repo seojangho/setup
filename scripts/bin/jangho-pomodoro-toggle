@@ -7,28 +7,21 @@ if [[ $current_tracking_exit -eq 0 ]]
 then
   zenity --question --text="$current_tracking""\nCancel current tracking?" --title="Pomodoro" --icon-name=gnome-pomodoro
   cancel_tracking_exit=$?
-  if [[ cancel_tracking_exit -ne 0 ]]
-  then
-    exit 1
-  fi
-fi
-
-timew stop
-if killall jangho-pomodoro
-then
-  notify-send --icon=gnome-pomodoro "Stopped Pomodoro" "Come back when you're ready"
+  [[ cancel_tracking_exit -ne 0 ]] && exit 1
+  timew stop
+  killall jangho-pomodoro
   exit 0
 fi
 
-POMODORO_TASK="$(zenity --entry --title="Starting Pomodoro" --text="$(timew summary :day)")"
-INPUT_SUCCESS=$?
-if [[ $INPUT_SUCCESS -eq 0 ]]
+pomodoro_task="$(zenity --entry --title="Starting Pomodoro" --text="$(timew summary :day)")"
+input_success=$?
+if [[ $input_success -eq 0 ]]
 then
-  if [[ "$POMODORO_TASK" == "" ]]
+  if [[ "$pomodoro_task" == "" ]]
   then
     timew continue
   else
-    timew start "$POMODORO_TASK"
+    timew start "$pomodoro_task"
   fi
   exec "$HOME"/.setup/scripts/bin/jangho-pomodoro
 else
