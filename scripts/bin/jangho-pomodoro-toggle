@@ -8,10 +8,12 @@ then
   zenity --question --text="$current_tracking""\nCancel current tracking?" --title="Pomodoro" --icon-name=gnome-pomodoro
   cancel_tracking_exit=$?
   [[ cancel_tracking_exit -ne 0 ]] && exit 1
-  timew stop
-  killall jangho-pomodoro
-  exit 0
 fi
+
+timew stop
+killall jangho-pomodoro
+killall_exit=$?
+[[ $killall_exit -eq 0 || $current_tracking_exit -eq 0 ]] && exit 0
 
 pomodoro_task="$(zenity --entry --title="Starting Pomodoro" --text="$(timew summary :day)")"
 input_success=$?
@@ -20,6 +22,12 @@ then
   if [[ "$pomodoro_task" == "" ]]
   then
     timew continue
+    timew_exit=$?
+    if [[ timew_exit -eq 255 ]]
+    then
+      zenity --error --title="Pomodoro" --text="There is no previous tracking to continue."
+      exit 1
+    fi
   else
     timew start "$pomodoro_task"
   fi
