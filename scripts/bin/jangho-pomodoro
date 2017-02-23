@@ -8,7 +8,8 @@ do
   sleep 25m &
   wait $!
 
-  zenity --info --icon-name=gnome-pomodoro --title "Pomodoro" --text "$(timew)""\nGet some rest. You have 5 minutes." &
+  timew_result="$(timew)"
+  zenity --info --icon-name=gnome-pomodoro --title "Pomodoro" --text "$timew_result""\nGet some rest. You have 5 minutes." &
   timew stop
   sleep 5m &
   wait $!
