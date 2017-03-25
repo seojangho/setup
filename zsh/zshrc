@@ -97,6 +97,7 @@ op() {
 alias mango='ssh -p50022 jangho@mango.jangho.kr'
 alias martini='ssh janghose@martini.snucse.org'
 alias papaya='ssh jangho@papaya.jangho.kr'
+alias guava='ssh jangho@guava.jangho.kr'
 alias dev='ssh jangho@dev.snucse.org'
 alias cms='ssh jangho@cmscluster.snu.ac.kr'
 
