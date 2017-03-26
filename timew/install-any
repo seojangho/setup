@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+mkdir "$HOME"/.timewarrior
+ln -s "$HOME"/.sync-home/timew "$HOME"/.timewarrior/data
+
+exit 0
