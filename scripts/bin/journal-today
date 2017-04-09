@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+firefox https://journal.jangho.kr/today/$(date +%Y/%m/%d)
+
+exit 0
