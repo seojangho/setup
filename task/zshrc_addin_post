@@ -1,9 +1,28 @@
 alias ts='task sync'
-alias tv='task active'
+alias tw='timew'
+
+# task: a to-do entry I can start NOW
 alias t='task'
 alias ta='task add'
-alias s='task schedule wait.before:today+60days'
+
+# schedule: a schedule that I should watch over
+alias s='task schedule'
 function sa() {
-    task add wait:$1 schedule:$1 due:$1 ${@:2}
+  if [[ -z "$1" ]]; then
+    echo "Usage: $0 <date> <other parameters>"
+    echo "Adds a schedule that I should watch over"
+    return 1
+  fi
+  task add schedule:"$1" due:"$1" ${@:2}
 }
-alias tw='timew'
+
+# await: a task that I don't have to care about right now
+alias a='task await'
+function aa() {
+  if [[ -z "$1" || -z "$2" ]]; then
+    echo "Usage: $0 <start> <due> <other parameters>"
+    echo "Adds a task that I don't have to care about right now"
+    return 1
+  fi
+  task add wait:"$1" due:"$2" ${@:3}
+}

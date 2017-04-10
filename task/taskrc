@@ -24,26 +24,25 @@ taskd.key=\/home\/jangho\/.task\/client.key
 taskd.server=mango.taskd.ca.jangho.kr:53589
 
 # report next
-report.next.filter=status:pending -BLOCKED
+report.next.filter=status:pending -BLOCKED -SCHEDULED
 report.next.columns=id,due.remaining,description,tags,project
 report.next.labels=ID,Due,Description,Tags,Project
 report.next.sort=urgency-
 
 # report schedule
-report.schedule.description=list of waiting tasks
-report.schedule.filter=status:waiting
-report.schedule.columns=id,wait.remaining,due.remaining,description,tags,project
-report.schedule.labels=ID,Start,Due,Description,Tags,Project
-report.schedule.sort=wait+
+report.schedule.description=schedule that I should watch over
+report.schedule.filter=status:pending +SCHEDULED
+report.schedule.columns=id,scheduled.remaining,due.remaining,description,tags,project
+report.schedule.labels=ID,On,Due,Description,Tags,Project
+report.schedule.sort=scheduled+
 
-# report active
-report.active.description=list of active tasks
-report.active.filter=(status:pending or status:waiting) and +ACTIVE
-report.active.columns=id,status,due.remaining,description,tags,project
-report.active.labels=ID,Status,Due,Description,Tags,Project
-report.active.sort=urgency-
+# report await
+report.await.description=tasks that I don't have to care about right now
+report.await.filter=status:waiting
+report.await.columns=id,wait.remaining,due.remaining,description,tags,project
+report.await.labels=ID,Start,Due,Description,Tags,Project
+report.await.sort=wait+
 
 # others
 urgency.tags.coefficient=0.0
-urgency.user.tag.bacchus.coefficient=5.0
 urgency.blocking.coefficient=2.0
