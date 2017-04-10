@@ -24,20 +24,21 @@ taskd.key=\/home\/jangho\/.task\/client.key
 taskd.server=mango.taskd.ca.jangho.kr:53589
 
 # report next
+report.next.description=TODO
 report.next.filter=status:pending -BLOCKED -SCHEDULED
 report.next.columns=id,due.remaining,description,tags,project
 report.next.labels=ID,Due,Description,Tags,Project
 report.next.sort=urgency-
 
 # report schedule
-report.schedule.description=schedule that I should watch over
+report.schedule.description=SCHEDULE
 report.schedule.filter=status:pending +SCHEDULED
 report.schedule.columns=id,scheduled.remaining,due.remaining,description,tags,project
 report.schedule.labels=ID,On,Due,Description,Tags,Project
 report.schedule.sort=scheduled+
 
 # report await
-report.await.description=tasks that I don't have to care about right now
+report.await.description=AWAIT
 report.await.filter=status:waiting
 report.await.columns=id,wait.remaining,due.remaining,description,tags,project
 report.await.labels=ID,Start,Due,Description,Tags,Project

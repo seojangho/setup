@@ -2,10 +2,12 @@ alias ts='task sync'
 alias tw='timew'
 
 # task: a to-do entry I can start NOW
+# When I 'complete' this task, I can delete it right away
 alias t='task'
 alias ta='task add'
 
 # schedule: a schedule that I should watch over
+# unlike task, a schedule cannot be deleted until the specified date arrives
 alias s='task schedule'
 function sa() {
   if [[ -z "$1" ]]; then
