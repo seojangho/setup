@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while true; do
+  task sync && exit 0
+  sleep 1m
+done

@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Taskwarrior Try Sync
+Exec=/home/jangho/.setup/scripts/bin/task-try-sync
+Terminal=false
