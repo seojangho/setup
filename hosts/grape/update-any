@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "Check https://extensions.gnome.org/local/"
+read -n1
+
+exit 0
