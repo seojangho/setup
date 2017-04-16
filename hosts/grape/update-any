@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "Check https://extensions.gnome.org/local/"
-read -n1
+cat >> "$MSGFILE" <<EOF
+Check https://extensions.gnome.org/local/
+EOF
 
 exit 0
