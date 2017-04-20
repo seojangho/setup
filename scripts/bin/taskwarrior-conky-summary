@@ -15,13 +15,13 @@ def formatted(lines, widths, length, idx, width):
         return ' ' * width
 
 todo = execute(['task', 'next'])[1:-3]
-todo.insert(0, '지금 할일')
+todo.insert(0, '할일')
 todoW = []
 todoN = len(todo)
-coming = execute(['task', 'await', 'wait.before:today+60days'])[1:-3]
-coming.insert(0, '다가오는 할일')
-comingW = []
-comingN = len(coming)
+#coming = execute(['task', 'await', 'wait.before:today+60days'])[1:-3]
+#coming.insert(0, '다가오는 할일')
+#comingW = []
+#comingN = len(coming)
 schedule = execute(['task', 'schedule'])[1:-3]
 schedule.insert(0, '일정')
 scheduleW = []
@@ -29,19 +29,19 @@ scheduleN = len(schedule)
 
 for line in todo:
     todoW.append(width(line))
-for line in coming:
-    comingW.append(width(line))
+#for line in coming:
+#    comingW.append(width(line))
 for line in schedule:
     scheduleW.append(width(line))
 
 todoM = max(todoW)
-comingM = max(comingW)
+#comingM = max(comingW)
 scheduleM = max(scheduleW)
 
-for idx in range(max(todoN, comingN, scheduleN)):
-    print('{} | {} | {}'.format(
+#for idx in range(max(todoN, comingN, scheduleN)):
+for idx in range(max(todoN, scheduleN)):
+    print('{} | {}'.format(
         formatted(todo, todoW, todoN, idx, todoM),
-        formatted(coming, comingW, comingN, idx, comingM),
         formatted(schedule, scheduleW, scheduleN, idx, scheduleM)
         ))
 
