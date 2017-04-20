@@ -45,4 +45,4 @@ for idx in range(max(todoN, comingN, scheduleN)):
         formatted(schedule, scheduleW, scheduleN, idx, scheduleM)
         ))
 
-subprocess.run(['task', 'sync'])
+subprocess.run(['task', 'sync'], stdout=subprocess.PIPE)
