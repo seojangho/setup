@@ -15,12 +15,15 @@ def formatted(lines, widths, length, idx, width):
         return ' ' * width
 
 todo = execute(['task', 'next'])[1:-3]
+todo.insert(0, '지금 할일')
 todoW = []
 todoN = len(todo)
-coming = execute(['task', 'await'])[1:-3]
+coming = execute(['task', 'await', 'wait.before:today+60days'])[1:-3]
+coming.insert(0, '다가오는 할일')
 comingW = []
 comingN = len(coming)
 schedule = execute(['task', 'schedule'])[1:-3]
+schedule.insert(0, '일정')
 scheduleW = []
 scheduleN = len(schedule)
 
