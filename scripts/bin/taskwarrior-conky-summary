@@ -44,3 +44,5 @@ for idx in range(max(todoN, comingN, scheduleN)):
         formatted(coming, comingW, comingN, idx, comingM),
         formatted(schedule, scheduleW, scheduleN, idx, scheduleM)
         ))
+
+subprocess.run(['task', 'sync'])
