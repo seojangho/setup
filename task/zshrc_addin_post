@@ -8,7 +8,13 @@ alias ta='task add'
 
 # schedule: a schedule that I should watch over
 # unlike task, a schedule cannot be deleted until the specified date arrives
-alias s='task schedule'
+function s() {
+  if [[ -z "$1" ]]; then
+    task schedule
+  else
+    task $@
+  fi
+}
 function sa() {
   if [[ -z "$1" ]]; then
     echo "Usage: $0 <date> <other parameters>"
@@ -19,7 +25,13 @@ function sa() {
 }
 
 # await: a task that I don't have to care about right now
-alias a='task await'
+function a() {
+  if [[ -z "$1" ]]; then
+    task await
+  else
+    task $@
+  fi
+}
 function aa() {
   if [[ -z "$1" || -z "$2" ]]; then
     echo "Usage: $0 <start> <due> <other parameters>"
