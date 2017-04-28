@@ -16,6 +16,9 @@ zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd6
 # oh-my-zsh
 DISABLE_AUTO_UPDATE=true
 
+# TERM
+[[ -z "$TMUX" ]] || export TERM=screen-256color
+
 # bullet-train
 BULLETTRAIN_PROMPT_ROOT=false
 BULLETTRAIN_PROMPT_CHAR="➜"
