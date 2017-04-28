@@ -19,6 +19,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'lervag/vimtex'
 Plug 'plasticboy/vim-markdown'
+Plug 'elmcast/elm-vim'
 
 " vim-airline
 set laststatus=2
