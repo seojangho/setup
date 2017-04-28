@@ -86,7 +86,7 @@ alias ls='ls --color=auto'
 alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
-alias open='xdg-open'
+alias open='gio open'
 alias spwgen='pwgen -y -1 40 5'
 op() {
   xdg-open "$1"
