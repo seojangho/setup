@@ -89,10 +89,16 @@ alias ls='ls --color=auto'
 alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
-alias open='gio open'
+function open() {
+  if command -v gio > /dev/null; then
+    gio open $@
+  else
+    xdg-open $@
+  fi
+}
 alias spwgen='pwgen -y -1 40 5'
 op() {
-  xdg-open "$1"
+  open $@
   exit $?
 }
 
