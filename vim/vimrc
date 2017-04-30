@@ -20,6 +20,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'lervag/vimtex'
 Plug 'plasticboy/vim-markdown'
 Plug 'elmcast/elm-vim'
+Plug 'chr4/sslsecure.vim'
 
 " vim-airline
 set laststatus=2
