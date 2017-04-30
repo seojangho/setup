@@ -12,7 +12,7 @@ function s() {
   if [[ -z "$1" ]]; then
     task schedule
   else
-    task $@
+    task schedule "schedule.before:today+${1}days"
   fi
 }
 function sa() {
@@ -29,7 +29,7 @@ function a() {
   if [[ -z "$1" ]]; then
     task await
   else
-    task $@
+    task await "wait.before:today+${1}days"
   fi
 }
 function aa() {
