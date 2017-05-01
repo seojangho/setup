@@ -33,9 +33,10 @@ report.next.sort=urgency-
 # report schedule
 report.schedule.description=SCHEDULE
 report.schedule.filter=status:pending +SCHEDULED
-report.schedule.columns=id,scheduled.remaining,due.remaining,description,tags,project
+report.schedule.columns=id,scheduled.formatted,due.remaining,description,tags,project
 report.schedule.labels=ID,On,Due,Description,Tags,Project
 report.schedule.sort=scheduled+
+report.schedule.dateformat=M/D H:N
 
 # report await
 report.await.description=AWAIT
