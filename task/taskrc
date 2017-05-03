@@ -17,7 +17,7 @@ data.location=~/.task
 include ~/.task/theme
 
 # taskserver
-taskd.credentials=Users\/jangho\/b4ad4749-76ee-4c32-a22c-3e147f4be68d
+taskd.credentials=users\/jangho\/78628884-59de-44ed-a0cf-dc20dbea98f3
 taskd.ca=\/home\/jangho\/.task\/ca.cert
 taskd.certificate=\/home\/jangho\/.task\/client.cert
 taskd.key=\/home\/jangho\/.task\/client.key
