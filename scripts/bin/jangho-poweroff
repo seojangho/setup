@@ -1,5 +1,0 @@
-#!/bin/bash
-
-notify-send --icon system-shutdown "Shutting down..." "This PC will shut down after 60 secs"
-sleep 60s
-systemctl poweroff

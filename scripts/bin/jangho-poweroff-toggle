@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if killall jangho-poweroff
-then
-  notify-send --icon system-shutdown "Stopped shutting down" "Stopped"
-  exit 0
-fi
-
-exec "$HOME"/.setup/scripts/bin/jangho-poweroff

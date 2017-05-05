@@ -14,7 +14,7 @@ def formatted(lines, widths, length, idx, width):
     else:
         return ' ' * width
 
-subprocess.run(['/home/jangho/.setup/scripts/bin/task-try-sync'], stdout=subprocess.PIPE)
+subprocess.run(['/home/jangho/.setup/gnome-pie/scripts/taskwarrior-try-sync'], stdout=subprocess.PIPE)
 
 todo = execute(['task', 'next'])[1:-3]
 todo.insert(0, '할일')

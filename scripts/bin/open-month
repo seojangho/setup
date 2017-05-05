@@ -1,2 +1,0 @@
-#!/bin/bash
-exec xdg-open ~/archive/"$(date +%Y/%m)"

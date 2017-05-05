@@ -31,7 +31,7 @@ then
   else
     timew start "$pomodoro_task"
   fi
-  exec "$HOME"/.setup/scripts/bin/jangho-pomodoro
+  exec "$HOME"/.setup/gnome-pie/scripts/jangho-pomodoro
 else
   exit 1
 fi

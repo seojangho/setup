@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if command -v nautilus > /dev/null; then
+  exec nautilus ~/archive/"$(date +%Y/%m)"
+fi
+if command -v gio > /dev/null; then
+  exec gio open ~/archive/"$(date +%Y/%m)"
+fi
+exec xdg-open ~/archive/"$(date +%Y/%m)"
