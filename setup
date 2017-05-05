@@ -40,7 +40,7 @@ for snapin in "${snapins[@]}"
 do
   while read -r script
   do
-    scripts+=($(readlink -f "$script"))
+    scripts+=("$script")
   done < <(find -L "$SETUPDIR"/this -name "${prefix}-${snapin}")
 done
 
