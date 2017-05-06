@@ -1,3 +1,0 @@
-#!/bin/bash
-
-pacaur --needed -Sy libnotify zenity
