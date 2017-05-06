@@ -7,7 +7,7 @@ elementIn() {
 }
 
 isSystemScript() {
-  [[ "$1" =~ ^"$SETUPDIR"/system/ ]] && return 0
+  [[ $(readlink -f "$1") =~ ^"$SETUPDIR"/system/ ]] && return 0
   return 1
 }
 
