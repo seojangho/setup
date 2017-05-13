@@ -2,5 +2,5 @@
 
 while true; do
   task sync && exit 0
-  sleep 10s
+  sleep 1s
 done
