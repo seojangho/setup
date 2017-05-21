@@ -114,6 +114,8 @@ alias blueberry='ssh -p50022 jangho@blueberry.jangho.kr'
 # update
 alias update='~/.setup/setup --update'
 alias ㄷ핑ㅓㅕ='update'
+alias ㄴ='s'
+alias ㅓ='t'
 
 # addins before loading plugins
 while read -r addin
