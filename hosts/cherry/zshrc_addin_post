@@ -1,1 +1,2 @@
 export LD_PRELOAD=/usr/lib/libcblas.so:$LD_PRELOAD
+export JAVA_HOME=/usr/lib/jvm/default
