@@ -1,14 +1,14 @@
 [remmina]
 sharefolder=
 sound=off
-name=durian
+name=peach
 cert_ignore=0
 console=0
 ssh_enabled=1
 exec=
 clientname=
 loadbalanceinfo=
-server=durian.vanilla.jangho.kr
+server=peach.vanilla.jangho.kr
 colordepth=24
 ssh_auth=3
 postcommand=
