@@ -16,7 +16,7 @@ def formatted(lines, widths, length, idx, width):
 
 subprocess.run(['/home/jangho/.setup/conky/scripts/taskwarrior-try-sync'], stdout=subprocess.PIPE)
 
-todo = execute(['task', 'next'])[1:-3]
+todo = execute(['task', 'next', '-r'])[1:-3]
 todo.insert(0, '할일')
 todoW = []
 todoN = len(todo)
