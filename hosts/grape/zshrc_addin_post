@@ -1,4 +1,2 @@
 export JAVA_HOME=/usr/lib/jvm/default-java
 export PATH=$HOME/.hadoop/bin:$PATH
-alias socks='ssh -f -D 8080 -C -q -N cmscluster.snu.ac.kr'
-alias cluster='ssh cmscluster.snu.ac.kr'

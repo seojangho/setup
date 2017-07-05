@@ -110,6 +110,7 @@ alias grape='ssh -p50022 jangho@grape.jangho.kr'
 alias dev='ssh jangho@dev.snucse.org'
 alias cms='ssh jangho@cmscluster.snu.ac.kr'
 alias blueberry='ssh -p50022 jangho@blueberry.jangho.kr'
+alias socks='ssh -f -D 8080 -C -q -N cmscluster.snu.ac.kr'
 
 # update
 alias update='~/.setup/setup --update'
