@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# https://bbs.archlinux.org/viewtopic.php?id=173648
+# Workaround for 'WOL causes spontaneous power on after shutdown' on 15U530-KH5DK
+# Make sure to disable xHCI on BIOS settings
+# This script should be run on each boot
+
+sudo sh -c  "echo 'disabled' > /sys/devices/pci0000:00/0000:00:1d.0/power/wakeup"
+sudo sh -c  "echo 'disabled' > /sys/devices/pci0000:00/0000:00:1c.0/0000:01:00.0/power/wakeup"
+sudo sh -c  "echo 'disabled' > /sys/devices/pci0000:00/0000:00:14.0/power/wakeup"
+sudo sh -c  "echo 'disabled' > /sys/devices/pci0000:00/0000:00:14.0/usb2/2-1/power/wakeup"
+sudo sh -c  "echo 'disabled' > /sys/devices/pci0000:00/0000:00:1d.0/usb1/1-1/1-1.1/power/wakeup"
+exit 0
