@@ -39,3 +39,5 @@ window_maximize=1
 window_height=480
 window_width=640
 viewmode=4
+resolution_height=1080
+resolution_width=1920
