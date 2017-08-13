@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+my $brightness = ($ARGV[0] // 100) * 0.95 * 0.01;
+system("xrandr --output HDMI-2 --gamma 1:1:1 --brightness $brightness");
+
+exit 0
