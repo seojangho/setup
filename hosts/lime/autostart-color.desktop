@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=color adjustment
-Exec=bash -c "for run in {1..4}; do /home/jangho/.setup/scripts/bin/rr && sleep 1; done"
+Exec=bash -c "echo '0.95' > $HOME/.lime-xrandr-control; while true; do xrandr --output HDMI-2 --gamma 1:1:1 --brightness $(cat $HOME/.lime-xrandr-control) && sleep 1; done"
 Terminal=false
 Type=Application
