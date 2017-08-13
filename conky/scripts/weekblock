@@ -6,6 +6,6 @@ use 5.010;
 
 my $weeknum = `date +%U`;
 print ('■' x $weeknum);
-say ('□' x (52 - $weeknum));
+say ('□' x (53 - $weeknum));
 
 exit 0
