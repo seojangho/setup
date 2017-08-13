@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pacaur --needed -Sy arc-gtk-theme gpaste gnome-shell-extension-hidetopbar-git gnome-shell-extension-appindicator-git gnome-shell-extension-topicons-plus-git indicator-kdeconnect-git
+pacaur --needed -Sy arc-gtk-theme gpaste gnome-shell-extension-hidetopbar-git gnome-shell-extension-appindicator-git gnome-shell-extension-topicons-plus-git indicator-kdeconnect-git gnome-shell-extension-dash-to-panel
