@@ -1,0 +1,22 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+use 5.010;
+
+# journal:today
+my $todayPath = '/home/jangho/.sync-home/gitit/journal/wikidata/today/'.`date +%Y/%m/%d.page`;
+$todayPath =~ s/\s+$//;
+if (open (my $todayFh, '<', $todayPath)) {
+  say <$todayFh>;
+}
+
+# weekblock
+my $weeknum = `date +%U`;
+print ('■' x $weeknum);
+say ('□' x (53 - $weeknum));
+
+# timew summary
+say `timew summary`;
+
+exit 0
