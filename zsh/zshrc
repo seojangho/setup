@@ -111,6 +111,8 @@ alias dev='ssh jangho@dev.snucse.org'
 alias cms='ssh jangho@cmscluster.snu.ac.kr'
 alias blueberry='ssh -p50022 jangho@blueberry.jangho.kr'
 alias socks='ssh -f -D 8080 -C -q -N cmscluster.snu.ac.kr'
+alias awsocks='ssh -f -D 9090 -C -q -N ubuntu@35.164.221.40'
+alias vm='ssh ubuntu@35.164.221.40'
 
 # update
 alias update='~/.setup/setup --update'
