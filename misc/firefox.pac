@@ -1,4 +1,7 @@
 function FindProxyForURL(url, host) {
+  if (!isPlainHostName(host)) {
+    return "DIRECT";
+  }
 
   // url = url.toLowerCase();
   // host = host.toLowerCase();
