@@ -102,6 +102,10 @@ op() {
   exit $?
 }
 
+alias b='mvn clean install'
+alias bb='mvn clean install -DskipTests'
+alias bbb='mvn clean install -DskipTests -TC1 -P!code-quality'
+
 # ssh
 alias mango='ssh -p50022 jangho@mango.jangho.kr'
 alias martini='ssh janghose@martini.snucse.org'
