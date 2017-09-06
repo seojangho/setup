@@ -1,3 +1,6 @@
+# reboot to peach (Windows)
+alias reboot-peach='sudo grub-reboot 2 && sudo reboot'
+
 export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$HOME/.setup/local/hadoop-2.7.0/bin:$HOME/.setup/local/local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/.setup/local/local/lib:$LD_LIBRARY_PATH
