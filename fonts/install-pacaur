@@ -1,7 +1,5 @@
 #!/bin/bash
 
-pacaur --needed -Sy noto-fonts noto-fonts-cjk ttf-nanumgothic_coding ttf-hack ttf-emojione-color ttf-dejavu
-
-sudo rm -f /etc/fonts/conf.d/64-ttf-emojione-color.conf
+pacaur --needed -Sy noto-fonts noto-fonts-cjk ttf-nanumgothic_coding ttf-hack ttf-dejavu
 
 exit 0
