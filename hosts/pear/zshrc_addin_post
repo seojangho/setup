@@ -2,8 +2,8 @@
 alias reboot-peach='sudo grub-reboot 2 && sudo reboot'
 
 export JAVA_HOME=/usr/lib/jvm/default
-export PATH=$HOME/.setup/local/hadoop-2.7.0/bin:$HOME/.setup/local/local/bin:$PATH
-export LD_LIBRARY_PATH=$HOME/.setup/local/local/lib:$LD_LIBRARY_PATH
+export PATH=$HOME/.setup/local/hadoop-2.7.0/bin:$HOME/.setup/local/protobuf-2.5.0/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/.setup/local/protobuf-2.5.0/lib:$LD_LIBRARY_PATH
 export HADOOP_HOME=$HOME/.setup/local/hadoop-2.7.0
 alias start-hadoop='$HOME/.setup/local/hadoop-2.7.0/sbin/start-dfs.sh && $HOME/.setup/local/hadoop-2.7.0/sbin/start-yarn.sh'
 alias stop-hadoop='$HOME/.setup/local/hadoop-2.7.0/sbin/stop-dfs.sh && $HOME/.setup/local/hadoop-2.7.0/sbin/stop-yarn.sh'
