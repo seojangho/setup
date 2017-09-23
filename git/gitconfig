@@ -1,6 +1,6 @@
 [user]
 	name = JangHo Seo
-	email = jangho@jangho.kr
+	email = jangho@jangho.io
 [core]
 	editor = vim
 	quotepath = false

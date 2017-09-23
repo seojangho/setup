@@ -1,5 +1,5 @@
 # Debian packaging tool
 export DEBFULLNAME="JangHo Seo"
-export DEBEMAIL="jangho@jangho.kr"
+export DEBEMAIL="jangho@jangho.io"
 
 alias dquilt="quilt --quiltrc=${HOME}/setup/debian-packaging/quiltrc-dpkg"
