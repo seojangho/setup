@@ -7,3 +7,5 @@
 	quotepath = false
 [push]
 	default = simple
+[commit]
+	gpgsign = true
