@@ -1,7 +1,7 @@
 [user]
 	name = JangHo Seo
 	email = jangho@jangho.io
-	signingkey = 747878B59550884E69C355711BCF94C599B2D78F
+	signingkey = EE37EBD527ECFE87A96A7BDB6503B6817E24FCA3
 [core]
 	editor = vim
 	quotepath = false
