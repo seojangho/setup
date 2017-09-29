@@ -1,0 +1,11 @@
+function open() {
+  if [[ -d "$@" ]]; then
+    gtk-launch org.gnome.Nautilus "$@"
+  else
+    xdg-open "$@"
+  fi
+}
+op() {
+  open $@
+  exit $?
+}
