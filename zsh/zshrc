@@ -90,17 +90,17 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
 function open() {
-  if command -v gio > /dev/null; then
-    gio open $@
+  if [[ -d "$@" ]]; then
+    gtk-launch org.gnome.Nautilus "$@"
   else
-    xdg-open $@
+    xdg-open "$@"
   fi
 }
-alias spwgen='pwgen -y -1 40 5'
 op() {
   open $@
   exit $?
 }
+alias spwgen='pwgen -y -1 40 5'
 
 alias b='mvn clean install'
 alias bb='mvn clean install -DskipTests'
