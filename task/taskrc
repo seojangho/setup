@@ -21,7 +21,7 @@ taskd.credentials=users\/jangho\/78628884-59de-44ed-a0cf-dc20dbea98f3
 taskd.ca=\/home\/jangho\/.task\/ca.cert
 taskd.certificate=\/home\/jangho\/.task\/client.cert
 taskd.key=\/home\/jangho\/.task\/client.key
-taskd.server=mango.taskd.ca.jangho.kr:53589
+taskd.server=taskd.mango.jangho.io:53589
 
 # report next
 report.next.description=TODO
