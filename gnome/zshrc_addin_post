@@ -9,3 +9,5 @@ op() {
   open $@
   exit $?
 }
+# usage: echo 'something' | clip
+alias clip="perl -p -e 'chomp if eof' | xclip -selection clipbaord"
