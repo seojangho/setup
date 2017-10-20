@@ -5,7 +5,7 @@ filetype plugin indent on
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'evanmiller/nginx-vim-syntax'
+Plug 'chr4/nginx.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
