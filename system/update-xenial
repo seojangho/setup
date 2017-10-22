@@ -3,3 +3,5 @@
 sudo apt update
 sudo apt dist-upgrade
 sudo apt autoremove --purge
+
+[[ -f /var/run/reboot-required ]] && cat /var/run/reboot-required >> "$MSGFILE"
