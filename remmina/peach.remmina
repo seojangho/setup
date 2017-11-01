@@ -26,7 +26,6 @@ microphone=0
 execpath=
 gateway_usage=0
 disableautoreconnect=0
-resolution=
 security=
 domain=
 precommand=
