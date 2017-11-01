@@ -1,8 +1,11 @@
 #!/bin/bash
 
-CONF=$(dirname $(dirname "$(realpath -s "$0")"))/pies.conf
+CONFHOME=$(dirname $(dirname "$(realpath -s "$0")"))
+PIESCONF=$CONFHOME/pies.conf
+PIECONF=$CONFHOME/gnome-pie.conf
 CONFIGDIR=${XDG_CONFIG_HOME:=$HOME/.config}/gnome-pie
 mkdir -p "$CONFIGDIR"
-ln -s "$CONF" "$CONFIGDIR"
+ln -s "$PIESCONF" "$CONFIGDIR"
+ln -s "$PIECONF" "$CONFIGDIR"
 
 exit 0
