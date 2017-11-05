@@ -11,6 +11,13 @@ if (open (my $todayFh, '<', $todayPath)) {
   say <$todayFh>;
 }
 
+# journal:week
+my $weekPath = '/home/jangho/.sync-home/gitit/journal/wikidata/today/'.`date +%Y/week/%U.page`;
+$weekPath =~ s/\s+$//;
+if (open (my $weekFh, '<', $weekPath)) {
+  say <$weekFh>;
+}
+
 # weekblock
 my $weeknum = `date +%U`;
 print ('■' x $weeknum);
