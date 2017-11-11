@@ -104,6 +104,7 @@ alias cms='ssh jangho@cmscluster.snu.ac.kr'
 alias socks='ssh -f -D 8080 -C -q -N cmscluster.snu.ac.kr'
 alias awsocks='ssh -f -D 9090 -C -q -N ubuntu@35.164.221.40'
 alias am='ssh ubuntu@35.164.221.40'
+alias mm='ssh ubuntu@34.210.48.245'
 
 # cd to month
 alias month="cd ~/archive/$(date +%Y/%m)"
