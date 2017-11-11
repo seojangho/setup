@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ORIG=/srv/data/vine
+TARG=/srv/data/Archive/$(date +%Y)/vine
+
+mkdir -p "$TARG/Camera"
+mkdir -p "$TARG/KakaoTalkPictures"
+mkdir -p "$TARG/Screenshots"
+
+mv $ORIG/Camera/* "$TARG/Camera/"
+mv $ORIG/KakaoTalkPictures/* "$TARG/KakaoTalkPictures/"
+mv $ORIG/Screenshots/* "$TARG/Screenshots/"
+
+exit 0
