@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=socks
-Exec=ssh -f -D 8080 -C -q -N cmscluster.snu.ac.kr
-Terminal=false
-Type=Application
