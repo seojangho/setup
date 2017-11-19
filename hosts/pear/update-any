@@ -2,6 +2,7 @@
 
 cat >> "$MSGFILE" <<EOF
 Check https://extensions.gnome.org/local/
+Update timewarrior
 EOF
 
 exit 0
