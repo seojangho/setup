@@ -3,6 +3,7 @@
 cat >> "$MSGFILE" <<EOF
 Check https://extensions.gnome.org/local/
 Update timewarrior
+Update Slack desktop
 EOF
 
 exit 0
