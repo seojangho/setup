@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 CONF=${SETUPDIR}/zsh/zshrc
 ln -s "$CONF" "$HOME"/.zshrc
 

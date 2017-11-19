@@ -1,2 +1,4 @@
 #!/bin/bash
+set -e
 vim +PlugUpgrade +PlugClean +PlugUpdate +qall
+exit 0

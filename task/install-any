@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 DIR=${SETUPDIR}/task
 
 ln -s "$DIR"/taskrc "$HOME"/.taskrc

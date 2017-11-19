@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 sudo apt update
 sudo apt install ibus-hangul ibus-gtk3 ibus-gtk im-config
 

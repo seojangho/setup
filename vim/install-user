@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 CONF=${SETUPDIR}/vim/vimrc
 ln -s "$CONF" "$HOME"/.vimrc
 

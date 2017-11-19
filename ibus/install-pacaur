@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 pacaur --needed -Sy ibus-hangul ibus-qt
 
 exit 0

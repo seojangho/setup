@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 sudo apt-add-repository ppa:eosrei/fonts
 sudo apt update
 sudo apt install fonts-noto fonts-emojione-svginot fonts-noto-cjk fonts-nanum-coding fonts-hack-ttf fonts-dejavu-core

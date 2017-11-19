@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+sudo zypper ref
+sudo zypper up
+
+exit 0

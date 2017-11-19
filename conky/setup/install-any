@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 CONF=$(dirname $(dirname "$(realpath -s "$0")"))/conky.conf
 CONFIGDIR=${XDG_CONFIG_HOME:=$HOME/.config}/conky
 mkdir -p "$CONFIGDIR"

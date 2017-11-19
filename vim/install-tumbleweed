@@ -2,7 +2,7 @@
 
 set -e
 
-pacaur --needed -Sy curl git vim
+sudo zypper in vim curl git
 
 "${SETUPDIR}"/vim/install-user
 

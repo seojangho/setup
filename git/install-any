@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 CONF=${SETUPDIR}/git/gitconfig
 ln -s "$CONF" "$HOME"/.gitconfig
 

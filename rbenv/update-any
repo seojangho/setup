@@ -1,7 +1,12 @@
 #!/bin/bash
+
+set -e
+
 originaldir=$(pwd)
 cd "$HOME"/.rbenv
 git pull
 cd "$HOME"/.rbenv/plugins/ruby-build
 git pull
 cd "$originaldir"
+
+exit 0

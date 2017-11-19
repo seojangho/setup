@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 CONFHOME=$(dirname $(dirname "$(realpath -s "$0")"))
 PIESCONF=$CONFHOME/pies.conf
 PIECONF=$CONFHOME/gnome-pie.conf
