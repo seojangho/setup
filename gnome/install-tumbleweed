@@ -2,6 +2,6 @@
 
 set -e
 
-sudo zypper in xorg-x11-server-wayland gnome-session-wayland adapta-gtk-theme gnome-shell-theme-adapta
+sudo zypper in xorg-x11-server-wayland gnome-session-wayland gnome-shell-theme-adapta
 
 exit 0
