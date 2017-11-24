@@ -3,10 +3,13 @@
 set -e
 
 DIR=${SETUPDIR}/task
+AUTOSTARTCONF=$DIR/autostart/task-sync.desktop
+AUTOSTARTDIR=${XDG_CONFIG_HOME:=$HOME/.config}/autostart
 
 ln -s "$DIR"/taskrc "$HOME"/.taskrc
 mkdir "$HOME"/.task
 ln -s "$DIR"/hooks "$HOME"/.task
 ln -s "$DIR"/theme "$HOME"/.task
+ln -s "$AUTOSTARTCONF" "$AUTOSTARTDIR"
 
 exit 0
