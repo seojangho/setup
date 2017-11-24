@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+sudo apt update
+sudo apt dist-upgrade
+sudo apt autoremove --purge
+
+exit 0
