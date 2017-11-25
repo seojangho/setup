@@ -22,6 +22,9 @@ Plug 'plasticboy/vim-markdown'
 Plug 'elmcast/elm-vim'
 Plug 'chr4/sslsecure.vim'
 Plug 'wakatime/vim-wakatime'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 
 " vim-airline
 set laststatus=2
