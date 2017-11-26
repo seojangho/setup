@@ -2,7 +2,7 @@
 
 cat >> "$MSGFILE" <<EOF
 Check https://extensions.gnome.org/local/
-Check updates for timewarrior, Slack desktop, and gnome-pie
+Check updates for hwpviewer(+libwebkitgtk and dependencies), Slack desktop, and gnome-pie
 EOF
 
 exit 0
