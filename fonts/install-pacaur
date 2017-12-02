@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-pacaur --needed -Sy noto-fonts noto-fonts-cjk ttf-nanumgothic_coding ttf-hack ttf-emojione-color ttf-dejavu
-
-sudo rm -f /etc/fonts/conf.d/{64-ttf-emojione-color,45-generic,60-generic}.conf
-
-exit 0

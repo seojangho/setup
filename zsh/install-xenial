@@ -2,7 +2,6 @@
 
 set -e
 
-sudo apt update
 sudo apt install zsh curl git gawk
 
 "${SETUPDIR}"/zsh/install-user

@@ -2,6 +2,6 @@
 
 set -e
 
-pacaur --needed -Sy conky
+sudo pacman -Syu --noconfirm
 
 exit 0

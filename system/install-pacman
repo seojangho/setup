@@ -2,6 +2,6 @@
 
 set -e
 
-sudo zypper in conky
+sudo pacman -Sy
 
 exit 0

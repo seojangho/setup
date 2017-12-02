@@ -2,7 +2,7 @@
 
 set -e
 
-pacaur --needed -Sy curl git vim
+sudo pacman --needed -Sy curl git vim
 
 "${SETUPDIR}"/vim/install-user
 

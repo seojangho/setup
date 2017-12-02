@@ -2,6 +2,6 @@
 
 set -e
 
-sudo zypper in noto-serif-fonts noto-serif-kr-fonts noto-serif-jp-fonts noto-serif-sc-fonts noto-serif-tc-fonts noto-sans-fonts noto-sans-cjk-fonts emojione-color-font nanum-fonts hack-fonts
+sudo zypper in noto-serif-fonts noto-serif-kr-fonts noto-serif-jp-fonts noto-serif-sc-fonts noto-serif-tc-fonts noto-sans-fonts noto-sans-cjk-fonts nanum-fonts hack-fonts
 
 exit 0

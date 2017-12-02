@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+sudo pacman --needed -Sy papirus-icon-theme libnotify zenity
+
+exit 0

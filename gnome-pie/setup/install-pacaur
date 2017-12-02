@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -e
-
-pacaur --needed -Sy papirus-icon-theme-git libnotify zenity
-
-exit 0

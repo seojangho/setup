@@ -2,7 +2,7 @@
 
 set -e
 
-pacaur --needed -Sy zsh curl git gawk
+sudo pacman --needed -Sy zsh curl git gawk
 
 "${SETUPDIR}"/zsh/install-user
 

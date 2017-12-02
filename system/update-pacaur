@@ -1,8 +1,0 @@
-#!/bin/bash
-
-set -e
-
-pacaur -Syu --noconfirm
-sudo systemctl daemon-reload
-
-exit 0
