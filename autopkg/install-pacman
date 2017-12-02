@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+sudo pacman --needed -Sy devtools
+CONFDIR=${SETUPDIR}/autopkg
+mkdir -p ~/.autopkg/{aur,gshellext}
+ln -s $CONFDIR/autopkg.json ~/.autopkg.json
+ln -s $CONFDIR/aur.json ~/.autopkg/aur/db.json
+ln -s $CONFDIR/gshellext.json ~/.autopkg/gshellext/db.json
+
+exit 0
