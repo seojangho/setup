@@ -2,7 +2,6 @@
 
 cat >> "$MSGFILE" <<EOF
 Packages in jangho_manual:
- - hwpviewer
  - adapta-gtk-theme: https://github.com/adapta-project/adapta-gtk-theme/releases
 EOF
 
