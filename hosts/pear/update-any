@@ -1,8 +1,7 @@
 #!/bin/bash
 
 cat >> "$MSGFILE" <<EOF
-Check https://extensions.gnome.org/local/
-Check updates for hwpviewer(+libwebkitgtk and dependencies), Slack desktop, gnome-pie, and maven
+Packages in jangho_manual: hwpviewer and adapta-gtk-theme-github
 EOF
 
 exit 0
