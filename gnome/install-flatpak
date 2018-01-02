@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+flatpak install flathub org.gtk.Gtk3theme.Adapta-Eta
+
+exit 0
