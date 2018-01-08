@@ -2,11 +2,11 @@
 
 set -e
 
-~/.setup/local/autopkg/front.py
-rsync -avz --delete ~/.autopkg/aur/repo/ \
-  mango.vanilla.jangho.io:/srv/data/static/_/autopkg/jangho_aur
-rsync -avz --delete ~/.autopkg/gshellext/repo/ \
-  mango.vanilla.jangho.io:/srv/data/static/_/autopkg/jangho_gshellext
+autopkg update autoremove
+#rsync -avz --delete ~/.autopkg/aur/repo/ \
+#  mango.vanilla.jangho.io:/srv/data/static/_/autopkg/jangho_aur
+#rsync -avz --delete ~/.autopkg/gshellext/repo/ \
+#  mango.vanilla.jangho.io:/srv/data/static/_/autopkg/jangho_gshellext
 sudo pacman -Syu --needed --noconfirm
 
 exit 0

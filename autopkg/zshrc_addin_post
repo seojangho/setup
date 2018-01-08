@@ -1,1 +1,1 @@
-alias autopkg='~/.setup/local/autopkg/front.py'
+AUTOPKG_REPO_NAME=jangho

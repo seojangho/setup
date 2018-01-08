@@ -1,0 +1,1 @@
+[{"repository": "ssh://mango.jangho.io:50022/git/system/pkgbuilds.git", "path": "autopkg", "branch": "master"}, {"repository": "ssh://mango.jangho.io:50022/git/system/pkgbuilds.git", "path": "mkinitcpio-dropbear-encrypt", "branch": "master"}]
