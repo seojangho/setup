@@ -3,10 +3,8 @@
 set -e
 
 autopkg update autoremove
-#rsync -avz --delete ~/.autopkg/aur/repo/ \
-#  mango.vanilla.jangho.io:/srv/data/static/_/autopkg/jangho_aur
-#rsync -avz --delete ~/.autopkg/gshellext/repo/ \
-#  mango.vanilla.jangho.io:/srv/data/static/_/autopkg/jangho_gshellext
+rsync -avz --delete "$HOME"/.autopkg/repository/autopkg \
+  guava.jangho.io:/srv/autopkg-repository/
 sudo pacman -Syu --needed --noconfirm
 
 exit 0

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-cat >> "$MSGFILE" <<EOF
-Check https://extensions.gnome.org/local/
-EOF
-
-exit 0

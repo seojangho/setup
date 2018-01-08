@@ -1,8 +1,0 @@
-#!/bin/bash
-
-cat >> "$MSGFILE" <<EOF
-Packages in jangho_manual:
- - adapta-gtk-theme: https://github.com/adapta-project/adapta-gtk-theme/releases
-EOF
-
-exit 0
