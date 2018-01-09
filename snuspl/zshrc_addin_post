@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+[[ -e /usr/lib/jvm/default ]] && export JAVA_HOME=/usr/lib/jvm/default
+[[ -f /opt/protobuf-for-onyx/environment ]] && . /opt/protobuf-for-onyx/environment
+[[ -f /opt/hadoop-for-onyx/environment ]] && . /opt/hadoop-for-onyx/environment

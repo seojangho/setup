@@ -1,3 +1,0 @@
-export JAVA_HOME=/usr/lib64/jvm/jre
-export PATH=$HOME/.setup/local/maven/bin:$HOME/.setup/local/protobuf-2.5.0/bin:$PATH
-export LD_LIBRARY_PATH=$HOME/.setup/local/protobuf-2.5.0/lib:$LD_LIBRARY_PATH
