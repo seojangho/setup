@@ -3,7 +3,7 @@
 set -e
 
 CONFDIR=${SETUPDIR}/autopkg
-DESTDIR=$HOME/.autopkg/config/jangho
+DESTDIR=$HOME/.autopkg/config/autopkg
 mkdir -p "$DESTDIR"
 ln -s "$CONFDIR"/git.json "$DESTDIR"/git.json
 ln -s "$CONFDIR"/targets.json "$DESTDIR"/targets.json

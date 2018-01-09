@@ -1,8 +1,0 @@
-#!/bin/bash
-
-cat >> "$MSGFILE" <<EOF
-Check https://extensions.gnome.org/local/
-Check updates for hwpviewer(+libwebkitgtk and dependencies), Slack desktop, gnome-pie, and maven
-EOF
-
-exit 0
