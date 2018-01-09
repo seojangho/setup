@@ -1,0 +1,1 @@
+alias dropbear-encrypt='$HOME/.setup/scripts/bin/dropbear-encrypt'
