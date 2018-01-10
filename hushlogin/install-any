@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+ln -s "$SETUPDIR"/hushlogin/hushlogin "$HOME"/.hushlogin
+
+exit 0
