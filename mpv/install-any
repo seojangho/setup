@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+DIR=${SETUPDIR}/mpv/config
+TARGET=${XDG_CONFIG_HOME:=$HOME/.config}
+mkdir -p "$TARGET"
+ln -s "$DIR" "$TARGET"/mpv
+
+exit 0
