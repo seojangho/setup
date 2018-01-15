@@ -2,6 +2,14 @@
 
 set -e
 
+GITPATH=$(git rev-parse --show-toplevel)
+DIR=~/.remote-maven/$(hostname)$GITPATH
+
+if [[ "$1" == '--shell' ]]; then
+  ssh -t -p50022 mango.jangho.io -- "ssh -t pear.vanilla.jangho.io -- \"cd \\\"$DIR\\\"; $SHELL\""
+  exit 0
+fi
+
 function cleanup {
   set +e
   ssh -p50022 mango.jangho.io -- 'ssh pear.vanilla.jangho.io -- jps | awk '"'"'{print $1}'"'"' | xargs -L1 -- kill -9'
@@ -10,8 +18,6 @@ function cleanup {
 
 trap 'cleanup $?' EXIT
 
-GITPATH=$(git rev-parse --show-toplevel)
-DIR=~/.remote-maven/$(hostname)$GITPATH
 cd "$GITPATH"
 ssh -p50022 mango.jangho.io -- "ssh pear.vanilla.jangho.io -- rm -rf \"$DIR\""
 ssh -p50022 mango.jangho.io -- "ssh pear.vanilla.jangho.io -- mkdir -p \"$DIR\""
