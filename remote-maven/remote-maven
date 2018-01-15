@@ -1,0 +1,19 @@
+#!/usr/bin/zsh
+
+set -e
+
+function cleanup {
+  set +e
+  ssh -p50022 mango.jangho.io -- 'ssh pear.vanilla.jangho.io -- jps | awk '"'"'{print $1}'"'"' | xargs -L1 -- kill -9'
+  exit $1
+}
+
+trap 'cleanup $?' EXIT
+
+GITPATH=$(git rev-parse --show-toplevel)
+DIR=~/.remote-maven/$(hostname)$GITPATH
+cd "$GITPATH"
+ssh -p50022 mango.jangho.io -- "ssh pear.vanilla.jangho.io -- mkdir -p \"$DIR\""
+rsync -avz --delete -0 --files-from <(git ls-files -z) -e 'ssh -p50022 mango.jangho.io ssh' . "pear.vanilla.jangho.io:$DIR"
+ssh -t -p50022 mango.jangho.io -- "ssh -t pear.vanilla.jangho.io -- \"cd \\\"$DIR\\\" && pwd && /usr/bin/mvn $@\""
+exit 0
