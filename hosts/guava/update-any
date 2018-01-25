@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -e
-
-echo "nvm install node && update /etc/systemd/system/elsabot.service if needed">> "$MSGFILE"
-
-exit 0
