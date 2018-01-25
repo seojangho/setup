@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MACF=$(dirname "$(readlink -f "$0")")/../mac
+MACF="$HOME"/.secret/mac
 [[ -z "$1" ]] && exit 1
 MAC=$(awk "{if (\$1==\"$1\") print \$2}" "$MACF")
 [[ -z "$MAC" ]] && exit 1
