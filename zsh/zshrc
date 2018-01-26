@@ -118,6 +118,7 @@ alias ㅓ='t'
 # encrypt
 function encrypt {
   gpg --encrypt --output "$1".gpg --encrypt --recipient jangho@jangho.io "$1"
+  rm -i "$1"
 }
 
 # addins before loading plugins
