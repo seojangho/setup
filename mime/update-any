@@ -7,5 +7,6 @@ xdg-mime default typora.desktop text/markdown
 xdg-mime default org.gnome.FileRoller.desktop application/x-compressed-tar application/x-xz-compressed-tar application/gzip
 xdg-mime default thunderbird.desktop message/rfc822 x-scheme-handler/mailto
 xdg-mime default firefox.desktop x-scheme-handler/http x-scheme-handler/https text/html text/xml application/xhtml+xml application/vnd.mozilla.xul+xml text/mml
+xdg-mime default org.gnome.gedit.desktop text/plain
 
 exit 0
