@@ -1,2 +1,2 @@
 alias wup='$HOME/.setup/scripts/bin/wup'
-alias move-vine-data='$HOME/.setup/hosts/mango/move-vine-data'
+alias move-mobile-data='$HOME/.setup/hosts/mango/move-mobile-data'
