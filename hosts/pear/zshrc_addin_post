@@ -1,2 +1,6 @@
 # reboot to peach (Windows)
 alias reboot-peach='sudo efibootmgr --bootnext 0000 && sudo reboot'
+
+# VM (lemon)
+alias lemon-status='echo lemon && vboxmanage showvminfo lemon | grep --color=no -e "State:"'
+alias lemon-start='vboxmanage startvm --type headless lemon'
