@@ -121,6 +121,12 @@ function encrypt {
   rm -i "$1"
 }
 
+# folder digest
+function fdigest {
+  find . -type f -print0 | xargs -L1 -0 -- md5sum | sort | md5sum
+  find . | sort | md5sum
+}
+
 # addins before loading plugins
 while read -r addin
 do
