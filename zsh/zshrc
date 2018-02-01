@@ -25,8 +25,13 @@ BULLETTRAIN_PROMPT_CHAR="➜"
 BULLETTRAIN_PROMPT_ADD_NEWLINE=false
 BULLETTRAIN_STATUS_EXIT_SHOW=true
 BULLETTRAIN_STATUS_BG='red'
-BULLETTRAIN_NVM_SHOW=false
-BULLETTRAIN_PROMPT_ORDER=(status custom perl conditional_ruby virtualenv conditional_nvm go dir git hg)
+BULLETTRAIN_PROMPT_ORDER=(status custom conditional_perl conditional_ruby virtualenv conditional_nvm go dir git hg)
+function prompt_conditional_perl() {
+  if [[ $BULLETTRAIN_PERL_SHOW == true ]]
+  then
+    prompt_perl
+  fi
+}
 function prompt_conditional_nvm() {
   if [[ $BULLETTRAIN_NVM_SHOW == true ]]
   then

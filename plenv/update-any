@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+cd "$HOME/.plenv"
+git pull
+cd "$HOME/.plenv/plugins/perl-build/"
+git pull
+
+exit 0

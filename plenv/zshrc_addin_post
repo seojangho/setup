@@ -1,0 +1,21 @@
+function plenv() {
+  export PATH="$HOME/.plenv/shims:$HOME/.plenv/bin:$PATH"
+  export PLENV_SHELL=zsh
+  source '/home/jangho/.plenv/libexec/../completions/plenv.zsh'
+  export BULLETTRAIN_PERL_SHOW=true
+  unset -f plenv
+  plenv() {
+    local command
+    command="$1"
+    if [ "$#" -gt 0 ]; then
+      shift
+    fi
+    case "$command" in
+    rehash|shell)
+      eval "`plenv "sh-$command" "$@"`";;
+    *)
+      command plenv "$command" "$@";;
+    esac
+  }
+  plenv "$@"
+}
