@@ -22,15 +22,14 @@ rmver git
 rmver gitit
 echo ' done'
 
-echo -n 'Taking a snapshot...'
+echo 'Taking a snapshot:'
 sudo btrfs subvolume snapshot -r /srv/data "/srv/snapshots/$(date +%Y-%m-%dT%H:%M:%S%:z)"
-echo ' done'
 
 echo -n 'Starting Syncthing...'
 sudo systemctl start syncthing@jangho
 echo ' done'
 
 echo 'List of subvolumes:'
-sudo btrfs subvolume list /srv/data
+sudo btrfs subvolume list /srv/snapshots
 
 exit 0
