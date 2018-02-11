@@ -1,3 +1,5 @@
+export PATH="$HOME/.setup/hosts/pear/scripts:$PATH"
+
 # reboot to peach (Windows)
 alias reboot-peach='sudo efibootmgr --bootnext 0000 && sudo reboot'
 
