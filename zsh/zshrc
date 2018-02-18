@@ -102,6 +102,7 @@ alias bbb='mvn clean install -DskipTests -TC1 -P!code-quality'
 
 # ssh
 alias mango='ssh -p50022 jangho@mango.jangho.io'
+alias pear='ssh -p50023 jangho@pear.jangho.io'
 alias martini='ssh janghose@martini.snucse.org'
 alias guava='ssh jangho@guava.jangho.io'
 alias dev='ssh jangho@dev.snucse.org'
