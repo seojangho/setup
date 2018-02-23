@@ -1,5 +1,4 @@
 export PATH="$HOME/.setup/hosts/pear/scripts:$PATH"
-alias pear='ssh jangho@pear.vanilla.jangho.io'
 
 # reboot to peach (Windows)
 alias reboot-peach='sudo efibootmgr --bootnext 0000 && sudo reboot'
