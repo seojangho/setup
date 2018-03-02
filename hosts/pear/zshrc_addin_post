@@ -1,7 +1,7 @@
 export PATH="$HOME/.setup/hosts/pear/scripts:$PATH"
 
 # reboot to peach (Windows)
-alias reboot-peach='sudo efibootmgr --bootnext 0000 && sudo reboot'
+alias reboot-peach='if vboxmanage showvminfo lemon | grep --color=no -e "State:" | grep off; then sudo efibootmgr --bootnext 0000 && sudo reboot; else echo "Power off lemon first"; fi'
 
 # VM (lemon)
 alias lemon-status='echo lemon && vboxmanage showvminfo lemon | grep --color=no -e "State:"'
