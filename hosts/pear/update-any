@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+cat >> "$MSGFILE" <<EOF
+Check updates for Canta theme https://github.com/vinceliuice/Canta-theme
+EOF
+
+exit 0
