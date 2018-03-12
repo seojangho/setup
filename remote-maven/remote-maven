@@ -6,21 +6,21 @@ GITPATH=$(git rev-parse --show-toplevel)
 DIR=~/.remote-maven/$(hostname)$GITPATH
 
 if [[ "$1" == '--shell' ]]; then
-  ssh -t -p50022 mango.jangho.io -- "ssh -t pear.vanilla.jangho.io -- \"cd \\\"$DIR\\\"; $SHELL\""
+  ssh -t pear.jangho.io -p50023 -- "cd \"$DIR\"; $SHELL"
   exit 0
 fi
 
 function cleanup {
   set +e
-  ssh -p50022 mango.jangho.io -- 'ssh pear.vanilla.jangho.io -- jps | awk '"'"'{print $1}'"'"' | xargs -L1 -- kill -9'
+  ssh pear.jangho.io -p50023 -- jps | awk '"'"'{print $1}'"'"' | xargs -L1 -- kill -9
   exit $1
 }
 
 trap 'cleanup $?' EXIT
 
 cd "$GITPATH"
-ssh -p50022 mango.jangho.io -- "ssh pear.vanilla.jangho.io -- rm -rf \"$DIR\""
-ssh -p50022 mango.jangho.io -- "ssh pear.vanilla.jangho.io -- mkdir -p \"$DIR\""
-rsync -avz --delete -0 --files-from <(git ls-files -z) -e 'ssh -p50022 mango.jangho.io ssh' . "pear.vanilla.jangho.io:$DIR"
-ssh -t -p50022 mango.jangho.io -- "ssh -t pear.vanilla.jangho.io -- \"cd \\\"$DIR\\\" && pwd && /usr/bin/mvn $@\""
+ssh pear.jangho.io -p50023 -- rm -rf \"$DIR\"
+ssh pear.jangho.io -p50023 -- mkdir -p \"$DIR\"
+rsync -avz --delete -0 --files-from <(git ls-files -z) -e 'ssh -p50023' . "pear.jangho.io:$DIR"
+ssh -t pear.jangho.io -p50023 -- "cd \"$DIR\" && pwd && /usr/bin/mvn $@"
 exit 0
