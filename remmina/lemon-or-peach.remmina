@@ -40,4 +40,4 @@ window_width=640
 viewmode=4
 scale=0
 ssh_passphrase=
-last_success=20180305
+security=tls

@@ -40,3 +40,4 @@ window_width=640
 viewmode=4
 resolution_height=1080
 resolution_width=1920
+security=tls
