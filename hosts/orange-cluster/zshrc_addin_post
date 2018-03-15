@@ -1,0 +1,4 @@
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+export YARN_HOME="/home/ubuntu/hadoop"
+export HADOOP_HOME="/home/ubuntu/hadoop"
+export PATH="$YARN_HOME/sbin:$PATH"
