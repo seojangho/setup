@@ -134,10 +134,10 @@ function fdigest {
 }
 
 # sshuttle
-
+# usage: sshuttle-proxy ubuntu@orange.jangho.io --dns
 function sshuttle-proxy {
   sshuttle -r "$1" 0/0 -x $(echo "$1" | cut -d'@' -f2 | cut -d':' -f1)/32 \
-    -x 192.168.0.0/16 -x 172.16.0.0/12 -x 10.0.0.0/8
+    -x 192.168.0.0/16 -x 172.16.0.0/12 -x 10.0.0.0/8 ${@:2}
 }
 
 # local::lib
