@@ -145,6 +145,11 @@ function sshuttle-all {
   sshuttle ${@:2} -r "$1" 0/0 -x $(echo "$1" | cut -d'@' -f2 | cut -d':' -f1)/32
 }
 
+# usage: sshuttle-aws ubuntu@orange.jangho.io
+function sshuttle-aws {
+  sshuttle ${@:2} -r -H "$1" 127.16.0.0/12
+}
+
 # local::lib
 export PATH="$HOME/.perl5/bin${PATH:+:${PATH}}"
 export PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
