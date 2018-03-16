@@ -105,12 +105,6 @@ alias mango='ssh -p50022 jangho@mango.jangho.io'
 alias pear='ssh -p50023 jangho@pear.jangho.io'
 alias martini='ssh janghose@martini.snucse.org'
 alias guava='ssh jangho@guava.jangho.io'
-alias dev='ssh jangho@dev.snucse.org'
-alias cms='ssh jangho@cmscluster.snu.ac.kr'
-alias socks='ssh -f -D 8080 -C -q -N cmscluster.snu.ac.kr'
-alias awsocks='ssh -f -D 9090 -C -q -N ubuntu@35.164.221.40'
-alias am='ssh ubuntu@35.164.221.40'
-alias mm='ssh ubuntu@34.210.48.245'
 
 # cd to month
 alias month="cd ~/archive/$(date +%Y/%m)"
@@ -147,7 +141,7 @@ function sshuttle-all {
 
 # usage: sshuttle-aws ubuntu@orange.jangho.io
 function sshuttle-aws {
-  sshuttle ${@:2} -r -H "$1" 127.16.0.0/12
+  sshuttle ${@:2} -H -r "$1" 127.16.0.0/12
 }
 
 # local::lib
