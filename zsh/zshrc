@@ -133,6 +133,13 @@ function fdigest {
   find . | sort | md5sum
 }
 
+# sshuttle
+
+function sshuttle-proxy {
+  sshuttle -r "$1" 0/0 -x $(echo "$1" | cut -d'@' -f2 | cut -d':' -f1)/32 \
+    -x 192.168.0.0/16 -x 172.16.0.0/12 -x 10.0.0.0/8
+}
+
 # local::lib
 export PATH="$HOME/.perl5/bin${PATH:+:${PATH}}"
 export PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
