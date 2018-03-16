@@ -141,7 +141,7 @@ function sshuttle-all {
 
 # usage: sshuttle-aws ubuntu@orange.jangho.io
 function sshuttle-aws {
-  sshuttle ${@:2} -H -r "$1" 127.16.0.0/12
+  sshuttle ${@:2} -H -r "$1" 172.16.0.0/12
 }
 
 # local::lib
