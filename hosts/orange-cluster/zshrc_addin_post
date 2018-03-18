@@ -7,5 +7,5 @@ alias run-mr-caida='./bin/run.sh \
   -job_id mr_caida \
   -user_main edu.snu.nemo.examples.beam.MapReduce \
   -dag_dir "./dag/mr_caida" \
-  -user_args "hdfs://master:9000/caida hdfs://master:9000/output" \
+  -user_args "hdfs://master:9000/caida hdfs://master:9000/caida-output" \
   -deploy_mode yarn'
