@@ -6,6 +6,6 @@ CONF=${SETUPDIR}/zsh/zshrc
 ln -s "$CONF" "$HOME"/.zshrc
 
 git clone https://github.com/zplug/zplug "$HOME"/.zplug
-zsh "$HOME"/.zshrc --install-only
+#zsh "$HOME"/.zshrc --install-only
 
 exit 0
