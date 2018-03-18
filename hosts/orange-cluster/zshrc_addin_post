@@ -3,9 +3,20 @@ export YARN_HOME="/home/ubuntu/hadoop"
 export HADOOP_HOME="/home/ubuntu/hadoop"
 export PATH="$YARN_HOME/sbin:$YARN_HOME/bin:$PATH"
 
+alias tc-on='~/traffic-control/convert.py ~/nemo/examples/resources/bandwidth.json | ~/traffic-control/tc.py'
+alias tc-off='~/traffic-control/convert.py ~/nemo/examples/resources/bandwidth.json | ~/traffic-control/tc.py --reset'
+
 alias run-mr-caida='./bin/run.sh \
   -job_id mr_caida \
   -user_main edu.snu.nemo.examples.beam.MapReduce \
   -dag_dir "./dag/mr_caida" \
   -user_args "hdfs://master:9000/caida hdfs://master:9000/caida-output" \
   -deploy_mode yarn'
+
+alias run-mr-caida-iridium='./bin/run.sh \
+  -job_id mr_caida \
+  -user_main edu.snu.nemo.examples.beam.MapReduce \
+  -dag_dir "./dag/mr_caida" \
+  -user_args "hdfs://master:9000/caida hdfs://master:9000/caida-output" \
+  -deploy_mode yarn \
+  -bandwidth_json "examples/resources/bandwidth.json"'
