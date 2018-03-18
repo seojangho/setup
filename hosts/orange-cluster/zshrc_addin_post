@@ -11,7 +11,7 @@ alias run-mr-caida='./bin/run.sh \
   -user_main edu.snu.nemo.examples.beam.MapReduce \
   -dag_dir "./dag/mr_caida" \
   -user_args "hdfs://master:9000/caida hdfs://master:9000/caida-output" \
-  -driver_mem_mb 61440 \
+  -driver_mem_mb 4096 \
   -deploy_mode yarn'
 
 alias run-mr-caida-iridium='./bin/run.sh \
@@ -19,6 +19,6 @@ alias run-mr-caida-iridium='./bin/run.sh \
   -user_main edu.snu.nemo.examples.beam.MapReduce \
   -dag_dir "./dag/mr_caida" \
   -user_args "hdfs://master:9000/caida hdfs://master:9000/caida-output" \
-  -driver_mem_mb 61440 \
+  -driver_mem_mb 4096 \
   -deploy_mode yarn \
   -bandwidth_json "examples/resources/bandwidth.json"'
