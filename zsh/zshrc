@@ -145,14 +145,9 @@ function sshuttle-aws {
 }
 
 # for experiments
-# usage: getdag w4 1521380610950_0002 mr_caida Plan-0-0
 # usage: getdag w4 1521380610950_0002 mr_caida
 function getdag {
-  if [[ -z "$4" ]]; then
-    ssh "ubuntu@$1" ls -1 "/mnt/d0/nm-local-dir/usercache/ubuntu/appcache/application_$2/container_${2}_01_000001/dag/$3/" | sort -V
-  else
-    scp "ubuntu@$1:/mnt/d0/nm-local-dir/usercache/ubuntu/appcache/application_$2/container_${2}_01_000001/dag/$3/$4.json" ./
-  fi
+  rsync -avz "ubuntu@$1:/mnt/d0/nm-local-dir/usercache/ubuntu/appcache/application_$2/container_${2}_01_000001/dag/$3/" "./$2/"
 }
 
 # local::lib
