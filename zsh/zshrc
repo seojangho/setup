@@ -115,6 +115,11 @@ alias ㄷ핑ㅓㅕ='update'
 alias ㄴ='s'
 alias ㅓ='t'
 
+# extract mp3 from avi
+extract-mp3() {
+  ffmpeg -i "$1" -q:a 0 -map a "$1.mp3"
+}
+
 # encrypt
 function encrypt {
   gpg --encrypt --output "$1".gpg --encrypt --recipient jangho@jangho.io "$1"
