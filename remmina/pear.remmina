@@ -28,4 +28,5 @@ window_height=807
 viewmode=4
 window_maximize=1
 window_width=1068
-ssh_passphrase=.
+ssh_passphrase=
+last_success=20180404
