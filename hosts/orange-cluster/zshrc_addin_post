@@ -4,3 +4,5 @@ export YARN_HOME="/home/ubuntu/hadoop"
 export HADOOP_HOME="$YARN_HOME"
 
 [[ -f "$CLUSTER_SETUP_HOME/zshrc_addin_post" ]] && source "$CLUSTER_SETUP_HOME/zshrc_addin_post"
+
+export AUTOEXP_CONFIG_HOME='/home/ubuntu/new/orange'
