@@ -7,8 +7,11 @@ elementIn() {
 }
 
 isSystemScript() {
-  [[ $(readlink -f "$1") =~ ^"$SETUPDIR"/system/ ]] && return 0
-  return 1
+  [[ $(readlink -f "$1") =~ ^"$SETUPDIR"/system/ ]]
+}
+
+isPreSystemScript() {
+  [[ $(readlink -f "$1") =~ ^"$SETUPDIR"/pre-system/ ]]
 }
 
 SETUPDIR=$(dirname "$(readlink -f "$0")")
@@ -48,15 +51,25 @@ done
 MSGFILE=$(mktemp)
 export MSGFILE
 
+# Execute pre-system scripts, only once for a file
+for (( i=0; i<${#scripts[@]}; i++ ));
+do
+  if elementIn "${scripts[$i]}" "${scripts[@]:$((i+1))}"; then
+    continue
+  fi
+  if ! isPreSystemScript "${scripts[$i]}"; then
+    continue
+  fi
+  ${scripts[$i]}
+done
+
 # Execute system scripts, only once for a file
 for (( i=0; i<${#scripts[@]}; i++ ));
 do
-  if elementIn "${scripts[$i]}" "${scripts[@]:$((i+1))}"
-  then
+  if elementIn "${scripts[$i]}" "${scripts[@]:$((i+1))}"; then
     continue
   fi
-  if ! isSystemScript "${scripts[$i]}"
-  then
+  if ! isSystemScript "${scripts[$i]}"; then
     continue
   fi
   ${scripts[$i]}
@@ -65,12 +78,13 @@ done
 # Execute non-system scripts, only once for a file
 for (( i=0; i<${#scripts[@]}; i++ ));
 do
-  if elementIn "${scripts[$i]}" "${scripts[@]:$((i+1))}"
-  then
+  if elementIn "${scripts[$i]}" "${scripts[@]:$((i+1))}"; then
     continue
   fi
-  if isSystemScript "${scripts[$i]}"
-  then
+  if isPreSystemScript "${scripts[$i]}"; then
+    continue
+  fi
+  if isSystemScript "${scripts[$i]}"; then
     continue
   fi
   ${scripts[$i]}
