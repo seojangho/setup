@@ -32,5 +32,9 @@ spl-aws-proxy() {
 }
 
 spl-aws-ssh() {
-  ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "${1:=orange.jangho.io}" -lubuntu
+  if [[ -n "$1" ]]; then
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "$1" -lubuntu "${@:2}"
+  else
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "orange.jangho.io" -lubuntu
+  fi
 }
