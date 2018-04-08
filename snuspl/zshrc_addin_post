@@ -5,11 +5,20 @@
 [[ -f /opt/anaconda/bin/activate ]] && alias anaconda-activate='source /opt/anaconda/bin/activate root'
 [[ -f /opt/anaconda/bin/deactivate ]] && alias anaconda-deactivate='source /opt/anaconda/bin/deactivate root'
 
+spl-get-metric-from-log() {
+  local logpath="$1"
+  grep "INFO master.MetricManagerMaster:" "$logpath" | cut -b52-
+}
+
+spl-get-inputreadtime-from-log() {
+  spl-get-metric-from-log "$1" | grep vertex-"${2:=4}"_ | awk '{if (match($0, /InputReadTime\(ms\)":([0-9])+/, m)){print m[0]}}' | cut -b20-
+}
+
 spl-parse-metric-from-log() {
   local logpath="$1"
   local tmp
   tmp="$(mktemp)"
-  grep "INFO master.MetricManagerMaster:" "$logpath" | cut -b52- > "$tmp"
+  spl-get-metric-from-log "$logpath" > "$tmp"
   ~/workspace/spl/nemo/bin/metric-parser.py "$tmp"
 }
 
