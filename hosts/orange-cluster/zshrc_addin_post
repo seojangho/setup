@@ -1,9 +1,2 @@
-export CLUSTER_SETUP_HOME="/home/ubuntu/setup"
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
-export YARN_HOME="/home/ubuntu/hadoop"
-export HADOOP_HOME="$YARN_HOME"
-
-[[ -f "$CLUSTER_SETUP_HOME/zshrc_addin_post" ]] && source "$CLUSTER_SETUP_HOME/zshrc_addin_post"
-
-export AUTOEXP_CONFIG_HOME='/home/ubuntu/new/orange'
-export PATH="/home/ubuntu/new/autoexp/bin:$PATH"
+export AUTOEXP_CONFIG_HOME="$HOME/setup"
+export PATH="$HOME/.autoexp/bin:$HOME/hadoop/bin:$HOME/hadoop/sbin:$PATH"
