@@ -4,3 +4,15 @@
 [[ -f /opt/hadoop-for-onyx/environment ]] && . /opt/hadoop-for-onyx/environment
 [[ -f /opt/anaconda/bin/activate ]] && alias anaconda-activate='source /opt/anaconda/bin/activate root'
 [[ -f /opt/anaconda/bin/deactivate ]] && alias anaconda-deactivate='source /opt/anaconda/bin/deactivate root'
+
+spl-parse-metric-from-log() {
+  local logpath="$1"
+  local tmp
+  tmp="$(mktemp)"
+  grep "INFO master.MetricManagerMaster:" "$logpath" | cut -b52- > "$tmp"
+  ~/workspace/spl/nemo/bin/metric-parser.py "$tmp"
+}
+
+spl-pull-logs-from-orange() {
+  rsync -avz --exclude='*.jar' ubuntu@orange.jangho.io:~/setup/logs/ ./
+}
