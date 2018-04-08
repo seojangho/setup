@@ -25,3 +25,12 @@ spl-parse-metric-from-log() {
 spl-pull-logs-from-orange() {
   rsync -avz --exclude='*.jar' ubuntu@orange.jangho.io:~/setup/logs/ ./
 }
+
+spl-aws-proxy() {
+  sshuttle -e 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' \
+    -H -r "ubuntu@orange.jangho.io" 172.16.0.0/12
+}
+
+spl-aws-ssh() {
+  ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "${1:=orange.jangho.io}" -lubuntu
+}

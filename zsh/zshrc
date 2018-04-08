@@ -145,17 +145,6 @@ function sshuttle-all {
   sshuttle ${@:2} -r "$1" 0/0 -x $(echo "$1" | cut -d'@' -f2 | cut -d':' -f1)/32
 }
 
-# usage: sshuttle-aws ubuntu@orange.jangho.io
-function sshuttle-aws {
-  sshuttle ${@:2} -H -r "$1" 172.16.0.0/12
-}
-
-# for experiments
-# usage: getdag w4 1521380610950_0002 mr_caida
-function getdag {
-  rsync -avz "ubuntu@$1:/mnt/d0/nm-local-dir/usercache/ubuntu/appcache/application_$2/container_${2}_01_000001/dag/$3/" "./$2/"
-}
-
 # local::lib
 export PATH="$HOME/.perl5/bin${PATH:+:${PATH}}"
 export PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
