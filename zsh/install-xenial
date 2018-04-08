@@ -2,7 +2,7 @@
 
 set -e
 
-sudo apt install zsh curl git gawk
+sudo apt install -y zsh curl git gawk
 
 "${SETUPDIR}"/zsh/install-user
 
