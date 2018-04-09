@@ -23,7 +23,11 @@ spl-parse-metric-from-log() {
 }
 
 spl-pull-logs-from-orange() {
-  rsync -avz --exclude='*.jar' ubuntu@orange.jangho.io:~/setup/logs/ ./
+  local dir
+  dir=$(date --iso-8601=seconds)
+  rsync -avz -e 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' \
+    --exclude='*.jar' ubuntu@orange.jangho.io:~/setup/logs/ "./$dir/"
+  find "./$dir/" -type l -exec rm {} \;
 }
 
 spl-aws-proxy() {
