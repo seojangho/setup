@@ -23,11 +23,9 @@ spl-parse-metric-from-log() {
 }
 
 spl-pull-logs() {
-  local dir
-  dir=$(date --iso-8601=seconds)
   rsync -avz -e 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' \
-    --exclude='*.jar' ubuntu@"${1:=client}":~/setup/logs/ "./$dir/"
-  find "./$dir/" -type l -exec rm {} \;
+    --exclude='*.jar' ubuntu@"${1:=client}":~/setup/logs/ ./
+  find . -type l -exec rm {} \;
 }
 
 spl-aws-proxy() {
