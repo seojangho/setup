@@ -22,23 +22,27 @@ spl-parse-metric-from-log() {
   ~/workspace/spl/nemo/bin/metric-parser.py "$tmp"
 }
 
-spl-pull-logs-from-orange() {
+spl-pull-logs() {
   local dir
   dir=$(date --iso-8601=seconds)
   rsync -avz -e 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' \
-    --exclude='*.jar' ubuntu@orange.jangho.io:~/setup/logs/ "./$dir/"
+    --exclude='*.jar' ubuntu@"${1:=client}":~/setup/logs/ "./$dir/"
   find "./$dir/" -type l -exec rm {} \;
 }
 
 spl-aws-proxy() {
   sshuttle -e 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' \
-    -H -r "ubuntu@orange.jangho.io" 172.16.0.0/12
+    -H -r "ubuntu@$1" 172.16.0.0/12
 }
 
 spl-aws-ssh() {
   if [[ -n "$1" ]]; then
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "$1" -lubuntu "${@:2}"
   else
-    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "orange.jangho.io" -lubuntu
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null client -lubuntu
   fi
+}
+
+spl-aws-scp() {
+  scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "$@"
 }
