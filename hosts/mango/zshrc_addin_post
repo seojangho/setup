@@ -1,4 +1,2 @@
 alias wup='$HOME/.setup/scripts/bin/wup'
 alias move-mobile-data='$HOME/.setup/hosts/mango/move-mobile-data'
-alias quiet-mango-data='sudo hdparm -y /dev/disk/by-uuid/e611a6db-f676-4124-bf5b-955599decbac'
-alias mango-poweroff='sudo umount /srv/data -l && sudo hdparm -Y /dev/disk/by-uuid/e611a6db-f676-4124-bf5b-955599decbac && sudo poweroff'
