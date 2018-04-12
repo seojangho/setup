@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-cat >> "$MSGFILE" <<EOF
-cd ~/.gitit && git pull && stack install (if needed)
-EOF
-
-exit 0
