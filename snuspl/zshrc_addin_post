@@ -25,6 +25,7 @@ spl-parse-metric-from-log() {
 spl-pull-logs() {
   rsync -avz --no-links -e 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' \
     --exclude='*.jar' ubuntu@"${1:=client}":~/setup/logs/ ./
+}
 
 spl-aws-proxy() {
   sshuttle -e 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' \
