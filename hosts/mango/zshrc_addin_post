@@ -1,2 +1,5 @@
 alias wup='$HOME/.setup/scripts/bin/wup'
 alias move-mobile-data='$HOME/.setup/hosts/mango/move-mobile-data'
+printer() {
+  nc -l -p 9100 | ps2pdfwr - "${1:-out.pdf}"
+}
