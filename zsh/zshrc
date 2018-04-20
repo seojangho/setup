@@ -95,6 +95,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
 alias spwgen='pwgen -y -1 40 5'
+alias summation='awk '"'"'{s+=$1} END {print s}'"'"
 
 alias b='mvn clean install'
 alias bb='mvn clean install -DskipTests'
