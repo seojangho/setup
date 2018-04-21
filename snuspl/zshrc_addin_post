@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 [[ -e /usr/lib/jvm/default ]] && export JAVA_HOME=/usr/lib/jvm/default
-[[ -f /opt/protobuf-for-onyx/environment ]] && . /opt/protobuf-for-onyx/environment
-[[ -f /opt/hadoop-for-onyx/environment ]] && . /opt/hadoop-for-onyx/environment
+[[ -f /opt/protobuf-for-nemo/environment ]] && . /opt/protobuf-for-nemo/environment
+[[ -f /opt/hadoop-for-nemo/environment ]] && . /opt/hadoop-for-nemo/environment
 [[ -f /opt/anaconda/bin/activate ]] && alias anaconda-activate='source /opt/anaconda/bin/activate root'
 [[ -f /opt/anaconda/bin/deactivate ]] && alias anaconda-deactivate='source /opt/anaconda/bin/deactivate root'
 
