@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+# connected to the monitor?
+if xrandr --query | grep ''3840x2160 > /dev/null; then
+  # 2736/(2736+3840) and
+  # 1824/2160
+  xinput set-prop "ipts 1B96:001F Pen Pen (0)" "Coordinate Transformation Matrix" 0.41605839416058393 0 0 0 0.8444444444444444 0 0 0 1
+else
+  xinput set-prop "ipts 1B96:001F Pen Pen (0)" "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
+fi
+
+exit 0
