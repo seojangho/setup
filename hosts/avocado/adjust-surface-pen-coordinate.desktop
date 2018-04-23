@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Adjust Pen
-Exec=/home/jangho/.setup/hosts/avocado/adjust-surface-pen-coordinate
+Exec=/bin/bash -c 'for i in {0..10}; do sleep 1; /home/jangho/.setup/hosts/avocado/adjust-surface-pen-coordinate; done'
 Encoding=UTF-8
 Type=Application
 X-GNOME-Autostart-enabled=true

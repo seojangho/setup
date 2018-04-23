@@ -1,0 +1,2 @@
+# reboot to apricot (Windows)
+alias reboot-apricot='sudo efibootmgr --bootnext 0000 && sudo reboot'
