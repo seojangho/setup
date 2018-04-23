@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+CONFHOME=$(dirname "$(realpath -s "$0")")
+AUTOSTARTCONF=$CONFHOME/adjust-surface-pen-coordinate.desktop
+AUTOSTARTDIR=${XDG_CONFIG_HOME:=$HOME/.config}/autostart
+mkdir -p "$AUTOSTARTDIR"
+ln -s "$AUTOSTARTCONF" "$AUTOSTARTDIR"
+
+exit 0
