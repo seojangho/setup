@@ -3,9 +3,9 @@
 set -e
 
 CONFHOME=$(dirname "$(realpath -s "$0")")
-AUTOSTARTCONF=$CONFHOME/adjust-surface-pen-coordinate.desktop
-AUTOSTARTDIR=${XDG_CONFIG_HOME:=$HOME/.config}/autostart
-mkdir -p "$AUTOSTARTDIR"
-ln -s "$AUTOSTARTCONF" "$AUTOSTARTDIR"
+CONFIGDIR=${XDG_CONFIG_HOME:=$HOME/.config}
+mkdir -p "$CONFIGDIR/autostart"
+ln -s "$CONFHOME/adjust-surface-pen-coordinate.desktop" "$CONFIGDIR/autostart"
+ln -sf "$CONFHOME/monitors.xml" "$CONFIGDIR"
 
 exit 0
