@@ -2,8 +2,7 @@
 
 set -e
 
-cat >> "$MSGFILE" <<EOF
-Check updates for Canta theme https://github.com/vinceliuice/Canta-theme
-EOF
+#cat >> "$MSGFILE" <<EOF
+#EOF
 
 exit 0
