@@ -6,11 +6,9 @@ TARG=/srv/data/Archive/$(date +%Y)/mobile
 mkdir -p "$TARG/vine/Camera"
 mkdir -p "$TARG/vine/KakaoTalkPictures"
 mkdir -p "$TARG/vine/Screenshots"
-mkdir -p "$TARG/olive/Screenshots"
 
 mv $ORIG/vine/Camera/* "$TARG/vine/Camera/"
 mv $ORIG/vine/KakaoTalkPictures/* "$TARG/vine/KakaoTalkPictures/"
 mv $ORIG/vine/Screenshots/* "$TARG/vine/Screenshots/"
-mv $ORIG/olive/Screenshots/* "$TARG/olive/Screenshots/"
 
 exit 0
