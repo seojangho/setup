@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+linux_version=$(pacman -Sl | grep ' linux ' | cut -d' ' -f3 | cut -d'-' -f1)
+linux_surface_version=$(pacman -Sl | grep ' linux-surface-pro-2017 ' | cut -d' ' -f3 | cut -d'_' -f1)
+if [[ "$linux_version" != "$linux_surface_version" ]]; then
+  cat >> "$MSGFILE" <<EOF
+Update Linux for New Surface Pro: ${linux_version}(linux) != ${linux_surface_version}(linux-surface-pro-2017)
+EOF
+fi
+
+exit 0
