@@ -10,4 +10,12 @@ Update Linux for New Surface Pro: ${linux_version}(linux) != ${linux_surface_ver
 EOF
 fi
 
+libwacom_version=$(pacman -Sl | grep ' libwacom ' | cut -d' ' -f3 | cut -d'-' -f1)
+libwacom_surface_version=$(pacman -Sl | grep ' libwacom-surface-pro-2017 ' | cut -d' ' -f3 | cut -d'_' -f1)
+if [[ "$libwacom_version" != "$libwacom_surface_version" ]]; then
+  cat >> "$MSGFILE" <<EOF
+Update libwacom for New Surface Pro: ${libwacom_version}(libwacom) != ${libwacom_surface_version}(libwacom-surface-pro-2017)
+EOF
+fi
+
 exit 0
