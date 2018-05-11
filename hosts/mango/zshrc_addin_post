@@ -5,7 +5,7 @@ printer() {
 }
 pass() {
   if [[ "$1" == 'otp' ]]; then
-    pass "$2" | grep -Po 'secret=[a-z0-9]+' | cut -c8- | xargs -- oathtool -b --totp
+    pass "$2" | grep -Po 'secret=[a-zA-Z0-9]+' | cut -c8- | xargs -- oathtool -b --totp
   else
     /usr/bin/pass "$@"
   fi
