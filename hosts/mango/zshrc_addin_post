@@ -3,3 +3,6 @@ alias move-mobile-data='$HOME/.setup/hosts/mango/move-mobile-data'
 printer() {
   nc -l -p 9100 | ps2pdfwr - "${1:-out.pdf}"
 }
+pass-otp() {
+  pass "$1" | grep -Po 'secret=[a-z0-9]+' | cut -c8- | xargs -- oathtool -b --totp
+}
