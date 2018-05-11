@@ -15,7 +15,6 @@ echo ' done'
 
 echo -n 'Removing Syncthing revision copies...'
 rmver Archive
-rmver Clone/guava
 rmver Clone/mango
 rmver Music
 rmver git
