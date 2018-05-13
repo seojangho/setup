@@ -145,6 +145,19 @@ function sshuttle-all {
   sshuttle ${@:2} -r "$1" 0/0 -x $(echo "$1" | cut -d'@' -f2 | cut -d':' -f1)/32
 }
 
+# pass
+pass() {
+  if [[ "$1" == 'i' ]]; then
+    /usr/bin/pass -c "$2"
+    if [[ -f "$HOME/.password-store/$2/otp.gpg" ]]; then
+      echo -n 'OTP: '
+      /usr/bin/pass otp "$2/otp"
+    fi
+  else
+    /usr/bin/pass "$@"
+  fi
+}
+
 # local::lib
 export PATH="$HOME/.perl5/bin${PATH:+:${PATH}}"
 export PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
