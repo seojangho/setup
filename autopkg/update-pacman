@@ -2,9 +2,15 @@
 
 set -e
 
-autopkg update autoremove
+autopkg update
 rsync -avz --delete "$HOME"/.autopkg/repository/autopkg/ \
   mango.vanilla.jangho.io:/srv/data/autopkg/
 sudo pacman -Syu --needed --noconfirm
+
+if ! autopkg has-no-autoremovable; then
+  cat >> "$MSGFILE" <<EOF
+autopkg: There are auto-removable package(s).
+EOF
+fi
 
 exit 0
