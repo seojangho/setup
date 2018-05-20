@@ -151,7 +151,9 @@ pass() {
     /usr/bin/pass -c "$2"
     if [[ -f "$HOME/.password-store/$2/otp.gpg" ]]; then
       echo -n 'OTP: '
+      read -k1 -s
       /usr/bin/pass otp "$2/otp"
+      /usr/bin/pass otp -c "$2/otp"
     fi
   else
     /usr/bin/pass "$@"
