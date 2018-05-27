@@ -4,4 +4,4 @@ MACF="$HOME"/.secret/mac
 [[ -z "$1" ]] && exit 1
 MAC=$(awk "{if (\$1==\"$1\") print \$2}" "$MACF")
 [[ -z "$MAC" ]] && exit 1
-exec wakeonlan "$MAC"
+exec wol "$MAC"
