@@ -2,6 +2,7 @@
 
 set -e
 
+/opt/mango/move-mobile-data
 sudo /opt/mango/gitit-journal/rebuild
 
 exit 0
