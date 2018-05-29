@@ -3,6 +3,6 @@
 set -e
 
 sudo pacman -Syu --noconfirm
-find / -name '*.pacnew' 2>/dev/null >> "$MSGFILE"
+find /etc -name '*.pacnew' 2>/dev/null >> "$MSGFILE"
 
 exit 0
