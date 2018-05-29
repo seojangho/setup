@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ -e "$HOME/.secret" ]]; then
+  cd "$HOME/.secret"
+  git pull
+fi
+if command -v pass >/dev/null 2>&1; then
+  pass git pull
+fi
+
+exit 0
