@@ -7,10 +7,4 @@ set +e
 find /etc -name '*.pacnew' 2>/dev/null >> "$MSGFILE"
 set -e
 
-INSTALLED_KERNEL="$(pacman -Q linux | cut -d' ' -f2 | cut -d- -f1)"
-RUNNING_KERNEL="$(uname -r | cut -d' ' -f2 | cut -d- -f1)"
-if [[ "$INSTALLED_KERNEL" != "$RUNNING_KERNEL" ]]; then
-  echo "Reboot to apply kernel update: $RUNNING_KERNEL -> $INSTALLED_KERNEL" >> "$MSGFILE"
-fi
-
 exit 0

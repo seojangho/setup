@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+LINUX_PACKAGENAME="$1"
+
+INSTALLED_KERNEL="$(pacman -Q "$LINUX_PACKAGENAME" | cut -d' ' -f2 | cut -d- -f1 | cut -d_ -f1)"
+RUNNING_KERNEL="$(uname -r | cut -d' ' -f2 | cut -d- -f1)"
+if [[ "$INSTALLED_KERNEL" != "$RUNNING_KERNEL" ]]; then
+  echo "Reboot to apply kernel update: $RUNNING_KERNEL -> $INSTALLED_KERNEL" >> "$MSGFILE"
+fi
+
+exit 0
