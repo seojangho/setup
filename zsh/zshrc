@@ -148,12 +148,19 @@ function sshuttle-all {
 # pass
 pass() {
   if [[ "$1" == 'i' ]]; then
+    local user
+    user="${2##*/}"
+    echo "$user"
+    echo -n "$user" | xclip -selection clipbaord
+    read -k1 -s
     /usr/bin/pass -c "$2"
     if [[ -f "$HOME/.password-store/$2/otp.gpg" ]]; then
       echo -n 'OTP: '
       read -k1 -s
-      /usr/bin/pass otp "$2/otp"
-      /usr/bin/pass otp -c "$2/otp"
+      local otp
+      otp=$(/usr/bin/pass otp "$2/otp")
+      echo "$otp"
+      echo -n "$otp" | xclip -selection clipboard
     fi
   else
     /usr/bin/pass "$@"
