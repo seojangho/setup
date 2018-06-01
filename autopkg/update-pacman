@@ -20,6 +20,7 @@ rsync -avz --delete "$HOME"/.autopkg/repository/autopkg/ \
 sudo pacman -Syu --needed --noconfirm
 
 vercmp 'linux' 'linux-surface-pro-2017'
+vercmp 'libwacom' 'libwacom-surface-pro-2017'
 
 if [[ -s "$HOME/.autopkg/autoremovable/autopkg" ]]; then
   echo 'autopkg: There are auto-removable package(s).' >> "$MSGFILE"
