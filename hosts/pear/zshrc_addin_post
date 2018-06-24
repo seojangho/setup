@@ -6,3 +6,6 @@ alias reboot-peach='if vboxmanage showvminfo lemon | grep --color=no -e "State:"
 # VM (lemon)
 alias lemon-status='echo lemon && vboxmanage showvminfo lemon | grep --color=no -e "State:"'
 alias lemon-start='vboxmanage startvm --type headless lemon'
+
+# Firefox
+alias firefox-private='firefox --profile ~/.mozilla/firefox/jadmngzl.private'
