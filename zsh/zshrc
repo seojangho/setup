@@ -145,6 +145,8 @@ function sshuttle-all {
   sshuttle ${@:2} -r "$1" 0/0 -x $(echo "$1" | cut -d'@' -f2 | cut -d':' -f1)/32
 }
 
+alias sshuttle-mulan='sshuttle --dns -r mulan.snuspl.snu.ac.kr 192.168.1.0/24'
+
 # pass
 pass() {
   if [[ "$1" == 'i' ]]; then
