@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+if vboxmanage showvminfo lemon | grep --color=no -e "State:" | grep off; then
+  exit 0
+else
+  "Power off lemon first"
+  exit 1
+fi

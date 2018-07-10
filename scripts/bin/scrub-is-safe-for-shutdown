@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+test_scrub() {
+  if [[ ! -d "$1" ]]; then
+    return 0
+  fi
+  if sudo btrfs scrub status "$1" | grep running > /dev/null; then
+    >&2 echo "scrub is running for $1"
+    return 1
+  else
+    return 0
+  fi
+}
+
+test_scrub /
+test_scrub /srv/data
+
+exit 0
