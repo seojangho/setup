@@ -6,21 +6,21 @@ GITPATH=$(git rev-parse --show-toplevel)
 DIR=~/.remote-maven/$(hostname)$GITPATH
 
 if [[ "$1" == '--shell' ]]; then
-  ssh -t cmscluster.jangho.io -- "cd \"$DIR\"; $SHELL"
+  ssh -t cmscluster.snu.ac.kr -- "cd \"$DIR\"; $SHELL"
   exit 0
 fi
 
 function cleanup {
   set +e
-  ssh cmscluster.jangho.io -- jps | awk '"'"'{print $1}'"'"' | xargs -L1 -- kill -9
+  ssh cmscluster.snu.ac.kr -- jps | awk '"'"'{print $1}'"'"' | xargs -L1 -- kill -9
   exit $1
 }
 
 trap 'cleanup $?' EXIT
 
 cd "$GITPATH"
-ssh cmscluster.jangho.io -- rm -rf \"$DIR\"
-ssh cmscluster.jangho.io -- mkdir -p \"$DIR\"
-rsync -avz --delete -0 --files-from <(git ls-files -z) . "cmscluster.jangho.io:$DIR"
-ssh -t cmscluster.jangho.io -- "cd \"$DIR\" && pwd && /usr/bin/mvn $@"
+ssh cmscluster.snu.ac.kr -- rm -rf \"$DIR\"
+ssh cmscluster.snu.ac.kr -- mkdir -p \"$DIR\"
+rsync -avz --delete -0 --files-from <(git ls-files -z) . "cmscluster.snu.ac.kr:$DIR"
+ssh -t cmscluster.snu.ac.kr -- "cd \"$DIR\" && pwd && /usr/bin/mvn $@"
 exit 0
