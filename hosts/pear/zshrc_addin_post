@@ -1,11 +1,11 @@
 export PATH="$HOME/.setup/hosts/pear/scripts:$PATH"
 
 # reboot to peach (Windows)
-alias reboot-peach='~/.setup/hosts/pear/scripts/lemon-is-safe-for-shutdown && ~/.setup/scripts/bin/scrub-is-safe-for-shutdown && sudo efibootmgr --bootnext 0000 && /usr/bin/reboot'
+alias reboot-peach='~/.setup/hosts/pear/scripts/lemon-is-safe-for-shutdown && ~/.setup/scripts/bin/scrub-is-safe-for-shutdown && sudo efibootmgr --bootnext 0000 && sudo /usr/bin/reboot'
 
 # shutdown
-alias poweroff='~/.setup/hosts/pear/scripts/lemon-is-safe-for-shutdown && ~/.setup/scripts/bin/scrub-is-safe-for-shutdown && /usr/bin/poweroff'
-alias reboot='~/.setup/hosts/pear/scripts/lemon-is-safe-for-shutdown && ~/.setup/scripts/bin/scrub-is-safe-for-shutdown && /usr/bin/reboot'
+alias poweroff='~/.setup/hosts/pear/scripts/lemon-is-safe-for-shutdown && ~/.setup/scripts/bin/scrub-is-safe-for-shutdown && sudo /usr/bin/poweroff'
+alias reboot='~/.setup/hosts/pear/scripts/lemon-is-safe-for-shutdown && ~/.setup/scripts/bin/scrub-is-safe-for-shutdown && sudo /usr/bin/reboot'
 
 # VM (lemon)
 alias lemon-status='echo lemon && vboxmanage showvminfo lemon | grep --color=no -e "State:"'
