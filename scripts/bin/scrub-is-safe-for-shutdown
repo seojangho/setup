@@ -2,12 +2,18 @@
 
 set -e
 
+OPT="$1"
+
 test_scrub() {
   if [[ ! -d "$1" ]]; then
     return 0
   fi
-  if sudo btrfs scrub status "$1" | grep running > /dev/null; then
-    >&2 echo "scrub is running for $1"
+  if sudo btrfs scrub status "$1" | grep -P 'no stats available|running for' > /dev/null; then
+    if [[ "$OPT" == '--notify-send' ]]; then
+      notify-send -i disk-manager 'scrub is running' "scrub is running for $1"
+    else
+      >&2 echo "scrub is running for $1"
+    fi
     return 1
   else
     return 0
