@@ -1,0 +1,1 @@
+alias clear-recent='rm -f ~/.local/share/recently-used.xbel'
