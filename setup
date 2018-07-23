@@ -17,13 +17,17 @@ isPreSystemScript() {
 SETUPDIR=$(dirname "$(readlink -f "$0")")
 export SETUPDIR
 
+# Prepare message file
+MSGFILE=$(mktemp)
+export MSGFILE
+
 # What to do
 if [[ $1 == "--update" ]]
 then
   # update setup itself
   workingdir=$(pwd)
   cd "$SETUPDIR"
-  git pull origin master
+  git pull || echo "Cannot update setup: $?" >> "$MSGFILE"
   cd "$workingdir"
   prefix="update"
 else
@@ -46,10 +50,6 @@ do
     scripts+=("$script")
   done < <(find -L "$SETUPDIR"/this -name "${prefix}-${snapin}")
 done
-
-# Prepare message file
-MSGFILE=$(mktemp)
-export MSGFILE
 
 # Execute pre-system scripts, only once for a file
 for (( i=0; i<${#scripts[@]}; i++ ));
