@@ -1,2 +1,3 @@
 # reboot to apricot (Windows)
 alias reboot-apricot='sudo efibootmgr --bootnext 0000 && sudo reboot'
+alias reboot-avocado='sudo efibootmgr --bootnext 0005 && sudo reboot'
