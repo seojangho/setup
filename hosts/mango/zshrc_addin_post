@@ -1,7 +1,7 @@
 alias wup='$HOME/.setup/scripts/bin/wup'
 alias move-mobile-data='/opt/mango/move-mobile-data'
 printer() {
-  nc -l -p 9100 | ps2pdfwr - "${1:-out.pdf}"
+  nc -l -p 9100 | ps2pdfwr - "${1:-mango-printer-$(date --iso-8601=ns).pdf}"
 }
 pass() {
   if [[ "$1" == 'otp' ]]; then
