@@ -123,8 +123,8 @@ extract-mp3() {
 
 # encrypt
 function encrypt {
-  gpg --encrypt --output "$1".gpg --encrypt --recipient jangho@jangho.io "$1"
-  rm -i "$1"
+  gpg --encrypt --output "$1".gpg --encrypt --recipient \
+    EE37EBD527ECFE87A96A7BDB6503B6817E24FCA3 "$1" && chmod --reference="$1" "$1".gpg && rm -i "$1"
 }
 
 # folder digest
