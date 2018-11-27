@@ -105,7 +105,6 @@ alias bbb='mvn clean install -DskipTests -TC1 -P!code-quality'
 alias mango='ssh -p50022 jangho@mango.jangho.io'
 alias pear='ssh -p50023 jangho@pear.jangho.io'
 alias martini='ssh janghose@martini.snucse.org'
-alias pear-on='wup pear; sleep 30s; dropbear-encrypt pear; sleep 10s; pear sudo systemctl stop gdm; pear'
 
 # cd to month
 alias month="cd ~/archive/$(date +%Y/%m)"

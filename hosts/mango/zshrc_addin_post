@@ -1,3 +1,4 @@
+alias pear-on='wup pear; sleep 30s; dropbear-encrypt pear; sleep 10s; pear sudo systemctl stop gdm; pear'
 alias wup='$HOME/.setup/scripts/bin/wup'
 alias move-mobile-data='/opt/mango/move-mobile-data'
 printer() {
