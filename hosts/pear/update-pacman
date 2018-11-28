@@ -2,6 +2,6 @@
 
 set -e
 
-"$SETUPDIR/snapins/pacman/reboot-required-check" 'linux'
+"$SETUPDIR/snapins/pacman/reboot-required-check" 'linux-lts'
 
 exit 0
