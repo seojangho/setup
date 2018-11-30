@@ -23,6 +23,6 @@ ssh cmscluster.snu.ac.kr -- rm -rf \"$DIR\"
 ssh cmscluster.snu.ac.kr -- mkdir -p \"$DIR\"
 rsync -avz --delete -0 --files-from <(git ls-files -z) . "cmscluster.snu.ac.kr:$DIR"
 ssh -t cmscluster.snu.ac.kr -- "cd \"$DIR\" && pwd && /usr/bin/mvn $@"
-rsync -az --update "cmscluster.snu.ac.kr:~/.m2/" ~/.m2/
+rsync -az --update "cmscluster.snu.ac.kr:~/.m2/repository/" ~/.m2/repository/
 rsync -az --update  "cmscluster.snu.ac.kr:${DIR}/" ./
 exit 0
