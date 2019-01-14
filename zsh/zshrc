@@ -6,6 +6,7 @@ MODE=$argv[1]
 source ~/.zplug/init.zsh
 zplug "robbyrussell/oh-my-zsh", use:"oh-my-zsh.sh"
 zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/svn", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
@@ -25,7 +26,25 @@ BULLETTRAIN_PROMPT_CHAR="➜"
 BULLETTRAIN_PROMPT_ADD_NEWLINE=false
 BULLETTRAIN_STATUS_EXIT_SHOW=true
 BULLETTRAIN_STATUS_BG='red'
-BULLETTRAIN_PROMPT_ORDER=(status custom conditional_perl conditional_ruby virtualenv conditional_nvm go dir git hg)
+BULLETTRAIN_PROMPT_ORDER=(status custom conditional_perl conditional_ruby virtualenv conditional_nvm go dir git hg svn)
+function prompt_svn() {
+  if in_svn; then
+    prompt_segment white black
+    branch="$(svn_get_branch_name)"
+    if [[ "$branch" == '' ]]; then
+      echo -n "r$(svn_get_rev_nr)"
+    else
+      echo -n "r$(svn_get_rev_nr)@$(svn_get_branch_name)"
+    fi
+    if [[ $(svn_dirty_choose_pwd dirty clean) == 'dirty' ]]; then
+      prompt_segment white red
+      echo -n '✘'
+    else
+      prompt_segment white green
+      echo -n '✔'
+    fi
+  fi
+}
 function prompt_conditional_perl() {
   if [[ $BULLETTRAIN_PERL_SHOW == true ]]
   then
