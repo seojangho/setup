@@ -28,13 +28,14 @@ BULLETTRAIN_STATUS_EXIT_SHOW=true
 BULLETTRAIN_STATUS_BG='red'
 BULLETTRAIN_PROMPT_ORDER=(status custom conditional_perl conditional_ruby virtualenv conditional_nvm go dir git hg svn)
 function prompt_svn() {
+  local svn_nr
   if in_svn; then
     prompt_segment white black
-    branch="$(svn_get_branch_name)"
-    if [[ "$branch" == '' ]]; then
-      echo -n "r$(svn_get_rev_nr)"
+    svn_nr="$(svn_get_rev_nr)"
+    if [[ "$svn_nr" == '' ]]; then
+      echo -n "?"
     else
-      echo -n "r$(svn_get_rev_nr)@$(svn_get_branch_name)"
+      echo -n "r${svn_nr}"
     fi
     if [[ $(svn_dirty_choose_pwd dirty clean) == 'dirty' ]]; then
       prompt_segment white red
