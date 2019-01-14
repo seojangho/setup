@@ -5,6 +5,8 @@ filetype plugin indent on
 
 " Plugins
 call plug#begin('~/.vim/plugged')
+Plug 'rust-lang/rust.vim'
+Plug 'vim-syntastic/syntastic'
 Plug 'chr4/nginx.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'Yggdroot/indentLine'
@@ -40,6 +42,16 @@ let g:indentLine_char = '│'
 
 " editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_compiler_options = '-std=c++17'
 
 " Indent
 set shiftwidth=2
