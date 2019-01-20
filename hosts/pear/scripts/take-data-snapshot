@@ -16,9 +16,9 @@ echo ' done'
 echo -n 'Removing Syncthing revision copies...'
 rmver Archive
 rmver Clone/mango
+rmver Clone/gooseberry
 rmver Music
 rmver git
-rmver gitit
 echo ' done'
 
 echo 'Taking a snapshot:'
