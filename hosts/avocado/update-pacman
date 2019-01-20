@@ -2,6 +2,6 @@
 
 set -e
 
-"$SETUPDIR/snapins/pacman/reboot-required-check" 'linux-lts-surface-pro-2017'
+"$SETUPDIR/snapins/pacman/reboot-required-check" 'linux-418-surface-pro-2017'
 
 exit 0
