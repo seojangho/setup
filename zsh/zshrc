@@ -119,6 +119,9 @@ alias summation='awk '"'"'{s+=$1} END {print s}'"'"
 function note {
   ssh jangho@mango.jangho.io -p50022 -- "/opt/mango/sendmail/note \"$@\""
 }
+function diary {
+  ssh jangho@mango.jangho.io -p50022 -- "/opt/mango/sendmail/diary \"$@\""
+}
 
 alias b='mvn clean install'
 alias bb='mvn clean install -DskipTests'
