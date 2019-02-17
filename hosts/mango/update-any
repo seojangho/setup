@@ -2,6 +2,6 @@
 
 set -e
 
-/opt/mango/bin/move-mobile-data
+/opt/mango/bin/import-data
 
 exit 0
