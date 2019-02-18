@@ -3,5 +3,6 @@
 set -e
 
 /opt/mango/bin/import-data
+/opt/mango/bin/update-music
 
 exit 0
