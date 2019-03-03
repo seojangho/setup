@@ -14,7 +14,6 @@ alias lemon-start='vboxmanage startvm --type headless lemon'
 # Firefox
 alias firefox-private='firefox --profile ~/.mozilla/firefox/jadmngzl.private'
 
-# peach-activex
-alias peach-activex='sudo qemu-system-x86_64 -snapshot -bios /usr/share/ovmf/x64/OVMF_CODE.fd -enable-kvm -m 4096 \
-  -drive file=/dev/sdb,format=raw,if=ide \
-  -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on'
+# peach
+# use 'peach -snapshot' to make the session volatile
+alias peach='sudo qemu-system-x86_64 -bios /usr/share/ovmf/x64/OVMF_CODE.fd -enable-kvm -m 4096 -drive file=/dev/sdb,format=raw,if=virtio -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on'
