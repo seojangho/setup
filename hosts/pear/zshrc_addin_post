@@ -18,7 +18,11 @@ function peach-snapshot() {
   sudo qemu-system-x86_64 -bios /usr/share/ovmf/x64/OVMF_CODE.fd \
     -enable-kvm -smp cores=4 -m 6144M \
     -drive file=/dev/sdb,format=raw,if=virtio \
-    -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -snapshot
+    -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -snapshot "$@"
+}
+function peach-snapshot-host() {
+  sudo sh -c 'echo 1 > /sys/module/kvm/parameters/ignore_msrs'
+  peach-snapshot -cpu host
 }
 
 # reboot to peach (Windows)
