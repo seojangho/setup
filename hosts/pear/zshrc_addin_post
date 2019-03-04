@@ -1,8 +1,5 @@
 export PATH="$HOME/.setup/hosts/pear/scripts:$PATH"
 
-# reboot to peach (Windows)
-alias reboot-peach='~/.setup/hosts/pear/scripts/lemon-is-safe-for-shutdown && ~/.setup/scripts/bin/scrub-is-safe-for-shutdown && sudo efibootmgr --bootnext 0000 && sudo /usr/bin/reboot'
-
 # shutdown
 alias poweroff='~/.setup/hosts/pear/scripts/lemon-is-safe-for-shutdown && ~/.setup/scripts/bin/scrub-is-safe-for-shutdown && sudo /usr/bin/poweroff'
 alias reboot='~/.setup/hosts/pear/scripts/lemon-is-safe-for-shutdown && ~/.setup/scripts/bin/scrub-is-safe-for-shutdown && sudo /usr/bin/reboot'
@@ -15,5 +12,17 @@ alias lemon-start='vboxmanage startvm --type headless lemon'
 alias firefox-private='firefox --profile ~/.mozilla/firefox/jadmngzl.private'
 
 # peach
-# use 'peach -snapshot' to make the session volatile
-alias peach='sudo qemu-system-x86_64 -bios /usr/share/ovmf/x64/OVMF_CODE.fd -enable-kvm -m 4096 -drive file=/dev/sdb,format=raw,if=virtio -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on'
+function peach-snapshot() {
+  sudo qemu-system-x86_64 -bios /usr/share/ovmf/x64/OVMF_CODE.fd \
+    -enable-kvm -smp cores=4 -m 6144M \
+    -drive file=/dev/sdb,format=raw,if=virtio \
+    -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -snapshot
+}
+
+# reboot to peach (Windows)
+function peach-reboot() {
+  local windows_num
+  windows_num=$(efibootmgr | grep 'Windows Boot Manager'| cut -b5-8)
+  sudo efibootmgr --bootnext "$windows_num"
+  sudo reboot
+}
