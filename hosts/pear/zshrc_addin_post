@@ -1,13 +1,5 @@
 export PATH="$HOME/.setup/hosts/pear/scripts:$PATH"
 
-# shutdown
-alias poweroff='~/.setup/hosts/pear/scripts/lemon-is-safe-for-shutdown && ~/.setup/scripts/bin/scrub-is-safe-for-shutdown && sudo /usr/bin/poweroff'
-alias reboot='~/.setup/hosts/pear/scripts/lemon-is-safe-for-shutdown && ~/.setup/scripts/bin/scrub-is-safe-for-shutdown && sudo /usr/bin/reboot'
-
-# VM (lemon)
-alias lemon-status='echo lemon && vboxmanage showvminfo lemon | grep --color=no -e "State:"'
-alias lemon-start='vboxmanage startvm --type headless lemon'
-
 # Firefox
 alias firefox-private='firefox --profile ~/.mozilla/firefox/jadmngzl.private'
 
