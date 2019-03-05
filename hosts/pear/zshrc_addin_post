@@ -14,7 +14,7 @@ function peach-snapshot() {
 }
 
 # reboot to peach (Windows)
-function peach-reboot() {
+function reboot-peach() {
   local windows_num
   windows_num=$(efibootmgr | grep 'Windows Boot Manager'| cut -b5-8)
   sudo efibootmgr --bootnext "$windows_num" && sudo reboot
