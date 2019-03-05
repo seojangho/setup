@@ -18,17 +18,12 @@ function peach-snapshot() {
   sudo qemu-system-x86_64 -bios /usr/share/ovmf/x64/OVMF_CODE.fd \
     -enable-kvm -smp cores=4 -m 6144M \
     -drive file=/dev/sdb,format=raw,if=virtio \
-    -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -snapshot "$@"
-}
-function peach-snapshot-host() {
-  sudo sh -c 'echo 1 > /sys/module/kvm/parameters/ignore_msrs'
-  peach-snapshot -cpu host
+    -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -snapshot
 }
 
 # reboot to peach (Windows)
 function peach-reboot() {
   local windows_num
   windows_num=$(efibootmgr | grep 'Windows Boot Manager'| cut -b5-8)
-  sudo efibootmgr --bootnext "$windows_num"
-  sudo reboot
+  sudo efibootmgr --bootnext "$windows_num" && sudo reboot
 }
