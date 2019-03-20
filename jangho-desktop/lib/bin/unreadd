@@ -6,6 +6,10 @@ interval=${1:-1m}
 
 while :; do
   u=$(unread)
-  [[ "$u" -ne 0 ]] && jdunstify unread "Unread mail: ${u}"
+  if [[ "$u" -ne 0 ]]; then
+    jdunstify unread "Unread mail: ${u}"
+  else
+    jdunstify-clear unread
+  fi
   sleep "${interval}"
 done
