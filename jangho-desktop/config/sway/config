@@ -155,8 +155,6 @@ mode "meta" {
 mode "quit" {
   bindsym q exit
   bindsym r exec jdunstify-clear swaymode && swaymsg reload
-  bindsym p sudo poweroff
-  bindsym Shift+p sudo reboot
 
   bindsym Escape mode "default"
   bindsym Super_L mode "default"
