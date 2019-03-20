@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while :; do
+  mode=$(swaymsg -t subscribe '["mode"]' | grep '"change": ' | awk '{print $3}' | cut -b2- | rev | cut -b3- | rev)
+  jdunstify swaymode "Mode ${mode}" --timeout=2000
+done

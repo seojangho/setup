@@ -216,4 +216,6 @@ bar {
 
 bindsym $mod+u exec rofi -show run
 exec dunst
+exec ~/.setup/jangho-desktop/lib/bin/modewatchd
+exec ~/.setup/jangho-desktop/lib/bin/unreadd
 include /etc/sway/config.d/*
