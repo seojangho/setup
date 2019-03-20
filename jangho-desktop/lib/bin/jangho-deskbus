@@ -1,0 +1,98 @@
+#!/usr/bin/env python3
+import sys
+from gi.repository import GLib
+import dbus
+import dbus.service
+from dbus.mainloop.glib import DBusGMainLoop
+
+OPATH = '/io/jangho/deskbus'
+IFACE = 'io.jangho.deskbus'
+BUS_NAME = 'io.jangho.deskbus'
+
+DBusGMainLoop(set_as_default=True)
+BUS = dbus.SessionBus()
+
+class Server(dbus.service.Object):
+    def __init__(self):
+        BUS.request_name(BUS_NAME)
+        bus_name = dbus.service.BusName(BUS_NAME, bus=BUS)
+        dbus.service.Object.__init__(self, bus_name, OPATH)
+
+        self.dunst_ids = {}
+        self.pass_target = ''
+        self.clipmenud_masks = set()
+
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='si', out_signature='')
+    def set_dunst_id(self, key, value):
+        self.dunst_ids[key] = value
+
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='s', out_signature='bi')
+    def get_dunst_id(self, key):
+        if key in self.dunst_ids:
+            return (True, self.dunst_ids[key])
+        else:
+            return (False, 0)
+
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='s', out_signature='')
+    def set_pass_target(self, target):
+        self.pass_target = target
+
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='', out_signature='s')
+    def get_pass_target(self):
+        return self.pass_target
+
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='', out_signature='b')
+    def is_clipmenud_active(self):
+        return len(self.clipmenud_masks) == 0
+
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='s', out_signature='b')
+    def set_clipmenud_mask(self, key):
+        self.clipmenud_masks.add(key)
+        return self.is_clipmenud_active()
+
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='s', out_signature='b')
+    def unset_clipmenud_mask(self, key):
+        try:
+            self.clipmenud_masks.remove(key)
+        except KeyError:
+            pass
+        return self.is_clipmenud_active()
+
+
+def client():
+    COMMAND = sys.argv[1]
+    OBJ = BUS.get_object(BUS_NAME, OPATH)
+    if COMMAND == 'set-dunst-id':
+        OBJ.set_dunst_id(sys.argv[2], int(sys.argv[3]), dbus_interface=IFACE)
+    elif COMMAND == 'get-dunst-id':
+        result = OBJ.get_dunst_id(sys.argv[2], dbus_interface=IFACE)
+        result[0] and print(result[1])
+    elif COMMAND == 'set-pass-target':
+        OBJ.set_pass_target(sys.argv[2], dbus_interface=IFACE)
+    elif COMMAND == 'get-pass-target':
+        print(OBJ.get_pass_target(dbus_interface=IFACE))
+    elif COMMAND == 'is-clipmenud-active':
+        print(OBJ.is_clipmenud_active(dbus_interface=IFACE))
+    elif COMMAND == 'set-clipmenud-mask':
+        print(OBJ.set_clipmenud_mask(sys.argv[2], dbus_interface=IFACE))
+    elif COMMAND == 'unset-clipmenud-mask':
+        print(OBJ.unset_clipmenud_mask(sys.argv[2], dbus_interface=IFACE))
+    else:
+        print('Unrecognized command', file=sys.stderr)
+        sys.exit(1)
+
+
+if __name__ == '__main__':
+    if sys.argv[1] == 'server':
+        SERVER = Server()
+        LOOP = GLib.MainLoop()
+        LOOP.run()
+    else:
+        client()
