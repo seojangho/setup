@@ -13,7 +13,11 @@ if ! u=$(unread --stdout); then
   exit 1
 fi
 if [[ "$u" -ne 0 ]]; then
-  jdunstify unread "$@" "Unread mail: ${u}"
+  if [[ -n "${1+x}" ]] && [[ "$1" == '--clear' ]]; then
+    jdunstify unread "${@:2}" "Unread mail: ${u}"
+  else
+    jdunstify unread "$@" "Unread mail: ${u}"
+  fi
 else
   if [[ -n "${1+x}" ]] && [[ "$1" == '--clear' ]]; then
     jdunstify-clear unread "${@:2}"
