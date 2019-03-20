@@ -184,3 +184,4 @@ exec dunst
 exec ~/.setup/jangho-desktop/lib/bin/modewatchd
 exec ~/.setup/jangho-desktop/lib/bin/unreadd
 exec ~/.setup/jangho-desktop/lib/bin/workspacewatchd
+exec ibus-daemon --xim
