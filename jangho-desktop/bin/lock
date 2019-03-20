@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -euo pipefail
+
+killall -SIGUSR1 dunst
+swaylock --image /usr/share/backgrounds/jangho/arch-card-demo-1920x1080.png \
+  --scaling fill --no-unlock-indicator
+killall -SIGUSR2 dunst
+
+exit 0
