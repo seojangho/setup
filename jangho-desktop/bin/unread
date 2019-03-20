@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -euo pipefail
+
+exec ssh mango.jangho.io -p50022 -- mailx -:/ -L :u -f /srv/data/mail | wc -l
