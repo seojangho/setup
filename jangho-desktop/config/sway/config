@@ -215,6 +215,7 @@ bar {
 }
 
 bindsym $mod+u exec rofi -show run
+bindsym $mod+Shift+u exec unread --timeout 2000
 exec dunst
 exec ~/.setup/jangho-desktop/lib/bin/modewatchd
 exec ~/.setup/jangho-desktop/lib/bin/unreadd
