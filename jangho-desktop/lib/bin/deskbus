@@ -23,12 +23,12 @@ class Server(dbus.service.Object):
         self.clipmenud_masks = set()
 
     @dbus.service.method(dbus_interface=IFACE,
-                         in_signature='si', out_signature='')
+                         in_signature='sx', out_signature='')
     def set_dunst_id(self, key, value):
         self.dunst_ids[key] = value
 
     @dbus.service.method(dbus_interface=IFACE,
-                         in_signature='s', out_signature='bi')
+                         in_signature='s', out_signature='bx')
     def get_dunst_id(self, key):
         if key in self.dunst_ids:
             return (True, self.dunst_ids[key])
