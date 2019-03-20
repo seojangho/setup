@@ -6,6 +6,6 @@ interval=${1:-50s}
 timeout=${2:-120000} # in milliseconds
 
 while :; do
-  unread "--timeout=${timeout}" || :
+  unread --clear "--timeout=${timeout}" || :
   sleep "${interval}"
 done
