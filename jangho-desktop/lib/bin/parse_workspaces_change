@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+import sys
+import json
+
+change = json.load(sys.stdin)
+
+if change['change'] != 'focus' and change['change'] != 'init':
+    sys.exit(1)
+
+print('Switched to {}'.format(change['current']['name']))

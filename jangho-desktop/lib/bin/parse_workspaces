@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+
+import sys
+import json
+
+workspaces = json.load(sys.stdin)
+
+outputs_to_workspaces = {}
+focused_workspace = None
+focused_output = None
+
+def describe_workspace(w):
+    w0 = '<b>{}</b>'.format(w[0]) if w[0] == focused_output else w[0]
+    w1 = [('<b>{}</b>'.format(w) if w == focused_workspace else w) for w in w[1]]
+    return '{}: {}'.format(w0, ', '.join(w1))
+
+for workspace in workspaces:
+    output = workspace['output']
+    name = workspace['name']
+    focused = workspace['focused']
+    outputs_to_workspaces.setdefault(output, [])
+    outputs_to_workspaces[output].append(name)
+    if focused:
+        focused_workspace = name
+        focused_output = output
+
+d0 = [describe_workspace(w) for w in outputs_to_workspaces.items() if w[0] == focused_output]
+d1 = [describe_workspace(w) for w in outputs_to_workspaces.items() if w[0] != focused_output]
+print('\n'.join(d0 + d1))

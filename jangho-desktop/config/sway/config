@@ -219,4 +219,5 @@ bindsym $mod+Shift+u exec unread --timeout 2000
 exec dunst
 exec ~/.setup/jangho-desktop/lib/bin/modewatchd
 exec ~/.setup/jangho-desktop/lib/bin/unreadd
+exec ~/.setup/jangho-desktop/lib/bin/workspacewatchd
 include /etc/sway/config.d/*

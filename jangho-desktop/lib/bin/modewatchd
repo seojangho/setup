@@ -1,6 +1,8 @@
 #!/bin/bash
 
+BINDIR=${HOME}/.setup/jangho-desktop/lib/bin
+
 while :; do
-  mode=$(swaymsg -t subscribe '["mode"]' | grep '"change": ' | awk '{print $3}' | cut -b2- | rev | cut -b3- | rev)
+  mode=$(swaymsg -t subscribe '["mode"]' | "${BINDIR}/parse_mode_change")
   jdunstify swaymode "Mode ${mode}" --timeout=2000
 done

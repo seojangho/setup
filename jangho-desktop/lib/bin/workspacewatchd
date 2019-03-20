@@ -1,0 +1,9 @@
+#!/bin/bash
+
+BINDIR=${HOME}/.setup/jangho-desktop/lib/bin
+
+while :; do
+  change=$(swaymsg -t subscribe '["workspace"]' | "${BINDIR}/parse_workspaces_change")
+  current=$(swaymsg -t get_workspaces | "${BINDIR}/parse_workspaces")
+  jdunstify swayworkspace --timeout=5000 "${change}" "${current}"
+done
