@@ -1,0 +1,9 @@
+[Unit]
+Description=Jangho Desktop IPC Service
+
+[Service]
+Type=simple
+ExecStart=%h/.setup/jangho-desktop/lib/bin/deskbus server
+
+[Install]
+WantedBy=default.target

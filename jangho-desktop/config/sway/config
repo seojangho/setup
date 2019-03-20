@@ -214,4 +214,6 @@ bar {
     }
 }
 
+bindsym $mod+u exec rofi -show run
+exec dunst
 include /etc/sway/config.d/*
