@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# usage: jdunstify CLASS ARGS_FOR_DUNSTIFY...
+
 set -euo pipefail
 
 DESKBUS="${HOME}/.setup/jangho-desktop/lib/bin/deskbus"
