@@ -181,7 +181,7 @@ default_border pixel
 
 ### Daemons
 
-bindsym $mod+Shift+u exec unread --timeout 2000
+bindsym $mod+m exec unread --timeout 2000
 exec dunst
 exec ~/.setup/jangho-desktop/lib/bin/modewatchd
 exec ~/.setup/jangho-desktop/lib/bin/unreadd
