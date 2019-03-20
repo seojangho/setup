@@ -1,8 +1,11 @@
 #!/bin/bash
 
+set -euo pipefail
+
 BINDIR=${HOME}/.setup/jangho-desktop/lib/bin
 
 while :; do
-  mode=$(swaymsg -t subscribe '["mode"]' | "${BINDIR}/parse_mode_change")
-  jdunstify swaymode "Mode ${mode}" --timeout=2000
+  if mode=$(swaymsg -t subscribe '["mode"]' | "${BINDIR}/parse_mode_change"); then
+    jdunstify swaymode "Mode ${mode}" --timeout=2000
+  fi
 done

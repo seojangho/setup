@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # usage: unreadd [INTERVAL] [TIMEOUT]
 
 interval=${1:-50s}
