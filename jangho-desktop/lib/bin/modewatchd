@@ -14,5 +14,5 @@ while :; do
     hints=(-h string:bgcolor:#ffff00 -h string:fgcolor:#000000)
   fi
 
-  jdunstify swaymode "Mode ${mode}" "--timeout=${timeout}" "${hints[@]}" || continue
+  jdunstify swaymode "${mode}" "--timeout=${timeout}" "${hints[@]}" || continue
 done
