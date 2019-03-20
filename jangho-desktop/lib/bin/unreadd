@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# usage: unreadd [INTERVAL]
+
+interval=${1:-1m}
+
+while :; do
+  u=$(unread)
+  [[ "$u" -ne 0 ]] && jdunstify unread "Unread mail: ${u}"
+  sleep "${interval}"
+done
