@@ -4,8 +4,15 @@ set -euo pipefail
 
 BINDIR=${HOME}/.setup/jangho-desktop/lib/bin
 
+declare -a hints
 while :; do
-  if mode=$(swaymsg -t subscribe '["mode"]' | "${BINDIR}/parse_mode_change"); then
-    jdunstify swaymode "Mode ${mode}" --timeout=2000
+  mode=$(swaymsg -t subscribe '["mode"]' | "${BINDIR}/parse_mode_change") || exit 0
+  hints=()
+  timeout=2000
+  if [[ "${mode}" != 'default' ]]; then
+    timeout=0
+    hints=(-h string:bgcolor:#ffff00 -h string:fgcolor:#000000)
   fi
+
+  jdunstify swaymode "Mode ${mode}" "--timeout=${timeout}" "${hints[@]}" || continue
 done
