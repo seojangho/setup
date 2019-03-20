@@ -8,7 +8,7 @@ interval=${1:-50s}
 timeout=${2:-120000} # in milliseconds
 
 while :; do
-  swaymsg -t get_version > /dev/null || exit 0 # Gracefully shut down if Sway quits
+  swaymsg -t get_version > /dev/null 2>&1 || exit 0 # Gracefully shut down if Sway quits
   unread --clear "--timeout=${timeout}" || :
   sleep "${interval}"
 done

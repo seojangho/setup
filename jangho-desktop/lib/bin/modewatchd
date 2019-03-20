@@ -6,7 +6,7 @@ BINDIR=${HOME}/.setup/jangho-desktop/lib/bin
 
 declare -a hints
 while :; do
-  mode=$(swaymsg -t subscribe '["mode"]' | "${BINDIR}/parse_mode_change") || exit 0
+  mode=$(swaymsg -t subscribe '["mode"]' 2>/dev/null | "${BINDIR}/parse_mode_change" 2>/dev/null) || exit 0
   hints=()
   timeout=2000
   if [[ "${mode}" != 'default' ]]; then

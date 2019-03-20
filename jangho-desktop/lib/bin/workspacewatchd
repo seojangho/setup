@@ -5,7 +5,7 @@ set -euo pipefail
 BINDIR=${HOME}/.setup/jangho-desktop/lib/bin
 
 while :; do
-  swaymsg -t subscribe '["workspace"]' > /dev/null || exit 0
+  swaymsg -t subscribe '["workspace"]' > /dev/null 2>&1 || exit 0
   current=$(swaymsg -t get_workspaces) || continue
   focused=$(echo "${current}" | "${BINDIR}/parse_workspaces" --print-focused-workspace-name) || continue
   desc=$(echo "${current}" | "${BINDIR}/parse_workspaces") || continue
