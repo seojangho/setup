@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euo pipefail
+nvim +PlugUpgrade +PlugClean +PlugUpdate +qall
+exit 0

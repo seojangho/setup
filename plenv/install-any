@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
-git clone https://github.com/tokuhirom/plenv.git "$HOME/.plenv"
-git clone https://github.com/tokuhirom/Perl-Build.git "$HOME/.plenv/plugins/perl-build/"
+git clone https://github.com/tokuhirom/plenv.git "${HOME}/.plenv"
+git clone https://github.com/tokuhirom/Perl-Build.git "${HOME}/.plenv/plugins/perl-build/"
 
 exit 0

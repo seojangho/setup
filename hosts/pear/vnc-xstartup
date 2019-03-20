@@ -1,4 +1,0 @@
-#!/bin/sh
-# ~/.vnc/xstartup
-dbus-launch lxterminal &
-exec awesome

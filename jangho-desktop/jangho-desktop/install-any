@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -euo pipefail
+
+DIR=${SETUPDIR}/jangho-desktop/config
+TARGET=${XDG_CONFIG_HOME:=${HOME}/.config}
+if [[ -e "${TARGET}" ]]; then
+    echo "jangho-desktop: ${TARGET} already exists" >> "${MSGFILE}"
+    exit 1
+fi
+ln -s "${DIR}" "${TARGET}"
+exit 0

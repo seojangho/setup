@@ -1,13 +1,13 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
-if [[ -e "$HOME/.secret" ]]; then
-  cd "$HOME/.secret"
-  git pull || echo "Cannot update secret: $?" >> "$MSGFILE"
+if [[ -e "${HOME}/.secret" ]]; then
+  cd "${HOME}/.secret"
+  git pull || echo "Cannot update secret: $?" >> "${MSGFILE}"
 fi
 if command -v pass >/dev/null 2>&1; then
-  pass git pull || echo "Cannot update pass: $?" >> "$MSGFILE"
+  pass git pull || echo "Cannot update pass: $?" >> "${MSGFILE}"
 fi
 
 exit 0

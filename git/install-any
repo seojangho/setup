@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
 CONF=${SETUPDIR}/git/gitconfig
-ln -s "$CONF" "$HOME"/.gitconfig
+ln -s "${CONF}" "${HOME}"/.gitconfig
 
 exit 0
