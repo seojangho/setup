@@ -3,7 +3,7 @@
 # usage: unreadd [INTERVAL] [TIMEOUT]
 
 interval=${1:-1m}
-timeout=${2:-2m}
+timeout=${2:-120000} # in milliseconds
 
 while :; do
   u=$(unread)
