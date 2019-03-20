@@ -6,11 +6,6 @@ interval=${1:-1m}
 timeout=${2:-120000} # in milliseconds
 
 while :; do
-  u=$(unread)
-  if [[ "$u" -ne 0 ]]; then
-    jdunstify unread "--timeout=${timeout}" "Unread mail: ${u}"
-  else
-    jdunstify-clear unread
-  fi
+  unread "--timeout=${timeout}"
   sleep "${interval}"
 done

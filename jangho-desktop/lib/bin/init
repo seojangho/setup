@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -euo pipefail
+
+systemctl --user import-environment DISPLAY
+systemctl --user start jangho-desktop.target

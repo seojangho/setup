@@ -41,6 +41,11 @@ class Server(dbus.service.Object):
         del self.dunst_ids[key]
 
     @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='', out_signature='')
+    def clear_dunst_id_all(self):
+        self.dunst_ids = {}
+
+    @dbus.service.method(dbus_interface=IFACE,
                          in_signature='s', out_signature='')
     def set_pass_target(self, target):
         self.pass_target = target
@@ -81,6 +86,8 @@ def client():
         result[0] and print(result[1])
     elif COMMAND == 'clear-dunst-id':
         OBJ.clear_dunst_id(sys.argv[2], dbus_interface=IFACE)
+    elif COMMAND == 'clear-dunst-id-all':
+        OBJ.clear_dunst_id_all(dbus_interface=IFACE)
     elif COMMAND == 'set-pass-target':
         OBJ.set_pass_target(sys.argv[2], dbus_interface=IFACE)
     elif COMMAND == 'get-pass-target':
