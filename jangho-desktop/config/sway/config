@@ -210,6 +210,7 @@ client.background       #ffffff
 ### Other shortcuts
 
 bindsym $mod+m exec unread --timeout 2000
+bindsym $mod+n exec ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m --oneshot
 
 ### App-specific settings
 
@@ -225,4 +226,5 @@ exec dunst
 exec ~/.setup/jangho-desktop/lib/bin/modewatchd
 exec ~/.setup/jangho-desktop/lib/bin/unreadd
 exec ~/.setup/jangho-desktop/lib/bin/workspacewatchd
+exec ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m
 exec ibus-daemon --xim

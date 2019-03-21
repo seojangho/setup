@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# usage: batwatchd NODE THRESHOLD(in %) INTERVAL [--oneshot]
+# e.g. batwatchd /sys/class/power_supply/BAT1 25 1m
+
+node=$1
+threshold=$2
+interval=$3
+oneshot=${4:-false}
+
+oldstatus=Unknown
+should_report=true
+
+while :; do
+  option=()
+
+  st=$(cat "${node}/status")
+  [[ "${st}" != "${oldstatus}" ]] && should_report=true
+  full=$(cat "${node}/energy_full")
+  now=$(cat "${node}/energy_now")
+  percentage=$((now*100/full))
+  [[ "${percentage}" -le "${threshold}" ]] && should_report=true &&  option=('--urgency=critical')
+
+  if [[ "${should_report}" == 'true' ]]; then
+    jdunstify "batwatchd_${node}" "${option[@]}" "${node##*/}: ${st}, ${percentage}%" || :
+  fi
+
+  [[ "${oneshot}" == '--oneshot' ]] && exit 0
+  oldstatus=${st}
+  should_report=false
+  sleep "${interval}"
+  swaymsg -t get_version > /dev/null 2>&1 || exit 0 # Gracefully shut down if Sway quits
+done

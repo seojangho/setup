@@ -9,7 +9,11 @@ set -euo pipefail
 [[ -n "${1+x}" ]] && [[ "$1" == '--stdout' ]] && exec ssh jangho@mango.jangho.io -p50022 -- 'mailx -:/ -L :u -f /srv/data/mail | wc -l'
 
 if ! u=$(unread --stdout); then
-  jdunstify unread "$@" 'Failed to retrieve the number of unread mails.'
+  if [[ -n "${1+x}" ]] && [[ "$1" == '--clear' ]]; then
+    jdunstify unread "${@:2}" 'Failed to retrieve the number of unread mails.'
+  else
+    jdunstify unread "$@" 'Failed to retrieve the number of unread mails.'
+  fi
   exit 1
 fi
 if [[ "$u" -ne 0 ]]; then

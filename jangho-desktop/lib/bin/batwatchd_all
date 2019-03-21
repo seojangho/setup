@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -u
+
+for node in /sys/class/power_supply/*; do
+  ~/.setup/jangho-desktop/lib/bin/batwatchd "${node}" "$@"
+done
+
+wait
+
+exit 0
