@@ -12,7 +12,7 @@ set $find termite --name=floatingFind --exec=jlauncher-find
 set $mixer termite --name=floatingAlsaMixer --exec=pulsemixer
 set $alsamixer termite --name=floatingAlsaMixer --exec=alsamixer
 set $bluetooth termite --name=floatingBluetoothctl --exec=bluetoothctl
-set $wifi termite --name=floatingWifiMenu --exec='sudo wifi-menu'
+set $wifi termite --name=floatingWifiMenu --exec='sudo wifi-menu -o'
 
 ### Output configuration
 output * bg /usr/share/backgrounds/jangho/solarized-wallpaper-arch-1920x1080.png fill
