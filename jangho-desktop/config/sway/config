@@ -59,8 +59,8 @@ bindsym $mod+$right focus right
 
 bindsym $mod+bracketleft workspace prev
 bindsym $mod+bracketright workspace next
-bindsym $mod+prior workspace prev # PageUp
-bindsym $mod+next workspace next # PageDown
+bindsym $mod+prior workspace prev
+bindsym $mod+next workspace next
 bindsym $mod+w workspace back_and_forth
 
 bindsym $mod+1 workspace 1
