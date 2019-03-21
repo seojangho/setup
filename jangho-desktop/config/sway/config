@@ -5,6 +5,7 @@ set $down j
 set $up k
 set $right l
 set $term termite
+set $termfloat termite --name=floatingTermite
 set $lock lock
 set $menu rofi -show run | xargs swaymsg exec
 set $find termite --name=floatingFind --exec=jlauncher-find
@@ -93,6 +94,7 @@ bindsym $mod+minus move scratchpad
 bindsym $mod+equal scratchpad show
 
 bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $termfloat
 bindsym $mod+Backspace exec $lock
 bindsym $mod+u exec $menu
 bindsym $mod+y exec $find
@@ -156,6 +158,7 @@ mode "meta" {
   bindsym equal scratchpad show
 
   bindsym Return exec swaymsg mode "default" && $term
+  bindsym Shift+Return exec $termfloat
   bindsym Backspace exec swaymsg mode "default" && $lock
   bindsym u exec swaymsg mode "default" && menu
   bindsym y exec swaymsg mode "default" && find
@@ -201,6 +204,7 @@ bindsym $mod+m exec unread --timeout 2000
 
 ### App-specific settings
 
+for_window [app_id="^floatingTermite$"] floating enable, border none
 for_window [app_id="^floatingFind$"] floating enable, border none
 for_window [app_id="^floatingAlsaMixer$"] floating enable, border none
 for_window [app_id="^floatingBluetoothctl$"] floating enable, border none

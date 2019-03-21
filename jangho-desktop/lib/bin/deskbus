@@ -19,7 +19,6 @@ class Server(dbus.service.Object):
         dbus.service.Object.__init__(self, bus_name, OPATH)
 
         self.dunst_ids = {}
-        self.pass_target = ''
 
     @dbus.service.method(dbus_interface=IFACE,
                          in_signature='sx', out_signature='')
@@ -47,16 +46,6 @@ class Server(dbus.service.Object):
     def clear_dunst_id_all(self):
         self.dunst_ids = {}
 
-    @dbus.service.method(dbus_interface=IFACE,
-                         in_signature='s', out_signature='')
-    def set_pass_target(self, target):
-        self.pass_target = target
-
-    @dbus.service.method(dbus_interface=IFACE,
-                         in_signature='', out_signature='s')
-    def get_pass_target(self):
-        return self.pass_target
-
 
 def client():
     COMMAND = sys.argv[1]
@@ -70,10 +59,6 @@ def client():
         OBJ.clear_dunst_id(sys.argv[2], dbus_interface=IFACE)
     elif COMMAND == 'clear-dunst-id-all':
         OBJ.clear_dunst_id_all(dbus_interface=IFACE)
-    elif COMMAND == 'set-pass-target':
-        OBJ.set_pass_target(sys.argv[2], dbus_interface=IFACE)
-    elif COMMAND == 'get-pass-target':
-        print(OBJ.get_pass_target(dbus_interface=IFACE))
     else:
         print('Unrecognized command', file=sys.stderr)
         sys.exit(1)
