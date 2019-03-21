@@ -7,7 +7,7 @@ set $right l
 set $term termite
 set $termfloat termite --name=floatingTermite
 set $lock lock
-set $menu rofi -show run | xargs swaymsg exec
+set $menu rofi -theme Adapta-Nokto -show run | xargs swaymsg exec
 set $find termite --name=floatingFind --exec=jlauncher-find
 set $mixer termite --name=floatingAlsaMixer --exec=pulsemixer
 set $alsamixer termite --name=floatingAlsaMixer --exec=alsamixer
