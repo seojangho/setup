@@ -24,10 +24,9 @@ class Server(dbus.service.Object):
     @dbus.service.method(dbus_interface=IFACE,
                          in_signature='sx', out_signature='')
     def set_dunst_id(self, key, value):
-        for v in self.dunst_ids.values():
+        for k, v in list(self.dunst_ids.items()):
             if v == value:
-                self.clear_dunst_id_all()
-                break
+                del self.dunst_ids[k]
         self.dunst_ids[key] = value
 
     @dbus.service.method(dbus_interface=IFACE,
