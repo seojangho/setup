@@ -1,22 +1,12 @@
 [Default Applications]
-x-scheme-handler/mailto=userapp-Thunderbird-UZ23YZ.desktop
-message/rfc822=userapp-Thunderbird-UZ23YZ.desktop
-x-scheme-handler/news=userapp-Thunderbird-NO70YZ.desktop
-x-scheme-handler/snews=userapp-Thunderbird-NO70YZ.desktop
-x-scheme-handler/nntp=userapp-Thunderbird-NO70YZ.desktop
-x-scheme-handler/feed=userapp-Thunderbird-9AG2YZ.desktop
-application/rss+xml=userapp-Thunderbird-9AG2YZ.desktop
-application/x-extension-rss=userapp-Thunderbird-9AG2YZ.desktop
+x-scheme-handler/mailto=thunderbird.desktop
+message/rfc822=thunderbird.desktop
+x-scheme-handler/news=thunderbird.desktop
+x-scheme-handler/snews=thunderbird.desktop
+x-scheme-handler/nntp=thunderbird.desktop
+x-scheme-handler/feed=thunderbird.desktop
+application/rss+xml=thunderbird.desktop
+application/x-extension-rss=thunderbird.desktop
 application/pdf=org.pwmt.zathura.desktop
 image/png=imv.desktop
 image/jpeg=imv.desktop
-
-[Added Associations]
-x-scheme-handler/mailto=userapp-Thunderbird-UZ23YZ.desktop;
-message/rfc822=userapp-Thunderbird-UZ23YZ.desktop;
-x-scheme-handler/news=userapp-Thunderbird-NO70YZ.desktop;
-x-scheme-handler/snews=userapp-Thunderbird-NO70YZ.desktop;
-x-scheme-handler/nntp=userapp-Thunderbird-NO70YZ.desktop;
-x-scheme-handler/feed=userapp-Thunderbird-9AG2YZ.desktop;
-application/rss+xml=userapp-Thunderbird-9AG2YZ.desktop;
-application/x-extension-rss=userapp-Thunderbird-9AG2YZ.desktop;

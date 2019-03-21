@@ -57,6 +57,10 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+bracketright workspace next
+bindsym $mod+prior workspace prev # PageUp
+bindsym $mod+next workspace next # PageDown
 bindsym $mod+w workspace back_and_forth
 
 bindsym $mod+1 workspace 1
@@ -127,6 +131,10 @@ mode "meta" {
   bindsym $up focus up
   bindsym $right focus right
 
+  bindsym bracketleft workspace prev
+  bindsym bracketright workspace next
+  bindsym prior workspace prev
+  bindsym next workspace next
   bindsym w workspace back_and_forth
 
   bindsym 1 workspace 1
