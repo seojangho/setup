@@ -20,7 +20,6 @@ class Server(dbus.service.Object):
 
         self.dunst_ids = {}
         self.pass_target = ''
-        self.clipmenud_masks = set()
 
     @dbus.service.method(dbus_interface=IFACE,
                          in_signature='sx', out_signature='')
@@ -58,26 +57,6 @@ class Server(dbus.service.Object):
     def get_pass_target(self):
         return self.pass_target
 
-    @dbus.service.method(dbus_interface=IFACE,
-                         in_signature='', out_signature='b')
-    def is_clipmenud_active(self):
-        return len(self.clipmenud_masks) == 0
-
-    @dbus.service.method(dbus_interface=IFACE,
-                         in_signature='s', out_signature='b')
-    def set_clipmenud_mask(self, key):
-        self.clipmenud_masks.add(key)
-        return self.is_clipmenud_active()
-
-    @dbus.service.method(dbus_interface=IFACE,
-                         in_signature='s', out_signature='b')
-    def unset_clipmenud_mask(self, key):
-        try:
-            self.clipmenud_masks.remove(key)
-        except KeyError:
-            pass
-        return self.is_clipmenud_active()
-
 
 def client():
     COMMAND = sys.argv[1]
@@ -95,12 +74,6 @@ def client():
         OBJ.set_pass_target(sys.argv[2], dbus_interface=IFACE)
     elif COMMAND == 'get-pass-target':
         print(OBJ.get_pass_target(dbus_interface=IFACE))
-    elif COMMAND == 'is-clipmenud-active':
-        print(OBJ.is_clipmenud_active(dbus_interface=IFACE))
-    elif COMMAND == 'set-clipmenud-mask':
-        print(OBJ.set_clipmenud_mask(sys.argv[2], dbus_interface=IFACE))
-    elif COMMAND == 'unset-clipmenud-mask':
-        print(OBJ.unset_clipmenud_mask(sys.argv[2], dbus_interface=IFACE))
     else:
         print('Unrecognized command', file=sys.stderr)
         sys.exit(1)
