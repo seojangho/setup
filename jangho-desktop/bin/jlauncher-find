@@ -3,7 +3,7 @@
 set -euo pipefail
 
 cd "${HOME}"
-selected=${HOME}/$(find . -not -path '*/\.*' -print0 | fzf --read0 --reverse)
+selected=${HOME}/$(find -L . -not -path '*/\.*' -print0 | fzf --read0 --reverse)
 if [[ -d "${selected}" ]]; then
   cd "${selected}"
   exec mc
