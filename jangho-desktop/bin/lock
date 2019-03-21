@@ -3,7 +3,7 @@
 set -euo pipefail
 
 dunstctl disable
-swaylock --image /usr/share/backgrounds/jangho/arch-card-demo-1920x1080.png \
+swaylock -f --image /usr/share/backgrounds/jangho/arch-card-demo-1920x1080.png \
   --scaling fill --no-unlock-indicator
 dunstctl enable
 
