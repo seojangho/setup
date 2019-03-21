@@ -9,7 +9,8 @@ set $termfloat termite --name=floatingTermite
 set $lock lock
 set $menu rofi -show run | xargs swaymsg exec
 set $find termite --name=floatingFind --exec=jlauncher-find
-set $mixer termite --name=floatingAlsaMixer --exec=alsamixer
+set $mixer termite --name=floatingAlsaMixer --exec=pulsemixer
+set $alsamixer termite --name=floatingAlsaMixer --exec=alsamixer
 set $bluetooth termite --name=floatingBluetoothctl --exec=bluetoothctl
 set $wifi termite --name=floatingWifiMenu --exec='sudo wifi-menu'
 
@@ -99,6 +100,7 @@ bindsym $mod+Backspace exec $lock
 bindsym $mod+u exec $menu
 bindsym $mod+y exec $find
 bindsym $mod+i exec $mixer
+bindsym $mod+Shift+i exec $alsamixer
 bindsym $mod+o exec $bluetooth
 bindsym $mod+p exec $wifi
 
@@ -160,11 +162,12 @@ mode "meta" {
   bindsym Return exec swaymsg mode "default" && $term
   bindsym Shift+Return exec $termfloat
   bindsym Backspace exec swaymsg mode "default" && $lock
-  bindsym u exec swaymsg mode "default" && menu
-  bindsym y exec swaymsg mode "default" && find
-  bindsym i exec swaymsg mode "default" && mixer
-  bindsym o exec swaymsg mode "default" && bluetooth
-  bindsym p exec swaymsg mode "default" && wifi
+  bindsym u exec swaymsg mode "default" && $menu
+  bindsym y exec swaymsg mode "default" && $find
+  bindsym i exec swaymsg mode "default" && $mixer
+  bindsym Shift+i exec swaymsg mode "default" && $alsamixer
+  bindsym o exec swaymsg mode "default" && $bluetooth
+  bindsym p exec swaymsg mode "default" && $wifi
 
   bindsym Escape mode "default"
   bindsym Super_L mode "default"
@@ -197,6 +200,12 @@ mode "resize" {
 ### Appearance
 
 default_border pixel
+client.focused          #4c7899 #285577 #ffffff #2e9ef4 #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e #222222
+client.urgent           #2f343a #900000 #ffffff #900000 #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
+client.background       #ffffff
 
 ### Other shortcuts
 
