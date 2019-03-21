@@ -230,7 +230,6 @@ for_window [app_id="^floatingWifiMenu$"] floating enable
 ### Daemons
 
 exec dunst
-exec ~/.setup/jangho-desktop/lib/bin/deskbus clear-dunst-id-all
 exec ~/.setup/jangho-desktop/lib/bin/modewatchd
 exec ~/.setup/jangho-desktop/lib/bin/unreadd
 exec ~/.setup/jangho-desktop/lib/bin/workspacewatchd
