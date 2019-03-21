@@ -12,7 +12,6 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
 zplug "junegunn/fzf", use:"shell/*.zsh", defer:1
-zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
 
 # oh-my-zsh
 DISABLE_AUTO_UPDATE=true
