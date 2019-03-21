@@ -17,6 +17,7 @@ set $unread exec unread --timeout 2000
 set $battery exec ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m --oneshot
 set $clear exec jdunstify-clear-all
 set $toggle exec dunstctl toggle
+set $music termite --name=floatingNcmpcpp --exec=ncmpcpp
 
 ### Output configuration
 output * bg /usr/share/backgrounds/jangho/solarized-wallpaper-arch-1920x1080.png fill
@@ -109,8 +110,9 @@ bindsym $mod+o exec $bluetooth
 bindsym $mod+p exec $wifi
 bindsym $mod+m exec $unread
 bindsym $mod+n exec $battery
-bindsym $mod+c exec $clear
-bindsym $mod+Shift+c exec $toggle
+bindsym $mod+backslash exec $clear
+bindsym $mod+Shift+backslash exec $toggle
+bindsym $mod+slash exec $music
 
 bindsym --release Super_L mode "meta"
 bindsym --release Super_R mode "meta"
@@ -178,8 +180,9 @@ mode "meta" {
   bindsym p exec swaymsg mode "default" && $wifi
   bindsym m exec $unread
   bindsym n exec $battery
-  bindsym c exec $clear
-  bindsym Shift+c exec $toggle
+  bindsym backslash exec $clear
+  bindsym Shift+backslash exec $toggle
+  bindsym slash exec swaymsg mode "default" && $music
 
   bindsym Escape mode "default"
   bindsym Super_L mode "default"
@@ -226,6 +229,7 @@ for_window [app_id="^floatingFind$"] floating enable
 for_window [app_id="^floatingAlsaMixer$"] floating enable
 for_window [app_id="^floatingBluetoothctl$"] floating enable
 for_window [app_id="^floatingWifiMenu$"] floating enable
+for_window [app_id="^floatingNcmpcpp$"] floating enable
 
 ### Daemons
 
