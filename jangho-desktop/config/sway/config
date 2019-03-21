@@ -214,11 +214,11 @@ bindsym $mod+n exec ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m --onesho
 
 ### App-specific settings
 
-for_window [app_id="^floatingTermite$"] floating enable, border none
-for_window [app_id="^floatingFind$"] floating enable, border none
-for_window [app_id="^floatingAlsaMixer$"] floating enable, border none
-for_window [app_id="^floatingBluetoothctl$"] floating enable, border none
-for_window [app_id="^floatingWifiMenu$"] floating enable, border none
+for_window [app_id="^floatingTermite$"] floating enable
+for_window [app_id="^floatingFind$"] floating enable
+for_window [app_id="^floatingAlsaMixer$"] floating enable
+for_window [app_id="^floatingBluetoothctl$"] floating enable
+for_window [app_id="^floatingWifiMenu$"] floating enable
 
 ### Daemons
 
