@@ -13,3 +13,7 @@
 /libreoffice/
 /mc/
 /kdeconnect/
+/mpd/database
+/mpd/pid
+/mpd/state
+/mpd/sticker.sql
