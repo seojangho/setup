@@ -193,8 +193,8 @@ mode "resize" {
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
-  bindsym Super_L mode "default"
-  bindsym Super_R mode "default"
+  bindsym --release Super_L mode "meta"
+  bindsym --release Super_R mode "meta"
 }
 
 ### Appearance
