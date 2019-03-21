@@ -2,9 +2,9 @@
 
 set -euo pipefail
 
-killall -SIGUSR1 dunst
+dunstctl disable
 swaylock --image /usr/share/backgrounds/jangho/arch-card-demo-1920x1080.png \
   --scaling fill --no-unlock-indicator
-killall -SIGUSR2 dunst
+dunstctl enable
 
 exit 0

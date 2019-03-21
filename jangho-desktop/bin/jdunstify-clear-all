@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euo pipefail
+
+DESKBUS="${HOME}/.setup/jangho-desktop/lib/bin/deskbus"
+
+"${DESKBUS}" clear-dunst-id-all | xargs --no-run-if-empty -L1 -- dunstify -C
+
+exit 0

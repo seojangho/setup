@@ -19,13 +19,15 @@ class Server(dbus.service.Object):
         dbus.service.Object.__init__(self, bus_name, OPATH)
 
         self.dunst_ids = {}
+        self.dunst_enabled = True
 
     @dbus.service.method(dbus_interface=IFACE,
                          in_signature='sx', out_signature='')
     def set_dunst_id(self, key, value):
-        for k, v in list(self.dunst_ids.items()):
+        for v in self.dunst_ids.values():
             if v == value:
-                del self.dunst_ids[k]
+                self.clear_dunst_id_all()
+                break
         self.dunst_ids[key] = value
 
     @dbus.service.method(dbus_interface=IFACE,
@@ -42,9 +44,22 @@ class Server(dbus.service.Object):
         del self.dunst_ids[key]
 
     @dbus.service.method(dbus_interface=IFACE,
-                         in_signature='', out_signature='')
+                         in_signature='', out_signature='ax')
     def clear_dunst_id_all(self):
+        ids = list(self.dunst_ids.values())
         self.dunst_ids = {}
+        return ids
+
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='', out_signature='b')
+    def toggle_dunst_enabled(self):
+        self.dunst_enabled = not self.dunst_enabled
+        return self.dunst_enabled
+
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='b', out_signature='')
+    def set_dunst_enabled(self, value):
+        self.dunst_enabled = True if value else False
 
 
 def client():
@@ -58,7 +73,12 @@ def client():
     elif COMMAND == 'clear-dunst-id':
         OBJ.clear_dunst_id(sys.argv[2], dbus_interface=IFACE)
     elif COMMAND == 'clear-dunst-id-all':
-        OBJ.clear_dunst_id_all(dbus_interface=IFACE)
+        for i in OBJ.clear_dunst_id_all(dbus_interface=IFACE):
+            print(i)
+    elif COMMAND == 'toggle-dunst-enabled':
+        print(OBJ.toggle_dunst_enabled(dbus_interface=IFACE))
+    elif COMMAND == 'set-dunst-enabled':
+        OBJ.set_dunst_enabled(int(sys.argv[2]), dbus_interface=IFACE)
     else:
         print('Unrecognized command', file=sys.stderr)
         sys.exit(1)

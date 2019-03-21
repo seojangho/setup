@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -euo pipefail
+
+DESKBUS="${HOME}/.setup/jangho-desktop/lib/bin/deskbus"
+
+case "$1" in
+  enable)
+    "${DESKBUS}" set-dunst-enabled 1
+    action=enable
+    ;;
+  disable)
+    "${DESKBUS}" set-dunst-enabled 0
+    action=disable
+    ;;
+  toggle)
+    if [[ "$("${DESKBUS}" toggle-dunst-enabled)" -eq 0 ]]; then
+      action=disable
+    else
+      action=enable
+    fi
+    ;;
+  *)
+    >&2 echo 'Unrecognized command'
+    exit 1
+    ;;
+esac
+
+if [[ "${action}" == 'enable' ]]; then
+  killall -SIGUSR2 dunst
+  jdunstify 'dunstctl' 'Dunst enabled'
+else
+  killall -SIGUSR1 dunst
+fi
+
+exit 0
