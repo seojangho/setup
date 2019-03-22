@@ -1,5 +1,5 @@
 PATH="/opt/mango/bin:${PATH}"
-alias pear-on='wup pear; sleep 30s; dropbear-encrypt pear; sleep 10s; pear sudo systemctl stop gdm; pear'
+alias pear-on='wup pear; sleep 30s; dropbear-encrypt pear; sleep 10s; pear'
 alias wup='$HOME/.setup/scripts/bin/wup'
 printer() {
   nc -l -p 9100 | ps2pdfwr - "${1:-mango-printer-$(date --iso-8601=ns).pdf}"
