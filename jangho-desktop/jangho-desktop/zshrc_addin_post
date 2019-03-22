@@ -3,5 +3,5 @@ export TERM=xterm-256color
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
-export XKB_DEFAULT_OPTIONS=ctrl:nocaps,
+export XKB_DEFAULT_OPTIONS="ctrl:nocaps,${XKB_DEFAULT_OPTIONS}"
 export PATH="${HOME}/.setup/jangho-desktop/bin:${PATH}"
