@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -uo pipefail
 
 dunstctl disable
 swaylock -f --image /usr/share/backgrounds/jangho/arch-card-demo-1920x1080.png \
