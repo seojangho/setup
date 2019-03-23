@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+gpg --decrypt ~/.secret/bitlocker/peach/BitLocker\ 복구\ 키\ 5F85013F-5950-4AB9-83B6-AB8604DA4BD1.TXT.gpg \
+  2>/dev/null | dd bs=1 skip=411 count=115 2>/dev/null
+xhost +SI:localuser:root
+sudo qemu-system-x86_64 -bios /usr/share/ovmf/x64/OVMF_CODE.fd \
+  -enable-kvm -smp cores=4 -m 6144M \
+  -drive file=/dev/sdb,format=raw,if=virtio \
+  -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -snapshot
+xhost -SI:localuser:root
+xhost
+exit 0

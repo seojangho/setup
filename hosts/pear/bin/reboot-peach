@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euo pipefail
+windows_num=$(efibootmgr | grep 'Windows Boot Manager'| cut -b5-8)
+sudo efibootmgr --bootnext "$windows_num" && sudo reboot
+exit 0
