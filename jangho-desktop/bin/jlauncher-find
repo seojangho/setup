@@ -8,5 +8,9 @@ if [[ -d "${selected}" ]]; then
   cd "${selected}"
   exec mc
 else
-  exec xdg-open "${selected}"
+  quoted=''
+  for arg in "${selected[@]}"; do
+    quoted="${quoted} $(printf "%q" "${arg}")"
+  done
+  exec swaymsg exec -- xdg-open "${quoted}"
 fi
