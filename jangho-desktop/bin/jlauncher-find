@@ -4,13 +4,13 @@ set -euo pipefail
 
 cd "${HOME}"
 selected=${HOME}/$(find -L . -not -path '*/\.*' -print0 | fzf --read0 --reverse)
+quoted=''
+for arg in "${selected[@]}"; do
+  quoted="${quoted} $(printf "%q" "${arg}")"
+done
+
 if [[ -d "${selected}" ]]; then
-  cd "${selected}"
-  exec mc
+  exec swaymsg exec -- pcmanfm "${quoted}"
 else
-  quoted=''
-  for arg in "${selected[@]}"; do
-    quoted="${quoted} $(printf "%q" "${arg}")"
-  done
   exec swaymsg exec -- xdg-open "${quoted}"
 fi
