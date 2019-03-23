@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-sudo zypper in vim curl git
-
-"${SETUPDIR}"/vim/install-user
-
-exit 0

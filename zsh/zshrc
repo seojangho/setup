@@ -124,8 +124,7 @@ function diary {
 alias today='ssh jangho@mango.jangho.io -p50022 -- "/opt/mango/today/today"'
 
 alias b='mvn clean install'
-alias bb='mvn clean install -DskipTests'
-alias bbb='mvn clean install -DskipTests -TC1 -P!code-quality'
+alias bb='mvn install -TC1 -DskipTests -Dmaven.test.skip -Dcheckstyle.skip -P!code-quality'
 
 # ssh
 alias mango='ssh -p50022 jangho@mango.jangho.io'
@@ -141,21 +140,10 @@ alias ㄷ핑ㅓㅕ='update'
 alias ㄴ='s'
 alias ㅓ='t'
 
-# extract mp3 from avi
-extract-mp3() {
-  ffmpeg -i "$1" -q:a 0 -map a "$1.mp3"
-}
-
 # encrypt
 function encrypt {
   gpg --encrypt --output "$1".gpg --encrypt --recipient \
     EE37EBD527ECFE87A96A7BDB6503B6817E24FCA3 "$1" && chmod --reference="$1" "$1".gpg && rm -i "$1"
-}
-
-# folder digest
-function fdigest {
-  find . -type f -print0 | xargs -L1 -0 -- md5sum | sort | md5sum
-  find . | sort | md5sum
 }
 
 # sshuttle

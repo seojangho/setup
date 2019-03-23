@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-sudo zypper in zsh curl git gawk
-
-"${SETUPDIR}"/zsh/install-user
-
-exit 0

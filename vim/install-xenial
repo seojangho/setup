@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-sudo apt install -y vim curl git
-
-"${SETUPDIR}"/vim/install-user
-
-exit 0
