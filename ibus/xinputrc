@@ -1,5 +1,0 @@
-if [[ $SHELL == "/bin/zsh" || $SHELL == "/usr/bin/zsh" ]]
-then
-  setopt nonomatch
-fi
-run_im ibus

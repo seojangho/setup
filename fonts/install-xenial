@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -e
-
-sudo apt install fonts-noto fonts-noto-cjk fonts-nanum-coding fonts-hack-ttf fonts-dejavu-core
-
-exit 0

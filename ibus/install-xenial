@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -e
-
-sudo apt install ibus-hangul ibus-gtk3 ibus-gtk im-config
-
-exit 0

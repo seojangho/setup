@@ -1,2 +1,0 @@
-export AUTOEXP_CONFIG_HOME="$HOME/setup"
-export PATH="$HOME/.autoexp/bin:$HOME/hadoop/bin:$HOME/hadoop/sbin:$PATH"
