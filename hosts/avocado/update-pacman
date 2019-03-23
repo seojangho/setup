@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -e
-
-"$SETUPDIR/snapins/pacman/reboot-required-check" 'linux-418-surface-pro-2017'
-
-exit 0

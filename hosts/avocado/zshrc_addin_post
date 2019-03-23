@@ -1,5 +1,0 @@
-# reboot to apricot (Windows)
-alias reboot-apricot='sudo efibootmgr --bootnext 0000 && sudo reboot'
-
-# reboot to avocado (Arch)
-alias reboot-avocado='sudo bootctl set-oneshot avocado-surface && sudo reboot'
