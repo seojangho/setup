@@ -8,5 +8,5 @@ if [[ -d "${selected}" ]]; then
   cd "${selected}"
   exec mc
 else
-  exec swaymsg exec -- xdg-open "${selected}"
+  exec xdg-open "${selected}"
 fi
