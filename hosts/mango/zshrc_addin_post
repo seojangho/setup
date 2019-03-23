@@ -1,13 +1,1 @@
-PATH="/opt/mango/bin:${PATH}"
-alias pear-on='wup pear; sleep 30s; dropbear-encrypt pear; sleep 10s; pear'
-alias wup='$HOME/.setup/scripts/bin/wup'
-printer() {
-  nc -l -p 9100 | ps2pdfwr - "${1:-mango-printer-$(date --iso-8601=ns).pdf}"
-}
-pass() {
-  if [[ "$1" == 'otp' ]]; then
-    pass "$2" | grep -Po 'secret=[a-zA-Z0-9]+' | cut -c8- | xargs -- oathtool -b --totp
-  else
-    /usr/bin/pass "$@"
-  fi
-}
+PATH="${HOME}/.setup/hosts/mango/bin:/opt/mango/bin:${PATH}"

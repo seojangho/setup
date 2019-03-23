@@ -1,6 +1,8 @@
 #!/bin/bash
 
-ENCF=$(dirname "$(readlink -f "$0")")/../dropbear-encrypt
+set -e
+
+ENCF=$(dirname "$(readlink -f "$0")")/../share/dropbear-encrypt
 [[ -z "$1" ]] && exit 1
 ADDR=$(awk "{if (\$1==\"$1\") print \$2}" "$ENCF")
 [[ -z "$ADDR" ]] && exit 1
