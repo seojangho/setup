@@ -1,2 +1,2 @@
 #!/bin/bash
-exec alias firefox-private='firefox --profile ~/.mozilla/firefox/jadmngzl.private'
+exec firefox --profile ~/.mozilla/firefox/jadmngzl.private
