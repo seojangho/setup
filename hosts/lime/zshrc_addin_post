@@ -1,0 +1,1 @@
+export XKB_DEFAULT_OPTIONS="korean:ralt_rctrl,${XKB_DEFAULT_OPTIONS}"
