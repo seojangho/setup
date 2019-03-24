@@ -16,7 +16,7 @@ should_report=true
 while :; do
   option=()
 
-  st=$(cat "${node}/status")
+  st=$(cat "${node}/status") || :
   [[ "${st}" != "${oldstatus}" ]] && should_report=true
   full=$(cat "${node}/energy_full")
   now=$(cat "${node}/energy_now")
