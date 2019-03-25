@@ -78,6 +78,11 @@ bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
+bindsym $mod+Control+$left resize shrink width 10px
+bindsym $mod+Control+$down resize grow height 10px
+bindsym $mod+Control+$up resize shrink height 10px
+bindsym $mod+Control+$right resize grow width 10px
+
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -121,7 +126,6 @@ bindsym $mod+slash exec $music
 bindsym --release Super_L mode "meta"
 bindsym --release Super_R mode "meta"
 bindsym $mod+Shift+q mode "quit"
-bindsym $mod+r mode "resize"
 
 mode "meta" {
   bindsym q kill
@@ -152,6 +156,11 @@ mode "meta" {
   bindsym Shift+$down move down
   bindsym Shift+$up move up
   bindsym Shift+$right move right
+
+  bindsym Control+$left resize shrink width 10px
+  bindsym Control+$down resize grow height 10px
+  bindsym Control+$up resize shrink height 10px
+  bindsym Control+$right resize grow width 10px
 
   bindsym Shift+1 move container to workspace 1
   bindsym Shift+2 move container to workspace 2
@@ -197,7 +206,6 @@ mode "meta" {
   bindsym Super_L mode "default"
   bindsym Super_R mode "default"
   bindsym Shift+q mode "quit"
-  bindsym r mode "resize"
 }
 
 mode "quit" {
@@ -207,18 +215,6 @@ mode "quit" {
   bindsym Escape mode "default"
   bindsym Super_L mode "default"
   bindsym Super_R mode "default"
-}
-
-mode "resize" {
-  bindsym $left resize shrink width 10px
-  bindsym $down resize grow height 10px
-  bindsym $up resize shrink height 10px
-  bindsym $right resize grow width 10px
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-  bindsym --release Super_L mode "meta"
-  bindsym --release Super_R mode "meta"
 }
 
 ### Appearance
