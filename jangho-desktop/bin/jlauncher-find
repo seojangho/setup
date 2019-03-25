@@ -10,7 +10,12 @@ for arg in "${selected[@]}"; do
 done
 
 if [[ -d "${selected}" ]]; then
-  exec swaymsg exec -- pcmanfm "${quoted}"
+  if [[ -n "${1+x}" ]] && [[ "$1" == '--directory-pcmanfm' ]]; then
+    exec swaymsg exec -- pcmanfm "${quoted}"
+  else
+    cd "${selected}"
+    exec swaymsg exec -- ~/.setup/jangho-desktop/lib/bin/openzsh "${quoted}"
+  fi
 else
   exec swaymsg exec -- xdg-open "${quoted}"
 fi

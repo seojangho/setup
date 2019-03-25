@@ -9,6 +9,7 @@ set $termfloat termite --name=floatingTermite
 set $lock lock
 set $menu rofi -theme Adapta-Nokto -show run | xargs swaymsg exec
 set $find termite --name=floatingFind --exec=jlauncher-find
+set $findpcman termite --name=floatingFind --exec='jlauncher-find --directory-pcmanfm'
 set $archiveup archive-update
 set $mixer termite --name=floatingAlsaMixer --exec=pulsemixer
 set $alsamixer termite --name=floatingAlsaMixer --exec=alsamixer
@@ -112,7 +113,8 @@ bindsym $mod+Shift+Return exec $termfloat
 bindsym $mod+Backspace exec $lock
 bindsym $mod+u exec $menu
 bindsym $mod+y exec $find
-bindsym $mod+Shift+y exec $archiveup
+bindsym $mod+Shift+y exec $findpcman
+bindsym $mod+Control+y exec $archiveup
 bindsym $mod+i exec $mixer
 bindsym $mod+Shift+i exec $alsamixer
 bindsym $mod+o exec $bluetooth
@@ -191,7 +193,8 @@ mode "meta" {
   bindsym Backspace exec swaymsg mode "default" && $lock
   bindsym u exec swaymsg mode "default" && $menu
   bindsym y exec swaymsg mode "default" && $find
-  bindsym Shift+y exec $archiveup
+  bindsym Shift+y exec swaymsg mode "default" && $findpcman
+  bindsym Control+y exec $archiveup
   bindsym i exec swaymsg mode "default" && $mixer
   bindsym Shift+i exec swaymsg mode "default" && $alsamixer
   bindsym o exec swaymsg mode "default" && $bluetooth
