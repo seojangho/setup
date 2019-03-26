@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+cd "${HOME}"
+DIR='Pictures'
+FILE="${DIR}/$(date --iso-8601=ns).png"
+mkdir -p "${DIR}"
+
+if [[ -n "${1+x}" ]] && [[ "$1" == '--slurp' ]]; then
+  grim -t png -g "$(slurp)" "${FILE}"
+else
+  grim -t png "${FILE}"
+fi
+
+jdunstify screnshot "Screenshot saved to ${FILE}"
+exit 0
