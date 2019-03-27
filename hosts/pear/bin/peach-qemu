@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# usage: peach-qemu <CORES> <OTHER_PARAMS...>
+
+set -euo pipefail
+VARS="$(sudo mktemp -d)/MY_VARS.fd"
+sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd "${VARS}"
+xhost +SI:localuser:root
+sudo qemu-system-x86_64 \
+  -name jangho-qemu-lemon \
+  -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd \
+  -drive "if=pflash,format=raw,file=${VARS}" \
+  -enable-kvm -m 6144M \
+  -cpu host,-npt,+topoext,kvm=off,hv_vendor_id=seojangho012,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff \
+  -smp "$1",sockets=1,cores="$1",threads=1 \
+  -device vfio-pci,host=06:00.0,x-vga=on -vga none \
+  -drive file=/dev/sdb,format=raw,if=virtio \
+  -object input-linux,id=mouse0,evdev=/dev/input/by-id/usb-Logitech_USB_Optical_Mouse-event-mouse \
+  -object input-linux,id=kbd0,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-if01 \
+  -object input-linux,id=kbd1,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd,grab_all=on,repeat=on \
+  -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on "${@:2}"
+xhost -SI:localuser:root
+xhost
+exit 0

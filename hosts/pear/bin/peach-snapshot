@@ -1,24 +1,2 @@
 #!/bin/bash
-set -euo pipefail
-gpg --decrypt ~/.secret/bitlocker/peach/BitLocker\ 복구\ 키\ 5F85013F-5950-4AB9-83B6-AB8604DA4BD1.TXT.gpg \
-  2>/dev/null | dd bs=1 skip=411 count=115 2>/dev/null
-VARS="$(sudo mktemp -d)/MY_VARS.fd"
-sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd "${VARS}"
-sudo sh -c 'echo 1 > /sys/module/kvm/parameters/ignore_msrs'
-xhost +SI:localuser:root
-sudo qemu-system-x86_64 \
-  -name jangho-qemu-lemon \
-  -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd \
-  -drive "if=pflash,format=raw,file=${VARS}" \
-  -smp 6,sockets=1,cores=3,threads=2 \
-  -enable-kvm -m 6144M \
-  -cpu host,+topoext,kvm=off,hv_vendor_id=seojangho012,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff \
-  -device vfio-pci,host=06:00.0,x-vga=on -vga none \
-  -drive file=/dev/sdb,format=raw,if=virtio \
-  -object input-linux,id=mouse0,evdev=/dev/input/by-id/usb-Logitech_USB_Optical_Mouse-event-mouse \
-  -object input-linux,id=kbd0,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-if01 \
-  -object input-linux,id=kbd1,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd,grab_all=on,repeat=on \
-  -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -snapshot
-xhost -SI:localuser:root
-xhost
-exit 0
+exec peach-qemu 6 -snapshot
