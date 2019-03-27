@@ -1,2 +1,2 @@
 #!/bin/bash
-exec peach-qemu 8
+exec peach-qemu 8 16384M

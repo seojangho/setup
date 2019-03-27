@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# usage: peach-qemu <CORES> <OTHER_PARAMS...>
+# usage: peach-qemu <CORES> <MEM> <OTHER_PARAMS...>
 
 set -euo pipefail
 VARS="$(sudo mktemp -d)/MY_VARS.fd"
@@ -9,7 +9,7 @@ sudo qemu-system-x86_64 \
   -name jangho-qemu-lemon \
   -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd \
   -drive "if=pflash,format=raw,file=${VARS}" \
-  -enable-kvm -m 6144M \
+  -enable-kvm -m "$2" \
   -cpu host,-npt,+topoext,kvm=off,hv_vendor_id=seojangho012,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff \
   -smp "$1",sockets=1,cores="$1",threads=1 \
   -device vfio-pci,host=06:00.0,x-vga=on -vga none \
@@ -17,5 +17,5 @@ sudo qemu-system-x86_64 \
   -object input-linux,id=mouse0,evdev=/dev/input/by-id/usb-Logitech_USB_Optical_Mouse-event-mouse \
   -object input-linux,id=kbd0,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-if01 \
   -object input-linux,id=kbd1,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd,grab_all=on,repeat=on \
-  -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -nographic "${@:2}"
+  -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -nographic "${@:3}"
 exit 0

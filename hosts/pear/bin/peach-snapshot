@@ -1,2 +1,2 @@
 #!/bin/bash
-exec peach-qemu 6 -snapshot
+exec peach-qemu 6 10240M -snapshot

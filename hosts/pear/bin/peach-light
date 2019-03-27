@@ -1,2 +1,2 @@
 #!/bin/bash
-exec peach-qemu 2
+exec peach-qemu 2 4096M
