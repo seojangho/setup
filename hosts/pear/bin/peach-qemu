@@ -5,7 +5,6 @@
 set -euo pipefail
 VARS="$(sudo mktemp -d)/MY_VARS.fd"
 sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd "${VARS}"
-xhost +SI:localuser:root
 sudo qemu-system-x86_64 \
   -name jangho-qemu-lemon \
   -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd \
@@ -18,7 +17,5 @@ sudo qemu-system-x86_64 \
   -object input-linux,id=mouse0,evdev=/dev/input/by-id/usb-Logitech_USB_Optical_Mouse-event-mouse \
   -object input-linux,id=kbd0,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-if01 \
   -object input-linux,id=kbd1,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd,grab_all=on,repeat=on \
-  -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on "${@:2}"
-xhost -SI:localuser:root
-xhost
+  -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -nographic "${@:2}"
 exit 0
