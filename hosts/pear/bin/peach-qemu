@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# usage: peach-qemu <CORES> <MEM> <OTHER_PARAMS...>
+# usage: peach-qemu <CORES> <MEM_IN_MEGABYTES> <OTHER_PARAMS...>
 
 set -euo pipefail
 VARS="$(sudo mktemp -d)/MY_VARS.fd"
@@ -10,7 +10,7 @@ sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PUL
   -name jangho-qemu-lemon \
   -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd \
   -drive "if=pflash,format=raw,file=${VARS}" \
-  -enable-kvm -m "$2" \
+  -enable-kvm -m "${2}M" \
   -cpu host,-npt,+topoext,kvm=off,hv_vendor_id=seojangho012,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff \
   -smp "$1",sockets=1,cores="$1",threads=1 \
   -device vfio-pci,host=06:00.0,x-vga=on -vga none \
