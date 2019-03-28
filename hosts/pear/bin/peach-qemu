@@ -16,7 +16,8 @@ sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PUL
   -device vfio-pci,host=06:00.0,x-vga=on -vga none \
   -drive file=/dev/mapper/peach,format=raw,if=virtio \
   -drive file=/dev/mapper/peach-tmp,format=raw,if=virtio \
+  -usb -device usb-host,vendorid=1386,productid=884 \
   -object input-linux,id=mouse0,evdev=/dev/input/by-id/usb-Logitech_USB_Optical_Mouse-event-mouse \
-  -object input-linux,id=kbd1,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd,grab_all=on,repeat=on \
+  -object input-linux,id=kbd0,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd,grab_all=on,repeat=on \
   -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -nographic -soundhw hda "${@:3}"
 exit 0
