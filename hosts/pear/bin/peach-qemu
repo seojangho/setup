@@ -19,5 +19,5 @@ sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PUL
   -usb -device usb-host,vendorid=1386,productid=884 \
   -object input-linux,id=mouse0,evdev=/dev/input/by-id/usb-Logitech_USB_Optical_Mouse-event-mouse \
   -object input-linux,id=kbd0,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd,grab_all=on,repeat=on \
-  -net nic -net user,hostfwd=tcp::3389-:3389 -boot menu=on -nographic -soundhw hda "${@:3}"
+  -net nic -net user,hostfwd=tcp::3389-:3389 -nographic -soundhw hda "${@:3}"
 exit 0
