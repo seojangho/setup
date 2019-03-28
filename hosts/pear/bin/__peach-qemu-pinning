@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# usage: peach-qemu-pinning <NUM_VM_CORES> <ACTUAL_CORE_START_INDEX> <ACTUAL_CORE_STRIDE> <IO_CORE_INDEX>
+# usage: __peach-qemu-pinning <NUM_VM_CORES> <ACTUAL_CORE_START_INDEX> <ACTUAL_CORE_STRIDE> <IO_CORE_INDEX>
 # e.g. peach-qemu-pinning 4 2 2 0
 # - VM Cores: pin to 2, 4, 6, 8 thread (ACTUAL_CORE_START_INDEX + ACTUAL_CORE_STRIDE * i)
 # - IO Threads: pin to 0
