@@ -1,2 +1,2 @@
 #!/bin/bash
-exec __peach-qemu 2 2 10240 -snapshot &
+exec __peach-qemu 2 2 10240 -snapshot
