@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# usage: peach-qemu-pinning <NUM_VM_CORES> <ACTUAL_CORE_START_INDEX> <ACTUAL_CORE_STRIDE> <IO_CORE_INDEX>
+# e.g. peach-qemu-pinning 4 2 2 0
+# - VM Cores: pin to 2, 4, 6, 8 thread (ACTUAL_CORE_START_INDEX + ACTUAL_CORE_STRIDE * i)
+# - IO Threads: pin to 0
+# stride=2 is optimized policy for Ryzen with SMT enabled. Refer to the result of lscpu -e for other CPUs.
+
+set -euo pipefail
+
+NUM_VM_CORES=$1
+ACTUAL_CORE_START_INDEX=$2
+ACTUAL_CORE_STRIDE=$3
+IO_CORE_INDEX=$4
+
+# From https://wiki.installgentoo.com/index.php/PCI_passthrough#CPU_affinity_pinning
+pids=$(ps -Leo tid,%cpu,args | grep qemu | grep jangho-qemu-lemon | grep -v grep | sort -k 2 -rn | sed "s/^ *\([0-9]*\).*/\1/")
+
+PID_IDX=0
+ACTUAL_CORE_IDX=$ACTUAL_CORE_START_INDEX
+
+for pid in ${pids}; do
+  PIN_TO=$ACTUAL_CORE_IDX
+  [[ "${PID_IDX}" -ge "${NUM_VM_CORES}" ]] && PIN_TO=$IO_CORE_INDEX
+  sudo taskset -pc "${PIN_TO}" "${pid}"
+  PID_IDX=$((PID_IDX + 1))
+  ACTUAL_CORE_IDX=$((ACTUAL_CORE_IDX + ACTUAL_CORE_STRIDE))
+done
+exit 0
