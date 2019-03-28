@@ -6,11 +6,13 @@ set -euo pipefail
 VARS="$(sudo mktemp -d)/MY_VARS.fd"
 PULSE_SOCKET=/run/user/${UID}/pulse/native
 sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd "${VARS}"
+sudo mount -t hugetlbfs hugetlbfs /dev/hugepages
+sudo sysctl vm.nr_hugepages="$2"
 sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PULSE_SOCKET}" PULSE_COOKIE="${HOME}/.config/pulse/cookie" qemu-system-x86_64 \
   -name jangho-qemu-lemon \
   -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd \
   -drive "if=pflash,format=raw,file=${VARS}" \
-  -enable-kvm -m "${2}M" \
+  -enable-kvm -m "${2}M" -mem-path /dev/hugepages \
   -cpu host,-npt,+topoext,kvm=off,hv_vendor_id=seojangho012,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff \
   -smp "$1",sockets=1,cores="$1",threads=1 \
   -device vfio-pci,host=06:00.0,x-vga=on -vga none \
@@ -20,4 +22,6 @@ sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PUL
   -object input-linux,id=mouse0,evdev=/dev/input/by-id/usb-Logitech_USB_Optical_Mouse-event-mouse \
   -object input-linux,id=kbd0,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd,grab_all=on,repeat=on \
   -net nic -net user,hostfwd=tcp::3389-:3389 -nographic -soundhw hda "${@:3}"
+sudo sysctl vm.nr_hugepages=0
+sudo umount /dev/hugepages
 exit 0

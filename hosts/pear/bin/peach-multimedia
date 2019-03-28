@@ -1,6 +1,6 @@
 #!/bin/bash
 NUM_CORES=4
-peach-qemu "${NUM_CORES}" 16384 &
+peach-qemu "${NUM_CORES}" 10240 &
 sleep 60s
 peach-qemu-pinning "$((NUM_CORES + 1))" 2 2 0
 wait
