@@ -4,7 +4,7 @@ set -uo pipefail
 
 dunstctl disable
 swaylock -f --image /usr/share/backgrounds/jangho/arch-card-demo-1920x1080.png \
-  --scaling fill --no-unlock-indicator
+  --scaling fill
 dunstctl enable
 
 exit 0
