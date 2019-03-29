@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+command -v btrfs > /dev/null
+sudo btrfs scrub status "$1" | grep 'running for' > /dev/null
+exit 0

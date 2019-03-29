@@ -25,8 +25,11 @@ BULLETTRAIN_PROMPT_CHAR="➜"
 BULLETTRAIN_PROMPT_ADD_NEWLINE=false
 BULLETTRAIN_STATUS_EXIT_SHOW=true
 BULLETTRAIN_STATUS_BG='red'
-BULLETTRAIN_PROMPT_ORDER=(status custom peach conditional_perl conditional_ruby virtualenv conditional_nvm go dir git hg svn)
+BULLETTRAIN_PROMPT_ORDER=(status custom peach btrfs_scrub conditional_perl conditional_ruby virtualenv conditional_nvm go dir git hg svn)
 function prompt_peach() {
+  :
+}
+function prompt_btrfs_scrub() {
   :
 }
 function prompt_svn() {

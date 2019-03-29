@@ -5,3 +5,9 @@ function prompt_peach() {
     echo -n 'P'
   fi
 }
+function prompt_btrfs_scrub() {
+  if btrfs-scrub-isrunning / || btrfs-scrub-isrunning /srv/data; then
+    prompt_segment white red
+    echo -n 'B'
+  fi
+}
