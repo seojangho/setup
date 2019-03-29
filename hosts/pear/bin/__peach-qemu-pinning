@@ -14,7 +14,7 @@ ACTUAL_CORE_STRIDE=$3
 IO_CORE_INDEX=$4
 
 # From https://wiki.installgentoo.com/index.php/PCI_passthrough#CPU_affinity_pinning
-pids=$(ps -Leo tid,%cpu,args | grep qemu | grep jangho-qemu-lemon | grep -v grep | sort -k 2 -rn | sed "s/^ *\([0-9]*\).*/\1/")
+pids=$(ps -Leo tid,%cpu,args | grep qemu | grep jangho-qemu-peach | grep -v grep | sort -k 2 -rn | sed "s/^ *\([0-9]*\).*/\1/")
 
 PID_IDX=0
 ACTUAL_CORE_IDX=$ACTUAL_CORE_START_INDEX

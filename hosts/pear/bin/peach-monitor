@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec sudo socat - "unix-connect:${HOME}/.cache/jangho-qemu-peach-monitor-socket"

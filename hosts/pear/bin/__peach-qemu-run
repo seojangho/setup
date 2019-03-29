@@ -16,7 +16,7 @@ sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd "${VARS}"
 sudo mount -t hugetlbfs hugetlbfs /dev/hugepages
 sudo sysctl vm.nr_hugepages="${MEM_IN_MEGABYTES}"
 sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PULSE_SOCKET}" PULSE_COOKIE="${HOME}/.config/pulse/cookie" qemu-system-x86_64 \
-  -name jangho-qemu-lemon \
+  -name jangho-qemu-peach \
   -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd \
   -drive "if=pflash,format=raw,file=${VARS}" \
   -enable-kvm -m "${MEM_IN_MEGABYTES}M" -mem-path /dev/hugepages \
@@ -28,6 +28,7 @@ sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PUL
   -usb -device usb-host,vendorid=1386,productid=884 \
   -object input-linux,id=mouse0,evdev=/dev/input/by-id/usb-Logitech_USB_Optical_Mouse-event-mouse \
   -object input-linux,id=kbd0,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd,grab_all=on,repeat=on \
+  -monitor "unix:${HOME}/.cache/jangho-qemu-peach-monitor-socket,server,nowait" \
   -net nic -net user,hostfwd=tcp::3389-:3389 -nographic -soundhw hda "${OTHER_PARAMS[@]}"
 sudo sysctl vm.nr_hugepages=0
 sudo umount /dev/hugepages
