@@ -106,6 +106,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 bindsym $mod+z focus child
+bindsym $mod+semicolon layout toggle split
 
 bindsym $mod+minus move scratchpad
 bindsym $mod+equal scratchpad show
@@ -188,6 +189,7 @@ mode "meta" {
   bindsym space focus mode_toggle
   bindsym a focus parent
   bindsym z focus child
+  bindsym semicolon layout toggle split
 
   bindsym minus move scratchpad
   bindsym equal scratchpad show
