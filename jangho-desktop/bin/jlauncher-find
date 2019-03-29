@@ -3,7 +3,9 @@
 set -euo pipefail
 
 cd "${HOME}"
-selected=${HOME}/$(find -L . -not -path '*/\.*' -print0 | fzf --read0 --reverse || :)
+fzf_result=$(find -L . -not -path '*/\.*' -print0 | fzf --read0 --reverse || :)
+[[ -n "${fzf_result}" ]]
+selected=${HOME}/${fzf_result}
 quoted=''
 for arg in "${selected[@]}"; do
   quoted="${quoted} $(printf "%q" "${arg}")"
