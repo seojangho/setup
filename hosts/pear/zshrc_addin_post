@@ -1,1 +1,7 @@
 export PATH="$HOME/.setup/hosts/pear/bin:$PATH"
+function prompt_peach() {
+  if peach-isrunning; then
+    prompt_segment white red
+    echo -n 'P'
+  fi
+}
