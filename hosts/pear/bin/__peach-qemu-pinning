@@ -22,7 +22,15 @@ ACTUAL_CORE_IDX=$ACTUAL_CORE_START_INDEX
 for pid in ${pids}; do
   PIN_TO=$ACTUAL_CORE_IDX
   [[ "${PID_IDX}" -ge "${NUM_VM_CORES}" ]] && PIN_TO=$IO_CORE_INDEX
+
+  # pinning
   sudo taskset -pc "${PIN_TO}" "${pid}"
+
+  # frequency scaling
+  FREQNODE="/sys/devices/system/cpu/cpu${PIN_TO}/cpufreq"
+  sudo sh -c "cat '${FREQNODE}/scaling_max_freq' > '${FREQNODE}/scaling_min_freq'"
+  sudo sh -c "echo performance > '${FREQNODE}/scaling_governor'"
+
   PID_IDX=$((PID_IDX + 1))
   ACTUAL_CORE_IDX=$((ACTUAL_CORE_IDX + ACTUAL_CORE_STRIDE))
 done
