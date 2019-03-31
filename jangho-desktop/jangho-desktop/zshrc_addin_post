@@ -8,3 +8,25 @@ export PATH="${HOME}/.setup/jangho-desktop/bin:${PATH}"
 
 # https://github.com/swaywm/sway/issues/3007#issuecomment-457737553
 export IDEA_JDK=/usr/lib/jvm/java-11-openjdk
+
+# pass
+pass() {
+  if [[ "$1" == 'i' ]]; then
+    local user
+    user="${2##*/}"
+    echo "$user"
+    echo -n "$user" | wl-copy
+    read -k1 -s
+    /usr/bin/pass show "$2" | head -n1 | wl-copy
+    if [[ -f "$HOME/.password-store/$2/otp.gpg" ]]; then
+      echo -n 'OTP: '
+      read -k1 -s
+      local otp
+      otp=$(/usr/bin/pass otp "$2/otp")
+      echo "$otp"
+      echo -n "$otp" | wl-copy
+    fi
+  else
+    /usr/bin/pass "$@"
+  fi
+}

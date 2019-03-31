@@ -158,28 +158,6 @@ function sshuttle-all {
 }
 alias sshuttle-mulan='sshuttle --dns -r mulan.snuspl.snu.ac.kr 192.168.1.0/24'
 
-# pass
-pass() {
-  if [[ "$1" == 'i' ]]; then
-    local user
-    user="${2##*/}"
-    echo "$user"
-    echo -n "$user" | xclip -selection clipbaord
-    read -k1 -s
-    /usr/bin/pass -c "$2"
-    if [[ -f "$HOME/.password-store/$2/otp.gpg" ]]; then
-      echo -n 'OTP: '
-      read -k1 -s
-      local otp
-      otp=$(/usr/bin/pass otp "$2/otp")
-      echo "$otp"
-      echo -n "$otp" | xclip -selection clipboard
-    fi
-  else
-    /usr/bin/pass "$@"
-  fi
-}
-
 # local::lib
 export PATH="$HOME/.perl5/bin${PATH:+:${PATH}}"
 export PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
