@@ -15,9 +15,9 @@ pass() {
     local user
     user="${2##*/}"
     echo "$user"
-    echo -n "$user" | wl-copy
+    echo -n "$user" | tr -d '\n' | wl-copy
     read -k1 -s
-    /usr/bin/pass show "$2" | head -n1 | wl-copy
+    /usr/bin/pass show "$2" | head -n1 | tr -d '\n' | wl-copy
     echo "Copied password for $2"
     if [[ -f "$HOME/.password-store/$2/otp.gpg" ]]; then
       echo -n 'OTP: '
@@ -25,7 +25,7 @@ pass() {
       local otp
       otp=$(/usr/bin/pass otp "$2/otp")
       echo "$otp"
-      echo -n "$otp" | wl-copy
+      echo -n "$otp" | tr -d '\n' | wl-copy
     fi
   else
     /usr/bin/pass "$@"

@@ -11,6 +11,6 @@
 	gpgsign = true
 [sendemail]
 	smtpencryption = ssl
-	smtpserver = mango.jangho.io
+	smtpserver = smtp.jangho.io
 	smtpuser = jangho@mango.jangho.io
 	smtpserverport = 465
