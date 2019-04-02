@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# usage: jidle start|stop|toggle
+
+set -euo pipefail
+
+DESKBUS="${HOME}/.setup/jangho-desktop/lib/bin/deskbus"
+
+cmd=$1
+case "$cmd" in
+  start)
+    swaymsg -- exec swayidle -w timeout 300 'lock' before-sleep 'lock'
+    "${DESKBUS}" set-idle-enabled 1
+    jdunstify jidle 'swayidle enabled'
+    ;;
+  stop)
+    "${DESKBUS}" set-idle-enabled 0
+    jdunstify jidle --urgency=critical 'swayidle disabled'
+    killall swayidle
+    ;;
+  toggle)
+    next=$("${DESKBUS}" toggle-idle-enabled)
+    if [[ "$next" -eq 0 ]]; then
+      exec jidle stop
+    else
+      exec jidle start
+    fi
+    ;;
+  *)
+    >&2 echo "Unknown command: $cmd"
+esac
+
+exit 0

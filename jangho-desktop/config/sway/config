@@ -7,6 +7,7 @@ set $right l
 set $term termite
 set $termfloat termite --name=floatingTermite
 set $lock lock
+set $locktoggle jidle toggle
 set $menu rofi -theme Adapta-Nokto -show run | xargs swaymsg exec
 set $find termite --name=floatingFind --exec=jlauncher-find
 set $findpcman termite --name=floatingFind --exec='jlauncher-find --directory-pcmanfm'
@@ -25,11 +26,6 @@ set $screenshotpartial print-screen --slurp
 
 ### Output configuration
 output * bg /usr/share/backgrounds/jangho/solarized-wallpaper-arch-1920x1080.png fill
-
-### Idle configuration
-exec swayidle -w \
-  timeout 300 'lock' \
-  before-sleep 'lock'
 
 ### Input configuration
 #
@@ -114,6 +110,7 @@ bindsym $mod+equal scratchpad show
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $termfloat
 bindsym $mod+Backspace exec $lock
+bindsym $mod+Shift+Backspace exec $locktoggle
 bindsym $mod+u exec $menu
 bindsym $mod+y exec $find
 bindsym $mod+Shift+y exec $findpcman
@@ -197,6 +194,7 @@ mode "meta" {
   bindsym Return exec swaymsg mode "default" && $term
   bindsym Shift+Return exec $termfloat
   bindsym Backspace exec swaymsg mode "default" && $lock
+  bindsym Shift+Backspace exec $locktoggle
   bindsym u exec swaymsg mode "default" && $menu
   bindsym y exec swaymsg mode "default" && $find
   bindsym Shift+y exec swaymsg mode "default" && $findpcman
@@ -254,4 +252,5 @@ exec ~/.setup/jangho-desktop/lib/bin/modewatchd
 exec ~/.setup/jangho-desktop/lib/bin/unreadd
 exec ~/.setup/jangho-desktop/lib/bin/workspacewatchd
 exec ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m
+exec jidle start
 exec ibus-daemon --xim

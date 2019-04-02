@@ -20,6 +20,7 @@ class Server(dbus.service.Object):
 
         self.dunst_ids = {}
         self.dunst_enabled = True
+        self.idle_enabled = False
 
     @dbus.service.method(dbus_interface=IFACE,
                          in_signature='sx', out_signature='')
@@ -60,6 +61,17 @@ class Server(dbus.service.Object):
     def set_dunst_enabled(self, value):
         self.dunst_enabled = True if value else False
 
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='', out_signature='b')
+    def toggle_idle_enabled(self):
+        self.idle_enabled = not self.idle_enabled
+        return self.idle_enabled
+
+    @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='b', out_signature='')
+    def set_idle_enabled(self, value):
+        self.idle_enabled = True if value else False
+
 
 def client():
     COMMAND = sys.argv[1]
@@ -78,6 +90,10 @@ def client():
         print(OBJ.toggle_dunst_enabled(dbus_interface=IFACE))
     elif COMMAND == 'set-dunst-enabled':
         OBJ.set_dunst_enabled(int(sys.argv[2]), dbus_interface=IFACE)
+    elif COMMAND == 'toggle-idle-enabled':
+        print(OBJ.toggle_idle_enabled(dbus_interface=IFACE))
+    elif COMMAND == 'set-idle-enabled':
+        OBJ.set_idle_enabled(int(sys.argv[2]), dbus_interface=IFACE)
     else:
         print('Unrecognized command', file=sys.stderr)
         sys.exit(1)
