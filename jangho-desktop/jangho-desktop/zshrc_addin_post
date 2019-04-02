@@ -18,6 +18,7 @@ pass() {
     echo -n "$user" | wl-copy
     read -k1 -s
     /usr/bin/pass show "$2" | head -n1 | wl-copy
+    echo "Copied password for $2"
     if [[ -f "$HOME/.password-store/$2/otp.gpg" ]]; then
       echo -n 'OTP: '
       read -k1 -s
