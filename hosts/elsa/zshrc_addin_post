@@ -1,1 +1,2 @@
+export PATH="$HOME/.setup/hosts/elsa/bin:$PATH"
 export PKG_CONFIG_PATH=${HOME}/rdma-core/build/lib/pkgconfig:/usr/lib/pkgconfig

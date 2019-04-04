@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+sudo modprobe mlx5_core
+sudo modprobe mlx5_ib
+sudo modprobe ib_uverbs
+exit 0
