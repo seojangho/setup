@@ -1,0 +1,2 @@
+" cd ~/rdma-core && crags -R
+set tags=~/rdma-core/tags
