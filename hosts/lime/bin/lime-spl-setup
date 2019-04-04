@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# In SNU 302-420...
+if [[ -n "${1+x}" ]] && [[ "$1" == '--reverse' ]]; then
+  swaymsg output eDP-1 enable
+  swaymsg output HDMI-A-2 disable
+else
+  swaymsg output eDP-1 disable
+  swaymsg output HDMI-A-2 enable
+fi
+
+# Set scaling factor
+swaymsg output HDMI-A-2 scale 1.5
+# Relocate dunst message box for different scaling factor
+dunstctl disable
+dunstctl enable
+
+if sudo netctl start wlp2s0-snuspl_5G; then
+  jdunstify lime-spl-setup 'Connected to snuspl_5G'
+else
+  jdunstify lime-spl-setup --urgency=critical 'Cannot connect to snuspl_5G'
+fi
+
+exit 0
