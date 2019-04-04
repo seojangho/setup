@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # In SNU 302-420...
-if [[ -n "${1+x}" ]] && [[ "$1" == '--reverse' ]]; then
+if [[ -n "${1+x}" ]] && [[ "$1" == 'r' ]]; then
   swaymsg output eDP-1 enable
   swaymsg output HDMI-A-2 disable
 else
