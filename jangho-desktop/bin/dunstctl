@@ -20,6 +20,13 @@ case "$1" in
       action=enable
     fi
     ;;
+  restart)
+    killall dunst || :
+    "${DESKBUS}" clear-dunst-id-all
+    dunst &
+    dunstctl enable
+    exit 0
+    ;;
   *)
     >&2 echo 'Unrecognized command'
     exit 1
