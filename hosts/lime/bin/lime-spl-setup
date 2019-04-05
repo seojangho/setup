@@ -20,7 +20,7 @@ dunstctl enable
 if sudo netctl start wlp2s0-snuspl_5G; then
   jdunstify lime-spl-setup 'Connected to snuspl_5G'
   while ! ping -w2 google.com; do
-    :
+    sleep 1s
   done
   ~/.setup/jangho-desktop/lib/bin/unread --clear --timeout=120000
 else
