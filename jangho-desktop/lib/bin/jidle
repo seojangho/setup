@@ -8,9 +8,10 @@ DESKBUS="${HOME}/.setup/jangho-desktop/lib/bin/deskbus"
 
 self=$0
 cmd=$1
+lock="${HOME}/.setup/jangh-desktop/lib/bin/lock"
 case "$cmd" in
   start)
-    swaymsg -- exec swayidle -w timeout 300 'lock' before-sleep 'lock'
+    swaymsg -- exec swayidle -w timeout 300 "${lock}" before-sleep "${lock}"
     "${DESKBUS}" set-idle-enabled 1
     jdunstify jidle 'swayidle enabled'
     ;;
