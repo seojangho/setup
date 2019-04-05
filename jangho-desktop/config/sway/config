@@ -11,7 +11,7 @@ set $locktoggle jidle toggle
 set $menu rofi -theme Adapta-Nokto -show run | xargs swaymsg exec
 set $find termite --name=floatingFind --exec=jlauncher-find
 set $findpcman termite --name=floatingFind --exec='jlauncher-find --directory-pcmanfm'
-set $archiveup archive-update
+set $archiveup ~/.setup/jangho-desktop/lib/bin/archive-update
 set $mixer termite --name=floatingAlsaMixer --exec=pulsemixer
 set $alsamixer termite --name=floatingAlsaMixer --exec=alsamixer
 set $bluetooth termite --name=floatingBluetoothctl --exec=bluetoothctl
