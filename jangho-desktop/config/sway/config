@@ -247,7 +247,7 @@ for_window [app_id="^floatingNcmpcpp$"] floating enable
 
 ### Daemons
 
-exec dunst
+exec dunstctl restart
 exec ~/.setup/jangho-desktop/lib/bin/modewatchd
 exec ~/.setup/jangho-desktop/lib/bin/unreadd
 exec ~/.setup/jangho-desktop/lib/bin/workspacewatchd
