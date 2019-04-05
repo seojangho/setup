@@ -7,7 +7,7 @@ set $right l
 set $term termite
 set $termfloat termite --name=floatingTermite
 set $lock lock
-set $locktoggle jidle toggle
+set $locktoggle ~/.setup/jangho-desktop/lib/bin/jidle toggle
 set $menu rofi -theme Adapta-Nokto -show run | xargs swaymsg exec
 set $find termite --name=floatingFind --exec=jlauncher-find
 set $findpcman termite --name=floatingFind --exec='jlauncher-find --directory-pcmanfm'
@@ -252,5 +252,5 @@ exec ~/.setup/jangho-desktop/lib/bin/modewatchd
 exec ~/.setup/jangho-desktop/lib/bin/unreadd
 exec ~/.setup/jangho-desktop/lib/bin/workspacewatchd
 exec ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m
-exec jidle start
+exec ~/.setup/jangho-desktop/lib/bin/jidle start
 exec ibus-daemon --xim

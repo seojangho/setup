@@ -6,6 +6,7 @@ set -euo pipefail
 
 DESKBUS="${HOME}/.setup/jangho-desktop/lib/bin/deskbus"
 
+self=$0
 cmd=$1
 case "$cmd" in
   start)
@@ -21,9 +22,9 @@ case "$cmd" in
   toggle)
     next=$("${DESKBUS}" toggle-idle-enabled)
     if [[ "$next" -eq 0 ]]; then
-      exec jidle stop
+      exec "${self}" stop
     else
-      exec jidle start
+      exec "${self}" start
     fi
     ;;
   *)
