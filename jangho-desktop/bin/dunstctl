@@ -27,6 +27,10 @@ case "$1" in
     dunstctl enable
     exit 0
     ;;
+  clear-all)
+    "${DESKBUS}" clear-dunst-id-all | xargs --no-run-if-empty -L1 -- dunstify -C
+    exit 0
+    ;;
   *)
     >&2 echo 'Unrecognized command'
     exit 1

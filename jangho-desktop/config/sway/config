@@ -18,7 +18,7 @@ set $bluetooth termite --name=floatingBluetoothctl --exec=bluetoothctl
 set $wifi termite --name=floatingWifiMenu --exec='sudo wifi-menu -o'
 set $unread unread --timeout 2000
 set $battery ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m --oneshot
-set $clear jdunstify-clear-all
+set $clear dunstctl clear-all
 set $toggle dunstctl toggle
 set $music termite --name=floatingNcmpcpp --exec=ncmpcpp
 set $screenshot print-screen
