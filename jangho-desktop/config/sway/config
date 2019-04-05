@@ -21,8 +21,8 @@ set $battery ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m --oneshot
 set $clear dunstctl clear-all
 set $toggle dunstctl toggle
 set $music termite --name=floatingNcmpcpp --exec=ncmpcpp
-set $screenshot print-screen
-set $screenshotpartial print-screen --slurp
+set $screenshot ~/.setup/jangho-desktop/lib/bin/print-screen
+set $screenshotpartial ~/.setup/jangho-desktop/lib/bin/print-screen --slurp
 
 ### Output configuration
 output * bg /usr/share/backgrounds/jangho/solarized-wallpaper-arch-1920x1080.png fill
