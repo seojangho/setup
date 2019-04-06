@@ -1,0 +1,4 @@
+#!/bin/bash
+# usage: peach
+# usage: peach -snapshot # for ActiveX...
+exec __peach-qemu 2 2 10240 "$@"
