@@ -20,6 +20,7 @@ set $unread ~/.setup/jangho-desktop/lib/bin/unread --timeout 2000
 set $battery ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m --oneshot
 set $clear dunstctl clear-all
 set $toggle dunstctl toggle
+set $restartdunst dunstctl restart
 set $music termite --name=floatingNcmpcpp --exec=ncmpcpp
 set $screenshot ~/.setup/jangho-desktop/lib/bin/print-screen
 set $screenshotpartial ~/.setup/jangho-desktop/lib/bin/print-screen --slurp
@@ -123,6 +124,7 @@ bindsym $mod+m exec $unread
 bindsym $mod+n exec $battery
 bindsym $mod+backslash exec $clear
 bindsym $mod+Shift+backslash exec $toggle
+bindsym $mod+Control+backslash exec $restartdunst
 bindsym $mod+slash exec $music
 bindsym $mod+Print exec $screenshot
 bindsym $mod+Shift+Print exec $screenshotpartial
@@ -207,6 +209,7 @@ mode "meta" {
   bindsym n exec $battery
   bindsym backslash exec $clear
   bindsym Shift+backslash exec $toggle
+  bindsym Control+backslash exec $restartdunst
   bindsym slash exec swaymsg mode "default" && $music
   bindsym Print exec $screenshot
   bindsym Shift+Print exec $screenshotpartial
