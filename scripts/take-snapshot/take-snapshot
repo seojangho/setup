@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -euo pipefail
+
+sudo btrfs subvolume snapshot -r / "/snapshots/$(date +%Y-%m-%dT%H:%M:%S%:z)"
+exit 0
