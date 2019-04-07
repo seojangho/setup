@@ -34,8 +34,8 @@ sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PUL
   -object input-linux,id=kbd0,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd,grab_all=on,repeat=on \
   -device virtio-mouse-pci -device virtio-keyboard-pci \
   -monitor "unix:${HOME}/.cache/jangho-qemu-peach-monitor-socket,server,nowait" \
-  -nic user,model=virtio-net-pci \
-  -net user,hostfwd=tcp::3389-:3389 -nographic -soundhw hda "${OTHER_PARAMS[@]}"
+  -netdev user,id=net0,hostfwd=tcp::3389-:3389 -device virtio-net,netdev=net0 \
+  -nographic -soundhw hda "${OTHER_PARAMS[@]}"
 sudo sysctl vm.nr_hugepages=0
 sudo umount /dev/hugepages
 exit 0
