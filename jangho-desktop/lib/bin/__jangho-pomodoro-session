@@ -3,15 +3,16 @@
 set -euo pipefail
 
 topic=$(cat)
+colors=(-h string:bgcolor:#ffff00 -h string:fgcolor:#000000)
 
 echo "$$" > "${HOME}/.cache/__jangho-pomodoro-session.pid"
 
 while :; do
   start_time=$(date --iso-8601=seconds)
-  jdunstify pomodoro "Stay focused on ${topic}!"
+  jdunstify pomodoro "Stay focused on ${topic}!" "${colors[@]}"
   sleep 25m
   end_time=$(date --iso-8601=seconds)
   echo "${topic}" | ssh jangho@mango.jangho.io -p50022 -- /opt/mango/sendmail/pomodoro_success_log "${start_time}" "${end_time}"
-  jdunstify pomodoro "Well done! Take a rest :)"
+  jdunstify pomodoro "Well done! Take a rest :)" "${colors[@]}"
   sleep 5m
 done
