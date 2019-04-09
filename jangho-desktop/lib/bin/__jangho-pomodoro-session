@@ -12,7 +12,7 @@ while :; do
   jdunstify pomodoro "Stay focused on ${topic}!" "${colors[@]}"
   sleep 25m
   end_time=$(date --iso-8601=seconds)
-  echo "${topic}" | ssh jangho@mango.jangho.io -p50022 -- /opt/mango/sendmail/pomodoro_success_log "${start_time}" "${end_time}"
-  jdunstify pomodoro "Well done! Take a rest :)" "${colors[@]}"
+  echo "${topic}" | ssh jangho@mango.jangho.io -p50022 -- /opt/mango/sendmail/pomodoro_success_log "${start_time}" "${end_time}" "${HOST}"
+  jdunstify pomodoro "Well done! Take a rest :)" "${colors[@]}" --urgency=critical
   sleep 5m
 done
