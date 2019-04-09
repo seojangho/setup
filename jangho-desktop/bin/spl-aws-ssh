@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -lubuntu "$@"
