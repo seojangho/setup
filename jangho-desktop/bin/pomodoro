@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [[ -z "${1+x}" ]]; then
+  jdunstify pomodoro 'Please specify topic'
+  exit 1
+fi
+
+if [[ "$*" == 'kill' ]]; then
+  killall __jangho-pomodoro-session
+  exit 0
+fi
+
+echo "$*" | exec "${HOME}/.setup/jangho-desktop/lib/bin/__jangho-pomodoro-session"
