@@ -1,14 +1,17 @@
 #!/bin/bash
 
 set -euo pipefail
+pidfile="${HOME}/.cache/__jangho-pomodoro-session.pid"
 
 if [[ -z "${1+x}" ]]; then
   jdunstify pomodoro 'Please specify topic'
   exit 1
 fi
 
-if [[ "$*" == 'kill' ]]; then
-  killall __jangho-pomodoro-session
+[[ -f "${pidfile}" ]] && kill "$(cat "${pidfile}")" && \
+  jdunstify pomodoro 'Stopping pomodoro' && rm -f "${pidfile}" || :
+
+if [[ "$*" == 'stop' ]]; then
   exit 0
 fi
 
