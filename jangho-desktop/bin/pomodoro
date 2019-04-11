@@ -2,10 +2,11 @@
 
 set -euo pipefail
 pidfile="${HOME}/.cache/__jangho-pomodoro-session.pid"
+topic="${HOME}/.cache/__jangho-pomodoro-session.topic"
 
 if [[ -z "${1+x}" ]]; then
   if [[ -f "${pidfile}" ]] && kill -0 "$(cat "${pidfile}")"; then
-    jdunstify pomodoro-is-running 'Pomodoro is running'
+    jdunstify pomodoro-is-running "Pomodoro: $(cat "${topic}")"
     exit 0
   else
     jdunstify pomodoro 'Please specify topic'
@@ -14,7 +15,7 @@ if [[ -z "${1+x}" ]]; then
 fi
 
 [[ -f "${pidfile}" ]] && kill "$(cat "${pidfile}")" && \
-  jdunstify pomodoro 'Stopping pomodoro' && rm -f "${pidfile}" || :
+  jdunstify pomodoro 'Stopping pomodoro' && rm -f "${pidfile}" && rm -f "${topic}" || :
 
 if [[ "$*" == 'stop' ]]; then
   exit 0
