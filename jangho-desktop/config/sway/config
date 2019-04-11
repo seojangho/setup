@@ -217,6 +217,8 @@ mode "meta" {
   bindsym Escape mode "default"
   bindsym Super_L mode "default"
   bindsym Super_R mode "default"
+  bindsym Control+Super_L mode "default"
+  bindsym Control+Super_R mode "default"
   bindsym Shift+q mode "quit"
 }
 
