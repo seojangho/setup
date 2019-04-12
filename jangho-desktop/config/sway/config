@@ -24,6 +24,7 @@ set $restartdunst dunstctl restart
 set $music termite --name=floatingNcmpcpp --exec=ncmpcpp
 set $screenshot ~/.setup/jangho-desktop/lib/bin/print-screen
 set $screenshotpartial ~/.setup/jangho-desktop/lib/bin/print-screen --slurp
+set $reporttime ~/.setup/jangho-desktop/lib/bin/report-time
 
 ### Output configuration
 output * bg /usr/share/backgrounds/jangho/solarized-wallpaper-arch-1920x1080.png fill
@@ -128,6 +129,7 @@ bindsym $mod+Control+backslash exec $restartdunst
 bindsym $mod+slash exec $music
 bindsym $mod+Print exec $screenshot
 bindsym $mod+Shift+Print exec $screenshotpartial
+bindsym $mod+d exec $reporttime
 
 bindsym --release Control+Super_L mode "meta"
 bindsym --release Control+Super_R mode "meta"
@@ -213,6 +215,7 @@ mode "meta" {
   bindsym slash exec swaymsg mode "default" && $music
   bindsym Print exec $screenshot
   bindsym Shift+Print exec $screenshotpartial
+  bindsym d exec $reporttime
 
   bindsym Escape mode "default"
   bindsym Super_L mode "default"
