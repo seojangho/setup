@@ -127,7 +127,7 @@ function diary {
 }
 alias today='ssh jangho@mango.jangho.io -p50022 -- "/opt/mango/today/today"'
 alias b='mvn clean install'
-alias bb='mvn install -TC1 -DskipTests -Dmaven.test.skip -Dcheckstyle.skip -P!code-quality'
+alias bb='mvn install -TC1 -DskipTests -Dmaven.test.skip -Dcheckstyle.skip -P!code-quality -Drat.skip'
 
 # ssh
 alias mango='ssh -p50022 jangho@mango.jangho.io'
