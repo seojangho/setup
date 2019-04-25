@@ -1,0 +1,9 @@
+[Unit]
+Description=Jangho Bluetooth connect
+
+[Service]
+Type=simple
+ExecStart=%h/.setup/jangho-desktop/lib/bin/bluetooth
+
+[Install]
+WantedBy=default.target
