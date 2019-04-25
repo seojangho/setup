@@ -3,7 +3,7 @@
 set -euo pipefail
 
 cd "${HOME}"
-fzf_result=$(find -L . -path ./workspace -prune -o -not -path '*/\.*' -print0 | fzf --read0 --reverse || :)
+fzf_result=$(find -L . -path ./mango -prune -o -not -path '*/\.*' -print0 | fzf --read0 --reverse || :)
 [[ -n "${fzf_result}" ]]
 selected=${HOME}/${fzf_result}
 quoted=''
