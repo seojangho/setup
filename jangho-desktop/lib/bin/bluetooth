@@ -2,8 +2,15 @@
 
 set -euo pipefail
 
+connect() {
+  local -r mac=$1
+  sleep 1s
+  bluetoothctl connect "${mac}" > /dev/null 2>&1 || :
+  sleep 1s
+  bluetoothctl trust "${mac}" > /dev/null 2>&1 || :
+}
+
 bluetoothctl power on
 while :; do
-  sleep 1s
-  bluetoothctl connect 78:44:05:7E:78:36 > /dev/null 2>&1 || :
+  connect 78:44:05:7E:78:36 # jbl
 done
