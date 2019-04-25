@@ -10,7 +10,7 @@ connect() {
   bluetoothctl trust "${mac}" > /dev/null 2>&1 || :
 }
 
-bluetoothctl power on
+bluetoothctl power on || exit 0
 while :; do
   connect 78:44:05:7E:78:36 # jbl
 done
