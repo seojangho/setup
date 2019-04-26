@@ -5,8 +5,7 @@ set -euo pipefail
 connect() {
   local -r mac=$1
   local -r hname=$2
-  [[ "${hname}" != "${HOSTNAME}" ]] && exit 0
-  sleep 1s
+  [[ "${hname}" != "${HOSTNAME}" ]] && return 0
   bluetoothctl connect "${mac}" > /dev/null 2>&1 || :
   sleep 1s
   bluetoothctl trust "${mac}" > /dev/null 2>&1 || :
@@ -14,5 +13,6 @@ connect() {
 
 bluetoothctl power on || exit 0
 while :; do
+  sleep 1s
   connect 78:44:05:7E:78:36 pear # jbl
 done
