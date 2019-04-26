@@ -43,3 +43,4 @@ resolution_width=1920
 security=nla
 last_success=20180411
 gateway_password=
+keyboard_grab=1
