@@ -1,17 +1,33 @@
 #!/bin/bash
 
+# usage:
+# pomodoro
+# pomodoro <topic>
+# pomodoro stop
+# pomodoro is-running
+
 set -euo pipefail
 pidfile="${HOME}/.cache/__jangho-pomodoro-session.pid"
 topic="${HOME}/.cache/__jangho-pomodoro-session.topic"
 
+is_running() {
+  [[ -f "${pidfile}" ]] && kill -0 "$(cat "${pidfile}")" && return 0
+  return 1
+}
+
 if [[ -z "${1+x}" ]]; then
-  if [[ -f "${pidfile}" ]] && kill -0 "$(cat "${pidfile}")"; then
+  if is_running; then
     jdunstify pomodoro-is-running "Pomodoro: $(cat "${topic}")"
     exit 0
   else
     jdunstify pomodoro 'Please specify topic'
     exit 1
   fi
+fi
+
+if [[ "$*" == 'is-running' ]]; then
+  is_running && exit 0
+  exit 1
 fi
 
 [[ -f "${pidfile}" ]] && kill "$(cat "${pidfile}")" && \

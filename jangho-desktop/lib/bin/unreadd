@@ -9,6 +9,8 @@ timeout=${2:-120000} # in milliseconds
 
 while :; do
   swaymsg -t get_version > /dev/null 2>&1 || exit 0 # Gracefully shut down if Sway quits
-  ~/.setup/jangho-desktop/lib/bin/unread --clear "--timeout=${timeout}" || :
+  if ! pomodoro is-running; then
+    ~/.setup/jangho-desktop/lib/bin/unread --clear "--timeout=${timeout}" || :
+  fi
   sleep "${interval}"
 done
