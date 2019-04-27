@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -euo pipefail
+
+win=$(efibootmgr | grep 'Windows Boot Manager' | cut -b5-8)
+sudo efibootmgr --bootnext "${win}"
+sudo reboot
