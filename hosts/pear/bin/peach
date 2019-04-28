@@ -1,4 +1,9 @@
 #!/bin/bash
 # usage: peach
 # usage: peach -snapshot # for ActiveX...
-exec /usr/bin/tmux -2 new-session -d -s peach __peach-qemu 2 2 10240 "$@"
+if ! peach-isrunning; then
+  exec /usr/bin/tmux -2 new-session -d -s peach __peach-qemu 2 2 10240 "$@"
+else
+  >&2 echo 'Peach is running!'
+  exit 1
+fi
