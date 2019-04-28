@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# usage: __peach-qemu-run <NUM_CORES> <NUM_THREADS> <MEM_IN_MEGABYTES> <OTHER_PARAMS...>
+# usage: __peach-qemu-run-vgpu <NUM_CORES> <NUM_THREADS> <MEM_IN_MEGABYTES> <OTHER_PARAMS...>
 
 set -euo pipefail
 
@@ -22,7 +22,7 @@ sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PUL
   -enable-kvm -machine q35,accel=kvm -device intel-iommu -m "${MEM_IN_MEGABYTES}M" -mem-path /dev/hugepages \
   -cpu host,+topoext,kvm=off,hv_vendor_id=seojangho012,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff,+svm \
   -smp "$((NUM_CORES * NUM_THREADS)),sockets=1,cores=${NUM_CORES},threads=${NUM_THREADS}" \
-  -device vfio-pci,host=06:00.0,x-vga=on -vga none \
+  -vga virtio -display gtk \
   -object iothread,id=io-disk0 \
   -drive file=/dev/mapper/peach,format=raw,if=none,id=drive-virtio-disk0,aio=threads \
   -device "virtio-blk-pci,num-queues=$((NUM_CORES * NUM_THREADS)),drive=drive-virtio-disk0,id=virtio-disk0,iothread=io-disk0" \
@@ -30,12 +30,8 @@ sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PUL
   -drive file=/dev/mapper/peach-tmp,format=raw,if=none,id=drive-virtio-disk1,aio=threads \
   -device "virtio-blk-pci,num-queues=$((NUM_CORES * NUM_THREADS)),drive=drive-virtio-disk1,id=virtio-disk1,iothread=io-disk1" \
   -usb -device usb-host,vendorid=1386,productid=884 \
-  -object input-linux,id=mouse0,evdev=/dev/input/by-id/usb-Logitech_USB_Optical_Mouse-event-mouse \
-  -object input-linux,id=kbd0,evdev=/dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd,grab_all=on,repeat=on \
-  -device virtio-mouse-pci -device virtio-keyboard-pci \
   -monitor "unix:${HOME}/.cache/jangho-qemu-peach-monitor-socket,server,nowait" \
   -netdev user,id=net0,hostfwd=tcp::3389-:3389 -device virtio-net,netdev=net0 \
-  -nographic \
   -soundhw hda "${OTHER_PARAMS[@]}"
 sudo sysctl vm.nr_hugepages=0
 sudo umount /dev/hugepages
