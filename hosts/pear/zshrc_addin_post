@@ -6,7 +6,7 @@ function prompt_peach() {
   fi
 }
 function prompt_btrfs_scrub() {
-  if btrfs-scrub-isrunning / || btrfs-scrub-isrunning /srv/data; then
+  if btrfs-scrub-isrunning / || btrfs-scrub-isrunning /srv/data || btrfs-scrub-isrunning /mnt; then
     prompt_segment white red
     echo -n 'B'
   fi
