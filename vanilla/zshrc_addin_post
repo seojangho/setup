@@ -1,2 +1,6 @@
 alias pear='ssh jangho@pear.vanilla.jangho.io'
 alias mango='ssh jangho@mango.vanilla.jangho.io'
+alias mango-data='mkdir -p ~/mango && sshfs mango.vanilla.jangho.io:/srv/data ~/mango'
+alias mango-data-umount='fusermount -u ~/mango && rmdir ~/mango'
+alias gooseberry-data='mkdir -p ~/gooseberry && sshfs gooseberry.vanilla.jangho.io:/srv/data ~/gooseberry'
+alias gooseberry-data-umount='fusermount -u ~/gooseberry && rmdir ~/gooseberry'
