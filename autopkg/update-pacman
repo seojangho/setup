@@ -19,8 +19,6 @@ rsync -avz --delete "$HOME"/.autopkg/repository/autopkg/ \
   mango.vanilla.jangho.io:/srv/data/autopkg/
 sudo pacman -Syu --needed --noconfirm
 
-vercmp 'libwacom' 'libwacom-surface-pro-2017'
-
 if [[ -s "$HOME/.autopkg/autoremovable/autopkg" ]]; then
   echo 'autopkg: There are auto-removable package(s).' >> "$MSGFILE"
   cat "$HOME/.autopkg/autoremovable/autopkg" >> "$MSGFILE"
