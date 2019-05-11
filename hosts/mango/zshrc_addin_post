@@ -1,1 +1,2 @@
 PATH="${HOME}/.setup/hosts/mango/bin:/opt/mango/bin:${PATH}"
+alias force-reboot-pear='ssh pi@summerberry.vanilla.jangho.io  -- /home/pi/summerberry/blink-daemon/blink.sh'
