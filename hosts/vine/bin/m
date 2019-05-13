@@ -8,5 +8,5 @@ exec ssh \
   -L 50445:127.0.0.1:445 \
   -L 40445:gooseberry.vanilla.jangho.io:445 \
   -L 3389:pear.vanilla.jangho.io:3389 \
-  -L 5900:pear.vanilla.jangho.io:5900 \
+  -L 5901:pear.vanilla.jangho.io:5901 \
   -p50022 jangho@mango.jangho.io
