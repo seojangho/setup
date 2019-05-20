@@ -2,10 +2,8 @@
 # usage: peach-vgpu
 # usage: peach-vgpu -snapshot # for ActiveX...
 set -euo pipefail
-PATH=/home/jangho/.setup/hosts/pear/bin:$PATH
 if ! peach-isrunning; then
-  xhost +
-  exec __peach-qemu-vgpu 2 2 10240 "$@"
+  exec /usr/bin/tmux -2 new-session -d -s peach __peach-qemu-vgpu 2 2 10240 "$@"
 else
   >&2 echo 'Peach is running!'
   exit 1

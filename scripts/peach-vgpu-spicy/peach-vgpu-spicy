@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -euo pipefail
+
+exec spicy --title peach 127.0.0.1 -p 5933

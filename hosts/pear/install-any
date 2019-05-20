@@ -1,8 +1,0 @@
-#!/bin/bash
-
-set -e
-
-mkdir "${HOME}/.vnc"
-ln -s "${HOME}/.setup/hosts/pear/bin/peach-vgpu" "${HOME}/.vnc/xstartup"
-
-exit 0

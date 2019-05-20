@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -euo pipefail
+
+exec ssh -L 5933:127.0.0.1:5930 -p50023 jangho@pear.jangho.io
