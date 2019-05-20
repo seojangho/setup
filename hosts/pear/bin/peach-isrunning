@@ -1,3 +1,3 @@
 #!/bin/bash
 
-[[ -e "${HOME}/.cache/jangho-qemu-peach-monitor-socket" ]]
+[[ -n "$(ps -Leo tid,%cpu,args | grep qemu | grep jangho-qemu-peach | grep -v grep)" ]]
