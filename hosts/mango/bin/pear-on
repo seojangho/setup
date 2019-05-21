@@ -1,8 +1,0 @@
-#!/bin/bash
-
-wup pear
-sleep 30s
-dropbear-encrypt pear
-sleep 10s
-ssh pear.vanilla.jangho.io
-exit 0
