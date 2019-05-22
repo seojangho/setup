@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -euo pipefail
+
+rsync -e 'sudo -u jangho ssh' -avW --delete mango.vanilla.jangho.io:/srv/data/mail/ /srv/data/mail/
+rsync -e 'sudo -u jangho ssh' -av --delete mango.vanilla.jangho.io:/srv/data/git/ /srv/data/git/
+rsync -e 'sudo -u jangho ssh' -av --delete mango.vanilla.jangho.io:/srv/data/radicale/ /srv/data/radicale/
+cd /srv/data/Archive
+sudo -u jangho svn up
+cd /srv/data/Music
+sudo -u jangho svn up
+/home/jangho/.setup/scripts/take-snapshot-with-data/take-snapshot
+echo 'pear data management script has been successfully executed' \
+  | sudo -u jangho ssh mango.vanilla.jangho.io '/opt/mango/sendmail/sys_fine "pear data management ok"'
+
+exit 0
