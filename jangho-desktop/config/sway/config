@@ -27,7 +27,7 @@ set $screenshotpartial ~/.setup/jangho-desktop/lib/bin/print-screen --slurp
 set $reporttime ~/.setup/jangho-desktop/lib/bin/report-time
 
 ### Output configuration
-output * bg /usr/share/backgrounds/jangho/solarized-wallpaper-arch-1920x1080.png fill
+output * background "#000000" solid_color
 
 ### Input configuration
 #

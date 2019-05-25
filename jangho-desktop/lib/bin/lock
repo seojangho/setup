@@ -7,7 +7,7 @@ swayidle \
   timeout 5 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' &
 dpms_control=$!
-swaylock --image /usr/share/backgrounds/jangho/arch-card-demo-1920x1080.png \
+swaylock --color AAAAAA \
   --scaling fill
 kill "${dpms_control}"
 dunstctl enable
