@@ -1,7 +1,0 @@
-PATH="/opt/gooseberry/bin:${PATH}"
-function prompt_btrfs_scrub() {
-  if btrfs-scrub-isrunning /srv/data; then
-    prompt_segment white red
-    echo -n 'B'
-  fi
-}
