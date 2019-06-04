@@ -2,6 +2,6 @@
 
 set -e
 
-"$SETUPDIR/snapins/pacman/reboot-required-check" 'linux-odroid-xu3'
+"${SETUPDIR}/snapins/pacman/reboot-required-check" 'linux'
 
 exit 0
