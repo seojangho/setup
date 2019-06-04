@@ -14,5 +14,5 @@ connect() {
 bluetoothctl power on || exit 0
 while :; do
   sleep 1s
-  connect 78:44:05:7E:78:36 pear # jbl
+  connect 78:44:05:7E:78:36 mango # jbl
 done
