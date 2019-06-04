@@ -1,4 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-ssh pi@summerberry.vanilla.jangho.io  -- /home/pi/summerberry/blink-daemon/blink.sh
-exit 0
