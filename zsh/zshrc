@@ -131,7 +131,6 @@ alias bb='mvn install -TC1 -DskipTests -Dmaven.test.skip -Dcheckstyle.skip -P!co
 
 # ssh
 alias mango='ssh -p50022 jangho@mango.jangho.io'
-alias pear='ssh -p50023 jangho@pear.jangho.io'
 alias mango-data='mkdir -p ~/mango && sshfs mango.jangho.io:/srv/data ~/mango'
 alias mango-data-umount='fusermount -u ~/mango && rmdir ~/mango'
 

@@ -1,10 +1,9 @@
 #!/bin/bash
 
 # 50445 forwarding: for X-plore to access mango smb over internet
-# 40445 forwarding: for X-plore to access gooseberry smb over internet
-# 3389 forwarding: for Microsoft RD Client to access pear RDP over internet
+# 3389 forwarding: for Microsoft RD Client to access peach RDP over internet
 
 exec ssh \
   -L 50445:127.0.0.1:445 \
-  -L 3389:pear.vanilla.jangho.io:3389 \
+  -L 3389:127.0.0.1:3389 \
   -p50022 jangho@mango.jangho.io
