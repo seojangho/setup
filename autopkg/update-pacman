@@ -15,8 +15,8 @@ EOF
 }
 
 autopkg update
-rsync -avz --delete "$HOME"/.autopkg/repository/autopkg/ \
-  mango.vanilla.jangho.io:/srv/data/autopkg/
+#rsync -avz --delete "$HOME"/.autopkg/repository/autopkg/ \
+#  mango.vanilla.jangho.io:/srv/data/autopkg/
 sudo pacman -Syu --needed --noconfirm
 
 if [[ -s "$HOME/.autopkg/autoremovable/autopkg" ]]; then
