@@ -35,13 +35,6 @@ function prompt_btrfs_scrub() {
 function prompt_svn() {
   local svn_nr
   if in_svn; then
-    prompt_segment white black
-    svn_nr="$(svn_get_rev_nr)"
-    if [[ "$svn_nr" == '' ]]; then
-      echo -n "?"
-    else
-      echo -n "r${svn_nr}"
-    fi
     if [[ $(svn_dirty_choose_pwd dirty clean) == 'dirty' ]]; then
       prompt_segment white red
       echo -n '✘'
