@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-exec vncviewer 127.0.0.1:0
+exec vncviewer 127.0.0.1:0 -FullColor=0 -AutoSelect=0 -QualityLevel=0 -LowColourLevel=0 -CompressLevel=6
