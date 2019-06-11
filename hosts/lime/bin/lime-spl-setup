@@ -17,11 +17,12 @@ swaymsg output HDMI-A-2 scale 1.5
 dunstctl disable
 dunstctl enable
 
-if sudo netctl start wlp2s0-snuspl_5G; then
-  jdunstify lime-spl-setup 'Connected to snuspl_5G'
+if sudo netctl start wlp2s0-SNU-Member; then
+  jdunstify lime-spl-setup 'Connected to SNU-Member. Checking internet...'
   while ! ping -w2 google.com; do
     sleep 1s
   done
+  jdunstify lime-spl-setup 'Connected to SNU-Member. Internet works.'
   ~/.setup/jangho-desktop/lib/bin/unread --clear --timeout=120000
 else
   jdunstify lime-spl-setup --urgency=critical 'Cannot connect to snuspl_5G'
