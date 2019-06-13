@@ -25,7 +25,7 @@ if sudo netctl start wlp2s0-SNU-Member; then
   jdunstify lime-spl-setup 'Connected to SNU-Member. Internet works.'
   ~/.setup/jangho-desktop/lib/bin/unread --clear --timeout=120000
 else
-  jdunstify lime-spl-setup --urgency=critical 'Cannot connect to snuspl_5G'
+  jdunstify lime-spl-setup --urgency=critical 'Cannot connect to SNU-Member'
 fi
 
 exit 0
