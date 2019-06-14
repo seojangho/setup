@@ -1,2 +1,3 @@
 " cd ~/rdma-core && crags -R
 set tags=~/rdma-core/tags
+let g:syntastic_c_include_dirs = ['/home/jangho/rdma-core/build/include/']
