@@ -7,7 +7,7 @@ export XKB_DEFAULT_OPTIONS="ctrl:nocaps,${XKB_DEFAULT_OPTIONS}"
 export PATH="${HOME}/.setup/jangho-desktop/bin:${PATH}"
 
 # https://github.com/swaywm/sway/issues/3007#issuecomment-457737553
-export IDEA_JDK=/usr/lib/jvm/java-11-openjdk
+export IDEA_JDK=/usr/lib/jvm/java-12-openjdk
 export CLION_JDK=${IDEA_JDK}
 
 # pass
