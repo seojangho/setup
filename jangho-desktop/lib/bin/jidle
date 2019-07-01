@@ -10,6 +10,13 @@ self=$0
 cmd=$1
 lock="${HOME}/.setup/jangho-desktop/lib/bin/lock"
 case "$cmd" in
+  autostart)
+    if [[ "$(hostname)" == "mango" ]]; then
+      "$0" stop
+    else
+      "$0" start
+    fi
+    ;;
   start)
     swaymsg -- exec swayidle -w timeout 300 "${lock}" before-sleep "${lock}"
     "${DESKBUS}" set-idle-enabled 1
