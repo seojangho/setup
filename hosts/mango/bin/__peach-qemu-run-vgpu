@@ -15,11 +15,12 @@ PULSE_SOCKET=/run/user/${UID}/pulse/native
 sudo cp /usr/share/ovmf/x64/OVMF_VARS.fd "${VARS}"
 sudo mount -t hugetlbfs hugetlbfs /dev/hugepages
 sudo sysctl vm.nr_hugepages="${MEM_IN_MEGABYTES}"
-sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PULSE_SOCKET}" PULSE_COOKIE="${HOME}/.config/pulse/cookie" qemu-system-x86_64 \
+# https://bugs.launchpad.net/qemu/+bug/1826422
+sudo PULSE_COOKIE="${HOME}/.config/pulse/cookie" qemu-system-x86_64 \
   -name jangho-qemu-peach \
   -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd \
   -drive "if=pflash,format=raw,file=${VARS}" \
-  -enable-kvm -machine q35,accel=kvm -device intel-iommu -m "${MEM_IN_MEGABYTES}M" -mem-path /dev/hugepages \
+  -enable-kvm -machine q35,accel=kvm,kernel_irqchip=on -device intel-iommu -m "${MEM_IN_MEGABYTES}M" -mem-path /dev/hugepages \
   -cpu host,+topoext,kvm=off,hv_vendor_id=seojangho012,hv_time,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff,+svm \
   -smp "$((NUM_CORES * NUM_THREADS)),sockets=1,cores=${NUM_CORES},threads=${NUM_THREADS}" \
   -vga virtio -nographic -vnc 127.0.0.1:0 \
@@ -32,7 +33,8 @@ sudo QEMU_AUDIO_DRV=pa QEMU_PA_SERVER="${PULSE_SOCKET}" PULSE_SERVER="unix:${PUL
   -usb -device usb-host,vendorid=1386,productid=884 \
   -monitor "unix:${HOME}/.cache/jangho-qemu-peach-monitor-socket,server,nowait" \
   -netdev user,id=net0,hostfwd=tcp::3389-:3389 -device virtio-net,netdev=net0 \
-  -soundhw hda "${OTHER_PARAMS[@]}"
+  -soundhw hda -audiodev id=pa,driver=pa,server="${PULSE_SOCKET}" \
+  "${OTHER_PARAMS[@]}"
 #view: spicy --title peach 127.0.0.1 -p 5930
 sudo sysctl vm.nr_hugepages=0
 sudo umount /dev/hugepages
