@@ -8,7 +8,7 @@ set $term termite
 set $termfloat termite --name=floatingTermite
 set $lock ~/.setup/jangho-desktop/lib/bin/lock
 set $locktoggle ~/.setup/jangho-desktop/lib/bin/jidle toggle
-set $menu rofi -theme Adapta-Nokto -show run | xargs swaymsg exec
+set $menu rofi -theme android_notification -show run | xargs swaymsg exec
 set $find termite --name=floatingFind --exec=jlauncher-find
 set $findpcman termite --name=floatingFind --exec='jlauncher-find --directory-pcmanfm'
 set $archiveup ~/.setup/jangho-desktop/lib/bin/archive-update
