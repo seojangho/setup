@@ -21,6 +21,12 @@ case "$1" in
       action=enable
     fi
     ;;
+  restart-silent)
+    killall dunst || :
+    "${DESKBUS}" clear-dunst-id-all
+    dunst &
+    exit 0
+    ;;
   restart)
     killall dunst || :
     "${DESKBUS}" clear-dunst-id-all
