@@ -25,6 +25,7 @@ case "$1" in
     killall dunst || :
     "${DESKBUS}" clear-dunst-id-all
     dunst &
+    "${DESKBUS}" set-dunst-enabled 1
     exit 0
     ;;
   restart)
