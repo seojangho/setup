@@ -7,7 +7,10 @@ colors=(-h string:bgcolor:#ffff00 -h string:fgcolor:#000000)
 
 up() {
   local -r dir=$1
-  cd "${dir}"
+  if ! cd "${dir}"; then
+    jdunstify archive-update --urgency=critical "Cannot cd to ${dir}"
+    exit 1
+  fi
   if ! svn up; then
     jdunstify archive-update --urgency=critical "Cannot update ${dir}"
     exit 1
@@ -15,7 +18,7 @@ up() {
 }
 
 jdunstify archive-update 'archive: updating....' "${colors[@]}" --urgency=critical
-up "${ARCHIVE}/2019/spring"
+up "${ARCHIVE}/2019/fall"
 up "${ARCHIVE}/$(date +%Y/%m)"
-jdunstify archive-update 'archive: Updated spring & this month'
+jdunstify archive-update 'archive: Updated 2019/fall & this month'
 exit 0
