@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -euo pipefail
+
+echo 'export PATH=${HOME}/.setup/hosts/mobile:${PATH}' >> ~/.bashrc
