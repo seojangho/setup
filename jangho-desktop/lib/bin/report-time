@@ -2,4 +2,5 @@
 
 set -euo pipefail
 
-exec jdunstify report-time $(date --iso-8601=seconds)
+exec jdunstify report-time "$(date --iso-8601=seconds)
+$(TZ=Asia/Seoul date --iso-8601=seconds)"
