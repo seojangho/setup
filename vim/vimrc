@@ -5,6 +5,7 @@ filetype plugin indent on
 
 " Plugins
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'chr4/nginx.vim'
@@ -14,6 +15,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'cbracken/vala.vim'
@@ -26,6 +28,12 @@ Plug 'wakatime/vim-wakatime'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all'  }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " vim-airline
 set laststatus=2
@@ -80,13 +88,17 @@ set backspace=indent,eol,start
 " Search
 set hlsearch
 set nowrapscan
-set ignorecase
 map <space> /
 
 " Hot keys
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 map <F2> :NERDTreeToggle<CR>
+let g:UltiSnipsExpandTrigger='<c-j>'
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+
+" clipboard
+set clipboard=unnamedplus
 
 " Load addins
 for addin in split(globpath('~/.setup/this', '**/vimrc_addin'), '\n')
@@ -95,3 +107,20 @@ endfor
 
 " Plugins
 call plug#end()
+
+" google/vim-glaive
+call glaive#Install()
+
+" google/vim-codefmt
+Glaive codefmt plugin[mappings]
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer yapf
+  autocmd FileType vue AutoFormatBuffer prettier
+augroup END
