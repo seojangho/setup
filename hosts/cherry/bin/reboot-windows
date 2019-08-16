@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euo pipefail
+sudo efibootmgr -n 01
+sudo reboot
