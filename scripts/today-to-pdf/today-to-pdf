@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -euo pipefail
+
+[[ ! -f today.pdf ]]
+TODAY=$(ssh jangho@mango.jangho.io -p50022 -- "/opt/mango/today/today")
+[[ ! -f today.pdf ]]
+echo -e "---\nmainfont: Noto Serif CJK KR\n---\n${TODAY}" | pandoc --pdf-engine=xelatex -o today.pdf
