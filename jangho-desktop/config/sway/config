@@ -234,6 +234,7 @@ mode "quit" {
 ### Appearance
 
 default_border pixel 2
+hide_edge_borders smart
 client.focused          #ffffff #ffffff #000000 #ffffff #ffffff
 client.focused_inactive #333333 #333333 #ffffff #333333 #333333
 client.unfocused        #000000 #000000 #ffffff #000000 #000000
