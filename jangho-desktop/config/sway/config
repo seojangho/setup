@@ -260,4 +260,4 @@ exec ~/.setup/jangho-desktop/lib/bin/unreadd
 exec ~/.setup/jangho-desktop/lib/bin/workspacewatchd
 exec ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m
 exec ~/.setup/jangho-desktop/lib/bin/jidle autostart
-exec ibus-daemon --xim
+exec ~/.setup/jangho-desktop/lib/bin/ibus-daemon
