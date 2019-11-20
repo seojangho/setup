@@ -41,8 +41,7 @@ output * background "#000000" solid_color
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-# FIXME: korean:ralt_rctrl not working
-input * xkb_options "korean:ralt_rctrl,ctrl:nocaps"
+input * xkb_options "korean:ralt_hangul,korean:rctrl_hanja,ctrl:nocaps"
 
 ### Floating modifier
 
