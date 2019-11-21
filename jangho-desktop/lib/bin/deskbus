@@ -80,18 +80,18 @@ def client():
         OBJ.set_dunst_id(sys.argv[2], int(sys.argv[3]), dbus_interface=IFACE)
     elif COMMAND == 'get-dunst-id':
         result = OBJ.get_dunst_id(sys.argv[2], dbus_interface=IFACE)
-        result[0] and print(result[1])
+        result[0] and print(result[1].real)
     elif COMMAND == 'clear-dunst-id':
         OBJ.clear_dunst_id(sys.argv[2], dbus_interface=IFACE)
     elif COMMAND == 'clear-dunst-id-all':
         for i in OBJ.clear_dunst_id_all(dbus_interface=IFACE):
-            print(i)
+            print(i.real)
     elif COMMAND == 'toggle-dunst-enabled':
-        print(OBJ.toggle_dunst_enabled(dbus_interface=IFACE))
+        print(OBJ.toggle_dunst_enabled(dbus_interface=IFACE).real)
     elif COMMAND == 'set-dunst-enabled':
         OBJ.set_dunst_enabled(int(sys.argv[2]), dbus_interface=IFACE)
     elif COMMAND == 'toggle-idle-enabled':
-        print(OBJ.toggle_idle_enabled(dbus_interface=IFACE))
+        print(OBJ.toggle_idle_enabled(dbus_interface=IFACE).real)
     elif COMMAND == 'set-idle-enabled':
         OBJ.set_idle_enabled(int(sys.argv[2]), dbus_interface=IFACE)
     else:
