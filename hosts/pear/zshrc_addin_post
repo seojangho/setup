@@ -1,0 +1,7 @@
+PATH="${HOME}/.setup/hosts/pear/bin:${PATH}"
+function prompt_btrfs_scrub() {
+  if btrfs-scrub-isrunning /; then
+    prompt_segment white red
+    echo -n 'B'
+  fi
+}
