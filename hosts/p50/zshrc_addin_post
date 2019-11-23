@@ -1,0 +1,8 @@
+PATH="${HOME}/.setup/hosts/p50/bin:${PATH}"
+export XKB_DEFAULT_OPTIONS="korean:ralt_rctrl,${XKB_DEFAULT_OPTIONS}"
+function prompt_btrfs_scrub() {
+  if btrfs-scrub-isrunning /; then
+    prompt_segment white red
+    echo -n 'B'
+  fi
+}

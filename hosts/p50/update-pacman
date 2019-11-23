@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+"$SETUPDIR/snapins/pacman/reboot-required-check" 'linux'
+
+exit 0

@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euo pipefail
+swaymsg output DP-2 scale 1.5
+swaymsg output eDP-1 disable
+sudo netctl start wlp4s0-snuspl
