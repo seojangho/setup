@@ -11,7 +11,7 @@ cmd=$1
 lock="${HOME}/.setup/jangho-desktop/lib/bin/lock"
 case "$cmd" in
   autostart)
-    if [[ "$(hostname)" == "mango" ]]; then
+    if [[ "${HOSTNAME}" == 'pear' ]]; then
       "$0" stop
     else
       "$0" start
