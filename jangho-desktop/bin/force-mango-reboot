@@ -1,3 +1,0 @@
-#!/bin/bash
-
-exec ssh summerberry.jangho.io -lpi -p50055 -- /home/pi/summerberry/blink-daemon/blink.sh
