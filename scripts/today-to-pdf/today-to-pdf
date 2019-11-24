@@ -2,5 +2,7 @@
 
 set -euo pipefail
 
+NOW=$(date --iso-8601=seconds)
+
 TODAY=$(ssh jangho@mango.jangho.io -p50022 -- "/opt/mango/today/today")
-echo -e "---\nmainfont: Noto Serif CJK KR\n---\n${TODAY}" | pandoc --pdf-engine=xelatex -o "today.$(date --iso-8601=seconds).pdf"
+echo -e "---\nmainfont: Noto Serif CJK KR\n---\n${TODAY}" | pandoc --pdf-engine=wkhtmltopdf -f markdown -t html -o "today.${NOW}.pdf" --metadata pagetitle="Today ${NOW}"
