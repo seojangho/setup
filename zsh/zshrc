@@ -141,7 +141,11 @@ function encrypt {
 }
 
 # sshuttle
-# usage: sshuttle-proxy ubuntu@cmscluster.snu.ac.kr:2222 -H
+# usage: sshuttle-private ubuntu@cmscluster.snu.ac.kr:2222 -H
+function sshuttle-private {
+  sshuttle ${@:2} -r "$1" 192.168.0.0/16 172.16.0.0/12 10.0.0.0/8 -x $(echo "$1" | cut -d'@' -f2 | cut -d':' -f1)/32
+}
+# usage: sshuttle-proxy ubuntu@cmscluster.snu.ac.kr:2222
 function sshuttle-proxy {
   sshuttle ${@:2} -r "$1" 0/0 -x $(echo "$1" | cut -d'@' -f2 | cut -d':' -f1)/32 \
     -x 192.168.0.0/16 -x 172.16.0.0/12 -x 10.0.0.0/8
