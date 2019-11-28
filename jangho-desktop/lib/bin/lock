@@ -3,13 +3,13 @@
 set -uo pipefail
 
 dunstctl disable
-#swayidle \
-#  timeout 5 'swaymsg "output * dpms off"' \
-#  resume 'swaymsg "output * dpms on"' &
-#dpms_control=$!
+swayidle \
+  timeout 5 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' &
+dpms_control=$!
 swaylock --color 222222 \
   --scaling fill
-#kill "${dpms_control}"
+kill "${dpms_control}"
 dunstctl enable
 
 exit 0
