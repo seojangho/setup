@@ -5,3 +5,9 @@ function prompt_btrfs_scrub() {
     echo -n 'B'
   fi
 }
+function prompt_peach() {
+  if peach-isrunning; then
+    prompt_segment white red
+    echo -n 'P'
+  fi
+}

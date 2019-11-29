@@ -1,10 +1,4 @@
 PATH="${HOME}/.setup/hosts/mango/bin:/opt/mango/bin:${PATH}"
-function prompt_peach() {
-  if peach-isrunning; then
-    prompt_segment white red
-    echo -n 'P'
-  fi
-}
 function prompt_btrfs_scrub() {
   if btrfs-scrub-isrunning / || btrfs-scrub-isrunning /srv/data || btrfs-scrub-isrunning /mnt; then
     prompt_segment white red
