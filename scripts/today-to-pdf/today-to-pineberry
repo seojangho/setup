@@ -7,7 +7,4 @@ TMP=$(mktemp -d)
 TODAY=$(ssh jangho@mango.jangho.io -p50022 -- "/opt/mango/today/today")
 cd "${TMP}"
 echo -e "---\nmainfont: Noto Serif CJK KR\n---\n${TODAY}" | pandoc --pdf-engine=wkhtmltopdf -f markdown -t html -o "today.pdf" --metadata pagetitle="Today ${NOW}"
-echo "" | ps2pdf -sPAPERSIZE=a4 - pageblanche.pdf
-pdfjoin --outfile joined.pdf -- pageblanche.pdf today.pdf
-echo "${TMP}/joined.pdf"
-#curl 'http://10.11.99.1/upload' -H 'Origin: http://10.11.99.1' -H 'Accept: */*' -H 'Referer: http://10.11.99.1/' -H 'Connection: keep-alive' -F "file=@today.pdf;filename=today.${NOW}.pdf;type=application/pdf"
+curl 'http://10.11.99.1/upload' -H 'Origin: http://10.11.99.1' -H 'Accept: */*' -H 'Referer: http://10.11.99.1/' -H 'Connection: keep-alive' -F "file=@today.pdf;filename=today.${NOW}.pdf;type=application/pdf"
