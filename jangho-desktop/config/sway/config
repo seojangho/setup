@@ -260,3 +260,5 @@ exec ~/.setup/jangho-desktop/lib/bin/workspacewatchd
 exec ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m
 exec ~/.setup/jangho-desktop/lib/bin/jidle autostart
 exec ~/.setup/jangho-desktop/lib/bin/ibus-daemon
+
+include ~/.setup/this/swayrc
