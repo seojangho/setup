@@ -4,4 +4,4 @@ set -euo pipefail
 
 filename=$1
 
-pdftotext "${filename}" - | festival --tts
+pdftotext "${filename}" - | sed 's/\[[[:digit:]]\+\]//g' | festival --tts
