@@ -1,0 +1,1 @@
+PATH="${HOME}/.setup/scripts/pdf2speech:${PATH}"
