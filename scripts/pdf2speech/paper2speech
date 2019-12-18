@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -euo pipefail
+
+filename=$1
+
+paper2txt "${filename}" | festival --tts
