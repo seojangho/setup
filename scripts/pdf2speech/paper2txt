@@ -4,4 +4,4 @@ set -euo pipefail
 
 filename=$1
 
-pdftotext "${filename}" - | sed 's/\[[0-9, ]\+\]//g'
+pdftotext -raw -nopgbrk "${filename}" - | sed 's/\[[0-9, ]\+\]//g'
