@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -euo pipefail
+
+filename=$1
+
+pdftotext -raw -nopgbrk "${filename}" - | sed 's/\[[0-9, ]\+\]//g'

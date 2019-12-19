@@ -32,7 +32,7 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all'  }
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " vim-airline
