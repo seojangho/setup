@@ -33,7 +33,7 @@ core:
     foreground: red_orange
 
   executable_file:
-    foreground: pale_gold
+    foreground: brighter_green
     font-style: bold
 
   symlink:
