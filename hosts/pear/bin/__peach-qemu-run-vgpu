@@ -25,15 +25,11 @@ sudo PULSE_COOKIE="${HOME}/.config/pulse/cookie" qemu-system-x86_64 \
   -smp "$((NUM_CORES * NUM_THREADS)),sockets=1,cores=${NUM_CORES},threads=${NUM_THREADS}" \
   -vga virtio -nographic -vnc 127.0.0.1:0 \
   -object iothread,id=io-disk0 \
-  -drive file=/dev/mapper/peach,format=raw,if=none,id=drive-virtio-disk0,aio=threads \
+  -drive file=/dev/sdd,format=raw,if=none,id=drive-virtio-disk0,aio=threads \
   -device "virtio-blk-pci,num-queues=$((NUM_CORES * NUM_THREADS)),drive=drive-virtio-disk0,id=virtio-disk0,iothread=io-disk0" \
-  -object iothread,id=io-disk1 \
-  -drive file=/dev/mapper/peach-tmp,format=raw,if=none,id=drive-virtio-disk1,aio=threads \
-  -device "virtio-blk-pci,num-queues=$((NUM_CORES * NUM_THREADS)),drive=drive-virtio-disk1,id=virtio-disk1,iothread=io-disk1" \
-  -usb -device usb-host,vendorid=1386,productid=884 \
   -monitor "unix:${HOME}/.cache/jangho-qemu-peach-monitor-socket,server,nowait" \
-  -netdev user,id=net0,hostfwd=tcp::3389-:3389 -device virtio-net,netdev=net0 \
-  -soundhw hda -audiodev id=pa,driver=pa,server="${PULSE_SOCKET}" \
+  -netdev user,id=net0 -device virtio-net,netdev=net0 \
+  -soundhw hda -audiodev id=pa,driver=pa,server="${PULSE_SOCKET}" -snapshot \
   "${OTHER_PARAMS[@]}"
 #view: spicy --title peach 127.0.0.1 -p 5930
 sudo sysctl vm.nr_hugepages=0

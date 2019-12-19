@@ -3,7 +3,7 @@
 # usage: peach-vgpu -snapshot # for ActiveX...
 set -euo pipefail
 if ! peach-isrunning; then
-  exec /usr/bin/tmux -2 new-session -d -s peach __peach-qemu-vgpu 2 2 10240 "$@"
+  exec /usr/bin/tmux -2 new-session -d -s peach __peach-qemu-vgpu 2 1 6144 "$@"
 else
   >&2 echo 'Peach is running!'
   exit 1
