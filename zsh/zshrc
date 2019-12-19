@@ -19,6 +19,9 @@ DISABLE_AUTO_UPDATE=true
 # TERM
 [[ -z "$TMUX" ]] || export TERM=screen-256color
 
+# ls
+LS_COLORS=$(vivid generate jangho)
+
 # bullet-train
 BULLETTRAIN_DIR_BG='#cc3f29'
 BULLETTRAIN_PROMPT_ROOT=false
