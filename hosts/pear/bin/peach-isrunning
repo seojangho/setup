@@ -1,3 +1,0 @@
-#!/bin/bash
-
-[[ -n "$(ps -Leo tid,%cpu,args | grep qemu | grep jangho-qemu-peach | grep -v grep)" ]]
