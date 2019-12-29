@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -euo pipefail
-
-exec ssh -L 5900:127.0.0.1:5900 -p50022 jangho@mango.jangho.io
