@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euo pipefail
+
+RULE=$1
+
+NOW=$(date --iso-8601=seconds)
+
+TODAY=$(ssh jangho@mango.jangho.io -p50022 -- "/opt/mango/today/today ${RULE}")
+
+echo -e "---\nmainfont: Noto Serif CJK KR\n---\n${TODAY}" | pandoc --pdf-engine=wkhtmltopdf -f markdown -t html -o "cron.${RULE}.${NOW}.pdf" --metadata pagetitle="Today ${NOW}"
