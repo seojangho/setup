@@ -97,8 +97,8 @@ color15=rgb(213,204,186)
 
 [usage_stats]
 periodic_usage_stats_permitted=true
-periodic_usage_stats_last_sent=0
-periodic_usage_stats_uuid_prefix=
+periodic_usage_stats_last_sent=1578308816
+periodic_usage_stats_uuid_prefix=2MIFNUGD3ZKIAH
 
 [remmina_news]
 periodic_rmnews_last_get=1578308135
