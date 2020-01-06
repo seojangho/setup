@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec remmina -c ~/.setup/jangho-desktop/config/remmina/peach-tunneling.remmina

@@ -96,13 +96,13 @@ color14=rgb(152,154,156)
 color15=rgb(213,204,186)
 
 [usage_stats]
-periodic_usage_stats_permitted=false
+periodic_usage_stats_permitted=true
 periodic_usage_stats_last_sent=0
 periodic_usage_stats_uuid_prefix=
 
 [remmina_news]
-periodic_rmnews_last_get=1577596235
-periodic_rmnews_get_count=2
+periodic_rmnews_last_get=1578308135
+periodic_rmnews_get_count=4
 periodic_rmnews_uuid_prefix=ZAAHH8NBTEVNB6
 
 [remmina]
