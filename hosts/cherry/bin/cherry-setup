@@ -1,6 +1,13 @@
 #!/bin/bash
 set -euo pipefail
+
+# display
 swaymsg output HDMI-A-1 scale 1.5
 swaymsg output eDP-1 disable
 dunstctl restart
-sudo netctl start wlp1s0-snuspl_5G
+
+# internet access
+sudo netctl start wlp1s0-seminar_7th
+
+# pineberry connection
+sudo systemctl start dhcpcd@enp0s20f0u1
