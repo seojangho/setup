@@ -10,4 +10,4 @@ dunstctl restart
 sudo netctl start wlp4s0-snuspl
 
 # pineberry connection
-sudo systemctl start dhcpcd@enp0s20f0u1
+sudo systemctl start dhcpcd@enp0s20f0u2
