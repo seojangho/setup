@@ -1,7 +1,13 @@
 #!/bin/bash
 set -euo pipefail
+
+# display
 swaymsg output DP-2 scale 1.5
 swaymsg output eDP-1 disable
 dunstctl restart
-# plum USB tethering
-sudo systemctl start dhcpcd@enp61s0u1
+
+# internet access
+sudo netctl start wlp4s0-snuspl
+
+# pineberry connection
+sudo systemctl start dhcpcd@enp0s20f0u1
