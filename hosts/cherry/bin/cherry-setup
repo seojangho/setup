@@ -11,3 +11,4 @@ sudo netctl start wlp1s0-seminar_7th
 
 # pineberry connection
 sudo systemctl start dhcpcd@enp0s20f0u1
+watch-connection-to-pineberry

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euo pipefail
+
+for i in {0..1000}; do
+  if curl --connect-timeout 1 10.11.99.1; then
+    jdunstify watch-connection-to-pineberry 'Connected to pineberry'
+  fi
+done
+
+exit 1

@@ -3,3 +3,4 @@ set -euo pipefail
 
 # pineberry connection
 sudo systemctl start dhcpcd@enp1s0f0u6
+watch-connection-to-pineberry
