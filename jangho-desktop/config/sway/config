@@ -255,7 +255,7 @@ for_window [app_id="^floatingNcmpcpp$"] floating enable
 
 exec dunst
 exec ~/.setup/jangho-desktop/lib/bin/modewatchd
-exec ~/.setup/jangho-desktop/lib/bin/unreadd
+#exec ~/.setup/jangho-desktop/lib/bin/unreadd
 exec ~/.setup/jangho-desktop/lib/bin/workspacewatchd
 exec ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m
 exec ~/.setup/jangho-desktop/lib/bin/jidle autostart
