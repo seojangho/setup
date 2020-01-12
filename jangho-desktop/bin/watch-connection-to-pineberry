@@ -2,10 +2,12 @@
 
 set -euo pipefail
 
-for i in {0..1000}; do
+for i in {0..180}; do
   if curl --connect-timeout 1 10.11.99.1; then
     jdunstify watch-connection-to-pineberry 'Connected to pineberry'
     exit 0
+  elif [[ $? -ne 28 ]]; then # exit status 28: connection timed out
+    sleep 1
   fi
 done
 
