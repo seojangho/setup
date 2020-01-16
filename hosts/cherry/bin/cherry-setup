@@ -7,8 +7,7 @@ swaymsg output eDP-1 disable
 dunstctl restart
 
 # internet access
-sudo netctl start wlp1s0-seminar_7th
+sudo netctl start wlp1s0-snuspl_5G
 
 # pineberry connection
-sudo systemctl start dhcpcd@enp0s20f0u1
-watch-connection-to-pineberry
+cherry-setup-pineberry
