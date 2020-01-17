@@ -119,7 +119,7 @@ function note {
 function diary {
   ssh jangho@mango.jangho.io -p50022 -- "/opt/mango/sendmail/diary \"$@\""
 }
-alias today='ssh jangho@mango.jangho.io -p50022 -- "/opt/mango/today/today"'
+alias today='ssh jangho@mango.jangho.io -p50022 -- "/opt/mango/today/today" | bat -l md'
 alias b='mvn clean install'
 alias bb='mvn install -TC1 -DskipTests -Dmaven.test.skip -Dcheckstyle.skip -P!code-quality -Drat.skip'
 
