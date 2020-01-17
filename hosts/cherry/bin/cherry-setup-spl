@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+# SPL
+# SNU 302-420
+
 # display
 swaymsg output HDMI-A-1 scale 1.5
 swaymsg output eDP-1 disable
