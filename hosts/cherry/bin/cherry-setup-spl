@@ -10,7 +10,9 @@ swaymsg output eDP-1 disable
 dunstctl restart
 
 # internet access
-sudo netctl start wlp1s0-snuspl_5G
+sudo netctl start wlp1s0-snuspl_5G &
 
 # pineberry connection
-cherry-setup-pineberry
+cherry-setup-pineberry &
+
+wait
