@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euo pipefail
+/usr/bin/sway || vlock
+exit 0
