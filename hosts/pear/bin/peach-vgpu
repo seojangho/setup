@@ -19,7 +19,7 @@ sudo PULSE_COOKIE="${HOME}/.config/pulse/cookie" qemu-system-x86_64 \
   -m "${memory_mb}M" -mem-path /dev/hugepages \
   -cpu core2duo \
   -smp "${num_cores},sockets=1,cores=${num_cores},threads=1" \
-  -vga std -nographic -vnc 127.0.0.1:0 \
+  -vga std -nographic -vnc 0.0.0.0:0 \
   -drive file=/dev/disk/by-id/wwn-0x500a0751e14c941d,format=raw,if=ide \
   -monitor "unix:${HOME}/.cache/jangho-qemu-peach-monitor-socket,server,nowait" \
   -netdev user,id=net0,hostfwd=tcp::3389-:3389 -device e1000,netdev=net0 \
