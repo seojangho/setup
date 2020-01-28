@@ -1,7 +1,7 @@
 [remmina]
 sharefolder=
 sound=remote
-name=peach-local
+name=peach
 cert_ignore=0
 console=0
 ssh_enabled=0
@@ -41,6 +41,6 @@ viewmode=4
 resolution_height=1080
 resolution_width=1920
 security=nla
-last_success=20200106
+last_success=20200128
 gateway_password=
 keyboard_grab=0
