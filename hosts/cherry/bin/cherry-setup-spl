@@ -5,7 +5,7 @@ set -euo pipefail
 # SNU 302-420
 
 # display
-swaymsg output HDMI-A-1 scale 1.5
+#swaymsg output HDMI-A-1 scale 1.5 # FIXME blurry XWayland apps with scaling > 1
 swaymsg output eDP-1 disable
 dunstctl restart
 
