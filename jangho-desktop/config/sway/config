@@ -60,12 +60,12 @@ bindsym $mod+bracketleft workspace prev_on_output
 bindsym $mod+bracketright workspace next_on_output
 bindsym $mod+Shift+bracketleft focus output left
 bindsym $mod+Shift+bracketright focus output right
-bindsym $mod+Shift+minus focus output down
-bindsym $mod+Shift+equal focus output up
+bindsym $mod+Shift+minus focus output up
+bindsym $mod+Shift+equal focus output down
 bindsym $mod+Control+bracketleft focus output left
 bindsym $mod+Control+bracketright focus output right
-bindsym $mod+Control+minus focus output down
-bindsym $mod+Control+equal focus output up
+bindsym $mod+Control+minus focus output up
+bindsym $mod+Control+equal focus output down
 bindsym $mod+prior workspace prev
 bindsym $mod+next workspace next
 bindsym $mod+w workspace back_and_forth
@@ -153,12 +153,12 @@ mode "meta" {
   bindsym bracketright workspace next_on_output
   bindsym Shift+bracketleft focus output left
   bindsym Shift+bracketright focus output right
-  bindsym Shift+minus focus output down
-  bindsym Shift+equal focus output up
+  bindsym Shift+minus focus output up
+  bindsym Shift+equal focus output down
   bindsym Control+bracketleft focus output left
   bindsym Control+bracketright focus output right
-  bindsym Control+minus focus output down
-  bindsym Control+equal focus output up
+  bindsym Control+minus focus output up
+  bindsym Control+equal focus output down
   bindsym prior workspace prev
   bindsym next workspace next
   bindsym w workspace back_and_forth
