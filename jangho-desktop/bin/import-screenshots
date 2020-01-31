@@ -20,23 +20,25 @@ for screenshot in "Screenshot-"[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T*.png;
   mv "${screenshot}" "${dstdir}"
 done
 
-cd "${TMP_PATH}"
+for tmppath in tmp.*import-screenshots; do
+  cd "${tmppath}"
 
-for year in *; do
-  for yearmonth in "${year}"/*; do
-    msg_mkdir="import-screenshots: mkdir ${yearmonth}"
-    dstdir=${ARCHIVE_PATH}/${yearmonth}/Screenshots
-    if ! svn info "${dstdir}" > /dev/null 2>&1; then
-      svn mkdir --parents --force-log -m "${msg_mkdir}" "${dstdir}"
-    fi
-    msg_import="import-screenshots: import ${yearmonth}"
-    svn import --force-log -m "${msg_import}" "./${yearmonth}" "${dstdir}"
-    rm -rf "${yearmonth}"
+  for year in *; do
+    for yearmonth in "${year}"/*; do
+      msg_mkdir="import-screenshots: mkdir ${yearmonth}"
+      dstdir=${ARCHIVE_PATH}/${yearmonth}/Screenshots
+      if ! svn info "${dstdir}" > /dev/null 2>&1; then
+        svn mkdir --parents --force-log -m "${msg_mkdir}" "${dstdir}"
+      fi
+      msg_import="import-screenshots: import ${yearmonth}"
+      svn import --force-log -m "${msg_import}" "./${yearmonth}" "${dstdir}"
+      rm -rf "${yearmonth}"
+    done
+    rmdir "${year}"
   done
-  rmdir "${year}"
-done
 
-cd "${PICTURES_PATH}"
-rmdir "${TMP_PATH}"
+  cd "${PICTURES_PATH}"
+  rmdir "${tmppath}"
+done
 
 exit 0
