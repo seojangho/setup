@@ -4,7 +4,7 @@ set -euo pipefail
 
 cd "${HOME}"
 DIR='Pictures'
-FILE="${DIR}/$(date --iso-8601=ns).png"
+FILE="${DIR}/Screenshot-$(date --iso-8601=ns)-${HOSTNAME}.png"
 mkdir -p "${DIR}"
 
 if [[ -n "${1+x}" ]] && [[ "$1" == '--slurp' ]]; then
