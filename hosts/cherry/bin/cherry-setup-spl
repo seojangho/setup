@@ -6,6 +6,7 @@ set -euo pipefail
 
 # display
 swaymsg output HDMI-A-1 scale 1.5
+swaymsg output HDMI-A-1 scale_filter linear
 swaymsg output eDP-1 disable
 dunstctl restart
 
