@@ -27,6 +27,11 @@ pass() {
       otp=$(/usr/bin/pass otp "$2/otp")
       echo "$otp"
       echo -n "$otp" | tr -d '\n' | wl-copy
+    else
+      echo -n 'Clear clipbaord: '
+      read -k1 -s
+      echo -n ' ' | wl-copy
+      echo 'done'
     fi
   else
     /usr/bin/pass "$@"
