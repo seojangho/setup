@@ -3,7 +3,7 @@
 set -euo pipefail
 shopt -s nullglob
 
-ARCHIVE_PATH=svn+ssh://mango.vanilla.jangho.io/svn/Archive
+ARCHIVE_PATH=svn+ssh://mango.jangho.io/svn/Archive
 PICTURES_PATH=${HOME}/Pictures
 
 mkdir -p "${PICTURES_PATH}"
