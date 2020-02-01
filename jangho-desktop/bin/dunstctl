@@ -21,11 +21,10 @@ case "$1" in
       action=enable
     fi
     ;;
-  dismiss)
+  restart)
     "${DESKBUS}" clear-dunst-id-all
-    if [[ "$("${DESKBUS}" get-dunst-enabled)" -eq 1 ]]; then
-      makoctl dismiss -a
-    fi
+    killall mako || :
+    mako &
     exit 0
     ;;
   *)
