@@ -5,6 +5,7 @@ set -euo pipefail
 # SNU 302-420
 
 # display
+# https://github.com/swaywm/wlroots/issues/1770
 swaymsg output HDMI-A-1 scale 1.5
 swaymsg output HDMI-A-1 scale_filter linear
 swaymsg output eDP-1 disable
