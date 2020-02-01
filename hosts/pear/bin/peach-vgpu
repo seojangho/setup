@@ -2,6 +2,6 @@
 
 set -euo pipefail
 
-tmux -2 new-session -d -s peach-vgpu __peach-vgpu
+tmux -2 new-session -d -s peach-vgpu "${HOME}/.setup/hosts/pear/__peach-vgpu"
 
 exit 0
