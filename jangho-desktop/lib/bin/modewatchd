@@ -2,17 +2,13 @@
 
 set -euo pipefail
 
-BINDIR=${HOME}/.setup/jangho-desktop/lib/bin
-
 declare -a hints
 while :; do
   mode=$(swaymsg -t subscribe '["mode"]' 2>/dev/null | jq --raw-output '.change') || exit 0
   hints=()
-  timeout=2000
   if [[ "${mode}" != 'default' ]]; then
-    timeout=0
-    hints=(-h string:bgcolor:#ffff00 -h string:fgcolor:#000000)
+    hints=(-h string:bgcolor:#ffff00 -h string:fgcolor:#000000 "--app-name=jangho-progression" "--urgency=critical")
   fi
 
-  jdunstify swaymode "${mode}" "--timeout=${timeout}" "${hints[@]}" || continue
+  jdunstify swaymode "${mode}" "${hints[@]}" || :
 done
