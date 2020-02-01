@@ -1,31 +1,7 @@
 #!/bin/bash
 
-# usage:
-# peach-vgpu
-
 set -euo pipefail
 
-declare -r num_cores=2
-declare -r memory_mb=4096
-
-sudo mount -t hugetlbfs hugetlbfs /dev/hugepages
-sudo sysctl vm.nr_hugepages="${memory_mb}"
-
-sudo PULSE_COOKIE="${HOME}/.config/pulse/cookie" qemu-system-x86_64 \
-  -name jangho-qemu-peach \
-  -drive if=pflash,format=raw,readonly,file=/usr/share/ovmf/x64/OVMF_CODE.fd \
-  -drive "if=pflash,format=raw,file=${HOME}/.setup/hosts/pear/PEACH_OVMF_VARS.fd" \
-  -enable-kvm \
-  -m "${memory_mb}M" -mem-path /dev/hugepages \
-  -cpu core2duo \
-  -smp "${num_cores},sockets=1,cores=${num_cores},threads=1" \
-  -vga std -nographic -vnc 0.0.0.0:0 \
-  -drive file=/dev/disk/by-id/wwn-0x500a0751e14c941d,format=raw,if=ide \
-  -monitor "unix:${HOME}/.cache/jangho-qemu-peach-monitor-socket,server,nowait" \
-  -netdev user,id=net0,hostfwd=tcp::3389-:3389 -device e1000,netdev=net0 \
-  -snapshot
-
-sudo sysctl vm.nr_hugepages=0
-sudo umount /dev/hugepages
+tmux -2 new-session -d -s peach-vgpu __peach-vgpu
 
 exit 0
