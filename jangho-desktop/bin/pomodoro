@@ -31,7 +31,7 @@ if [[ "$*" == 'is-running' ]]; then
 fi
 
 [[ -f "${pidfile}" ]] && kill "$(cat "${pidfile}")" && \
-  dunstctl enable
+  dunstctl enable && \
   jdunstify pomodoro 'Stopping pomodoro' && rm -f "${pidfile}" && rm -f "${topic}" || :
 
 if [[ "$*" == 'stop' ]]; then
