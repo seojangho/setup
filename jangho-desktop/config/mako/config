@@ -4,6 +4,7 @@ background-color=#000000FF
 default-timeout=5000
 margin=0
 border-size=0
+icons=0
 
 [urgency=low]
 background-color=#222222FF
