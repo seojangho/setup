@@ -19,5 +19,5 @@ up() {
 
 jdunstify archive-update 'archive: updating....' "${colors[@]}" --urgency=critical
 up "${ARCHIVE}/$(date +%Y/%m)"
-jdunstify archive-update 'archive: this month'
+jdunstify archive-update 'archive: updated this month'
 exit 0
