@@ -18,7 +18,7 @@ set $bluetooth termite --name=floatingBluetoothctl --exec=bluetoothctl
 set $wifi termite --name=floatingWifiMenu --exec='sudo wifi-menu -o'
 set $unread ~/.setup/jangho-desktop/lib/bin/unread --timeout 2000
 set $battery ~/.setup/jangho-desktop/lib/bin/batwatchd_all 25 1m --oneshot
-set $dunstClearAndEnable dunstctl restart-silent
+set $dunstClearAndEnable dunstctl dismiss
 set $toggle dunstctl toggle
 set $music termite --name=floatingNcmpcpp --exec=ncmpcpp
 set $screenshot ~/.setup/jangho-desktop/lib/bin/print-screen
@@ -269,7 +269,7 @@ for_window [app_id="^floatingNcmpcpp$"] floating enable
 
 ### Daemons
 
-exec dunst
+exec mako
 exec ~/.setup/jangho-desktop/lib/bin/modewatchd
 #exec ~/.setup/jangho-desktop/lib/bin/unreadd
 exec ~/.setup/jangho-desktop/lib/bin/workspacewatchd

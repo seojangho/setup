@@ -7,4 +7,4 @@ BINDIR=${HOME}/.setup/jangho-desktop/lib/bin
 current=$(swaymsg -t get_workspaces)
 focused=$(echo "${current}" | "${BINDIR}/parse_workspaces" --print-focused-workspace-name)
 desc=$(echo "${current}" | "${BINDIR}/parse_workspaces")
-jdunstify swayworkspace --timeout=5000 "Workspace ${focused}" "${desc}"
+jdunstify swayworkspace "Workspace ${focused}" "${desc}"

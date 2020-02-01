@@ -9,7 +9,7 @@ DESKBUS="${HOME}/.setup/jangho-desktop/lib/bin/deskbus"
 class=$1
 prev_id=$("${DESKBUS}" get-dunst-id "${class}")
 [[ -z "${prev_id}" ]] && exit 0
-dunstify "--close=${prev_id}" "${@:2}"
+notify-send.sh "--close=${prev_id}" "${@:2}"
 "${DESKBUS}" clear-dunst-id "${class}"
 
 exit 0

@@ -10,7 +10,7 @@ class=$1
 prev_id=$("${DESKBUS}" get-dunst-id "${class}")
 declare -a replace=()
 [[ -n "${prev_id}" ]] && replace=("--replace=${prev_id}")
-next_id=$(dunstify --printid "${replace[@]}" "${@:2}")
+next_id=$(notify-send.sh --print-id "${replace[@]}" "${@:2}")
 "${DESKBUS}" set-dunst-id "${class}" "${next_id}"
 
 exit 0

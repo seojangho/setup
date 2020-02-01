@@ -21,22 +21,11 @@ case "$1" in
       action=enable
     fi
     ;;
-  restart-silent)
-    killall dunst || :
+  dismiss)
     "${DESKBUS}" clear-dunst-id-all
-    dunst &
-    "${DESKBUS}" set-dunst-enabled 1
-    exit 0
-    ;;
-  restart)
-    killall dunst || :
-    "${DESKBUS}" clear-dunst-id-all
-    dunst &
-    "${self}" enable
-    exit 0
-    ;;
-  clear-all)
-    "${DESKBUS}" clear-dunst-id-all | xargs --no-run-if-empty -L1 -- dunstify -C
+    if [[ "$("${DESKBUS}" get-dunst-enabled)" -eq 1 ]]; then
+      makoctl dismiss -a
+    fi
     exit 0
     ;;
   *)
@@ -46,10 +35,10 @@ case "$1" in
 esac
 
 if [[ "${action}" == 'enable' ]]; then
-  killall -SIGUSR2 dunst
-  jdunstify 'dunstctl' 'Dunst enabled'
+  mako &
 else
-  killall -SIGUSR1 dunst
+  "${DESKBUS}" clear-dunst-id-all
+  killall mako || :
 fi
 
 exit 0

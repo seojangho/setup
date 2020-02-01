@@ -3,7 +3,7 @@
 set -euo pipefail
 
 topic=$(cat)
-colors=(-h string:bgcolor:#ffff00 -h string:fgcolor:#000000)
+colors=(-h string:bgcolor:#ffff00 -h string:fgcolor:#000000 "--app-name=jangho-progression")
 
 echo "$$" > "${HOME}/.cache/__jangho-pomodoro-session.pid"
 echo "${topic}" > "${HOME}/.cache/__jangho-pomodoro-session.topic"
@@ -12,7 +12,6 @@ while :; do
   start_time=$(date --iso-8601=seconds)
   jdunstify pomodoro "Stay focused on ${topic}!" "${colors[@]}"
   sleep 10s
-  dunstctl restart-silent
   dunstctl disable
   sleep 25m
   dunstctl enable

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ARCHIVE=${HOME}/archive
-colors=(-h string:bgcolor:#ffff00 -h string:fgcolor:#000000)
+colors=(-h string:bgcolor:#ffff00 -h string:fgcolor:#000000 "--app-name=jangho-progression")
 
 up() {
   local -r dir=$1

@@ -57,6 +57,11 @@ class Server(dbus.service.Object):
         return self.dunst_enabled
 
     @dbus.service.method(dbus_interface=IFACE,
+                         in_signature='', out_signature='b')
+    def get_dunst_enabled(self):
+        return self.dunst_enabled
+
+    @dbus.service.method(dbus_interface=IFACE,
                          in_signature='b', out_signature='')
     def set_dunst_enabled(self, value):
         self.dunst_enabled = True if value else False
@@ -88,6 +93,8 @@ def client():
             print(i.real)
     elif COMMAND == 'toggle-dunst-enabled':
         print(OBJ.toggle_dunst_enabled(dbus_interface=IFACE).real)
+    elif COMMAND == 'get-dunst-enabled':
+        print(OBJ.get_dunst_enabled(dbus_interface=IFACE).real)
     elif COMMAND == 'set-dunst-enabled':
         OBJ.set_dunst_enabled(int(sys.argv[2]), dbus_interface=IFACE)
     elif COMMAND == 'toggle-idle-enabled':
