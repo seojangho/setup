@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -euo pipefail
+
+gpg-connect-agent /bye
+
+remote_gpg=$(ssh "$@" -- rm -f "\"\$(gpgconf" --list-dirs "agent-socket)\";" gpgconf --list-dirs agent-socket)
+>&2 echo "Remote gpg-agent socket: ${remote_gpg}"
+local_gpg=$(gpgconf --list-dirs agent-extra-socket)
+
+ssh -oForwardAgent=yes -R "${remote_gpg}:${local_gpg}" "$@"
+
+# troubleshooting: on the remote box,
+# gpg --recv-keys EE37EBD527ECFE87A96A7BDB6503B6817E24FCA3
+
+exit 0

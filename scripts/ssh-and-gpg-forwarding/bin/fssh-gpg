@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# usage: fssh-gpg 07.elsa.snuspl.snu.ac.kr
+
+set -euo pipefail
+
+session_name=fssh-gpg-$(echo "$*" | base64)
+
+tmux -2 new-session -d -s "${session_name}" "${HOME}/.setup/scripts/ssh-and-gpg-forwarding/__fssh-gpg" "$@"
+
+exit 0
