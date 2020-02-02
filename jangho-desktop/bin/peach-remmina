@@ -1,8 +1,12 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # Workaround for a bug:
 # Remmina does not correctly make the screen fit into the output
 # when the output is scaled(HiDPI), using Wayland backend.
 export GDK_BACKEND=x11
 
-exec remmina -c ~/.setup/jangho-desktop/config/remmina/peach.remmina
+remmina -c ~/.setup/jangho-desktop/config/remmina/peach.remmina
+
+exit 0
