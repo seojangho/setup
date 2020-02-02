@@ -2,4 +2,6 @@
 
 set -euo pipefail
 
-exec ssh -L 5900:pear.vanilla.jangho.io:5900 -L 3389:pear.vanilla.jangho.io:3389 -p50022 jangho@mango.jangho.io
+tmux -2 new-session -d -s peach-tunneling "${HOME}/.setup/jangho-desktop/lib/bin/__peach-tunneling"
+
+exit 0
