@@ -7,6 +7,4 @@ set -euo pipefail
 # when the output is scaled(HiDPI), using Wayland backend.
 export GDK_BACKEND=x11
 
-remmina -c ~/.setup/jangho-desktop/config/remmina/peach.remmina
-
-exit 0
+exec remmina -c ~/.setup/jangho-desktop/config/remmina/peach.remmina
